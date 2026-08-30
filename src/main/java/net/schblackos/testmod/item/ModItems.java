@@ -10,6 +10,7 @@ public class ModItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Testmod.MODID);
 
     public static final DeferredItem<Item> SILVER = ITEMS.registerSimpleItem("silver");
+    public static final DeferredItem<Item> RAW_SILVER = ITEMS.registerSimpleItem("raw_silver");
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

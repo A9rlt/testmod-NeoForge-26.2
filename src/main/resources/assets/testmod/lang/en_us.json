@@ -1,0 +1,13 @@
+{
+  "itemGroup.testmod": "Example Mod Tab",
+  "block.testmod.example_block": "Example Block",
+  "item.testmod.example_item": "Example Item",
+
+  "testmod.configuration.title": "Test mod Configs",
+  "testmod.configuration.section.testmod.common.toml": "Test mod Configs",
+  "testmod.configuration.section.testmod.common.toml.title": "Test mod Configs",
+  "testmod.configuration.items": "Item List",
+  "testmod.configuration.logDirtBlock": "Log Dirt Block",
+  "testmod.configuration.magicNumberIntroduction": "Magic Number Text",
+  "testmod.configuration.magicNumber": "Magic Number"
+}

@@ -1,5 +1,6 @@
 package net.schblackos.testmod;
 
+import net.schblackos.testmod.item.ModItems;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -45,6 +46,8 @@ public class Testmod {
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
+        ModItems.register(modEventBus);
+
         NeoForge.EVENT_BUS.register(this);
 
         // Register the item to a creative tab
@@ -61,6 +64,9 @@ public class Testmod {
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
 
+        if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+            event.accept(ModItems.SILVER);
+        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call

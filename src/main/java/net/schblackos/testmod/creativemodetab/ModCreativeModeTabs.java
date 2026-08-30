@@ -1,0 +1,41 @@
+package net.schblackos.testmod.creativemodetab;
+
+import net.minecraft.core.registries.Registries;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.ItemStack;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.registries.DeferredRegister;
+import net.schblackos.testmod.Testmod;
+import net.schblackos.testmod.item.ModItems;
+
+import java.util.function.Supplier;
+
+public class ModCreativeModeTabs {
+    public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS =
+            DeferredRegister.create(Registries.CREATIVE_MODE_TAB, Testmod.MODID);
+
+    // Adds tab for the items use .withTabsBefore/After to choose where to place the tabs
+    public static final Supplier<CreativeModeTab> SILVER_ITEMS_TAB = CREATIVE_MODE_TABS.register("silver_items_tab",
+        () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.SILVER.get()))
+                .title(Component.translatable("creativetab.testmod.silver_items"))
+                .displayItems((itemDisplayParameters, output) -> {
+                    output.accept(ModItems.SILVER);
+                    output.accept(ModItems.RAW_SILVER);
+
+                }).build());
+
+    // Adds tab for blocks
+    public static final Supplier<CreativeModeTab> SILVER_BLOCKS_TAB = CREATIVE_MODE_TABS.register("silver_blocks_tab",
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.SILVER.get()))
+                    .title(Component.translatable("creativetab.testmod.silver_blocks"))
+                    .displayItems((itemDisplayParameters, output) -> {
+                        output.accept(ModItems.SILVER);
+                        output.accept(ModItems.RAW_SILVER);
+
+                    }).build());
+
+    public static void register(IEventBus eventBus){
+        CREATIVE_MODE_TABS.register(eventBus);
+    }
+}

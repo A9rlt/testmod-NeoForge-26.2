@@ -1,4 +1,11 @@
 {
   "item.testmod.silver": "Silver",
-  "item.testmod.raw_silver": "Raw Silver"
+  "item.testmod.raw_silver": "Raw Silver",
+
+
+
+
+
+  "creativetab.testmod.silver_items": "Silver Items",
+  "creativetab.testmod.silver_blocks": "Silver Blocks"
 }

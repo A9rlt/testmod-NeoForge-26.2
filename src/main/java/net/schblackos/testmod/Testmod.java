@@ -1,5 +1,6 @@
 package net.schblackos.testmod;
 
+import net.schblackos.testmod.creativemodetab.ModCreativeModeTabs;
 import net.schblackos.testmod.item.ModItems;
 import org.slf4j.Logger;
 
@@ -43,9 +44,11 @@ public class Testmod {
     // The constructor for the mod class is the first code that is run when your mod is loaded.
     // FML will recognize some parameter types like IEventBus or ModContainer and pass them in automatically.
     public Testmod(IEventBus modEventBus, ModContainer modContainer) {
-        // Register the commonSetup method for modloading
+        // Registers the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
-
+        // Registers the new made mod tab lists
+        ModCreativeModeTabs.register(modEventBus);
+        // Registers the new made mod items
         ModItems.register(modEventBus);
 
         NeoForge.EVENT_BUS.register(this);

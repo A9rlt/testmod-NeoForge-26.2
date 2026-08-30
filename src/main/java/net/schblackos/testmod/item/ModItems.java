@@ -9,7 +9,7 @@ import net.schblackos.testmod.Testmod;
 public class ModItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Testmod.MODID);
 
-    public static final DeferredItem<Item> SILVER = ITEMS.registerSimpleItem("silver");
+    public static final DeferredItem<Item> SILVER_INGOT = ITEMS.registerSimpleItem("silver_ingot");
     public static final DeferredItem<Item> RAW_SILVER = ITEMS.registerSimpleItem("raw_silver");
 
     public static void register(IEventBus eventBus) {

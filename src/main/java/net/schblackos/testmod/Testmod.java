@@ -68,7 +68,7 @@ public class Testmod {
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
 
         if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
-            event.accept(ModItems.SILVER);
+            event.accept(ModItems.SILVER_INGOT);
             event.accept(ModItems.RAW_SILVER);
         }
     }

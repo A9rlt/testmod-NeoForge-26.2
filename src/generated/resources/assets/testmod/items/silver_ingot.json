@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "testmod:item/silver"
+    "model": "testmod:item/silver_ingot"
   }
 }

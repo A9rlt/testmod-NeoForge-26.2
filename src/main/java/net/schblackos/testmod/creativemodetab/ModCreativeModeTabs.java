@@ -17,21 +17,20 @@ public class ModCreativeModeTabs {
 
     // Adds tab for the items use .withTabsBefore/After to choose where to place the tabs
     public static final Supplier<CreativeModeTab> SILVER_ITEMS_TAB = CREATIVE_MODE_TABS.register("silver_items_tab",
-        () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.SILVER.get()))
+        () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.SILVER_INGOT.get()))
                 .title(Component.translatable("creativetab.testmod.silver_items"))
                 .displayItems((itemDisplayParameters, output) -> {
-                    output.accept(ModItems.SILVER);
+                    output.accept(ModItems.SILVER_INGOT);
                     output.accept(ModItems.RAW_SILVER);
 
                 }).build());
 
     // Adds tab for blocks
     public static final Supplier<CreativeModeTab> SILVER_BLOCKS_TAB = CREATIVE_MODE_TABS.register("silver_blocks_tab",
-            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.SILVER.get()))
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.SILVER_INGOT.get()))
                     .title(Component.translatable("creativetab.testmod.silver_blocks"))
                     .displayItems((itemDisplayParameters, output) -> {
-                        output.accept(ModItems.SILVER);
-                        output.accept(ModItems.RAW_SILVER);
+
 
                     }).build());
 

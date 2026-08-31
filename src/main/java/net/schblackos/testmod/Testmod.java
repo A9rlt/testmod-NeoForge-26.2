@@ -1,5 +1,6 @@
 package net.schblackos.testmod;
 
+import net.schblackos.testmod.block.ModBlocks;
 import net.schblackos.testmod.creativemodetab.ModCreativeModeTabs;
 import net.schblackos.testmod.item.ModItems;
 import org.slf4j.Logger;
@@ -44,19 +45,24 @@ public class Testmod {
     // The constructor for the mod class is the first code that is run when your mod is loaded.
     // FML will recognize some parameter types like IEventBus or ModContainer and pass them in automatically.
     public Testmod(IEventBus modEventBus, ModContainer modContainer) {
+
         // Registers the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
+
         // Registers the new made mod tab lists
         ModCreativeModeTabs.register(modEventBus);
-        // Registers the new made mod items
+
+        // Registers the new made mod items and blocks
         ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
+
 
         NeoForge.EVENT_BUS.register(this);
 
-        // Register the item to a creative tab
+        // Registers the item to a creative tab
         modEventBus.addListener(this::addCreative);
 
-        // Register our mod's ModConfigSpec so that FML can create and load the config file for us
+        // Registers our mod's ModConfigSpec so that FML can create and load the config file for us
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
 
@@ -64,13 +70,20 @@ public class Testmod {
 
     }
 
-    // Add the example block item to the building blocks tab
+    // Allows mod items and blocks to be seen in creative tabs
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
 
+        /*ITEMS*/
         if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
             event.accept(ModItems.SILVER_INGOT);
             event.accept(ModItems.RAW_SILVER);
         }
+
+        /*BLOCKS*/
+        if(event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
+            event.accept(ModBlocks.SILVER_BLOCK);
+        }
+
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call

@@ -7,6 +7,7 @@ import net.minecraft.world.item.ItemStack;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.schblackos.testmod.Testmod;
+import net.schblackos.testmod.block.ModBlocks;
 import net.schblackos.testmod.item.ModItems;
 
 import java.util.function.Supplier;
@@ -22,6 +23,7 @@ public class ModCreativeModeTabs {
                 .displayItems((itemDisplayParameters, output) -> {
                     output.accept(ModItems.SILVER_INGOT);
                     output.accept(ModItems.RAW_SILVER);
+                    output.accept(ModBlocks.SILVER_BLOCK);
 
                 }).build());
 

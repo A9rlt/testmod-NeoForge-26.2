@@ -4,6 +4,10 @@
 
 
   "block.testmod.silver_block": "Block of Silver",
+  "block.testmod.raw_silver_block": "Block of Raw Silver",
+  "block.testmod.silver_ore": "Silver Ore",
+  "block.testmod.deepslate_silver_ore": "Deepslate Silver Ore",
+  "block.testmod.nether_silver_ore": "Nether Silver Ore",
 
 
   "creativetab.testmod.silver_items": "Silver Items",

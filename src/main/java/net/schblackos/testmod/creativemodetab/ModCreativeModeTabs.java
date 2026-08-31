@@ -21,9 +21,18 @@ public class ModCreativeModeTabs {
         () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.SILVER_INGOT.get()))
                 .title(Component.translatable("creativetab.testmod.silver_items"))
                 .displayItems((itemDisplayParameters, output) -> {
+
+                    /*BLOCKS*/
                     output.accept(ModItems.SILVER_INGOT);
                     output.accept(ModItems.RAW_SILVER);
+
+
+                    /*BLOCKS*/
+                    output.accept(ModBlocks.RAW_SILVER_BLOCK);
                     output.accept(ModBlocks.SILVER_BLOCK);
+                    output.accept(ModBlocks.DEEPSLATE_SILVER_ORE);
+                    output.accept(ModBlocks.SILVER_ORE);
+                    output.accept(ModBlocks.NETHER_SILVER_ORE);
 
                 }).build());
 

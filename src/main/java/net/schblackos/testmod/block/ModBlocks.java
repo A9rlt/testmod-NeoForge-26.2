@@ -1,5 +1,7 @@
 package net.schblackos.testmod.block;
 
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
@@ -17,6 +19,10 @@ public class ModBlocks {
             DeferredRegister.createBlocks(Testmod.MODID);
 
     // Generates the new block alongside its properties
+
+    /*
+    .noLootTable
+    */
     public static final DeferredBlock<Block> SILVER_BLOCK = registerBlock("silver_block",
             properties -> new Block(
                     properties.strength(4f)
@@ -61,6 +67,9 @@ public class ModBlocks {
         ModItems.ITEMS.registerItem(name, properties -> new BlockItem(block.get(), properties.useBlockDescriptionPrefix()));
     }
 
+    public static ResourceKey<Block> getRK(Block block) {
+        return BuiltInRegistries.BLOCK.getResourceKey(block).get();
+    }
 
     public static void register(IEventBus eventBus) {
         BLOCKS.register(eventBus);

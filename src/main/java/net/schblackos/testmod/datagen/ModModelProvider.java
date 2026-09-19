@@ -19,11 +19,17 @@ public class ModModelProvider extends ModelProvider {
     protected void registerModels(BlockModelGenerators blockModels, ItemModelGenerators itemModels){
 
         /*ITEM MODELS*/
+
+        //Items
         itemModels.generateFlatItem(ModItems.SILVER_INGOT.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ModItems.RAW_SILVER.get(), ModelTemplates.FLAT_ITEM);
 
+        //Advanced items
+        itemModels.generateFlatItem(ModItems.METAL_DETECTOR.get(), ModelTemplates.FLAT_ITEM);
 
         /*BLOCK MODELS*/
+
+        //Blocks
         blockModels.createTrivialCube(ModBlocks.SILVER_BLOCK.get());
         blockModels.createTrivialCube(ModBlocks.RAW_SILVER_BLOCK.get());
         blockModels.createTrivialCube(ModBlocks.SILVER_ORE.get());

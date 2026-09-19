@@ -2,6 +2,8 @@
   "item.testmod.silver_ingot": "Silver Ingot",
   "item.testmod.raw_silver": "Raw Silver",
 
+  "Item.testmod.metal_detector": "Metal Detector",
+
 
   "block.testmod.silver_block": "Block of Silver",
   "block.testmod.raw_silver_block": "Block of Raw Silver",
@@ -11,5 +13,8 @@
 
 
   "creativetab.testmod.silver_items": "Silver Items",
-  "creativetab.testmod.silver_blocks": "Silver Blocks"
+  "creativetab.testmod.silver_blocks": "Silver Blocks",
+
+
+  "item.testmod.metal_detector.no_valuables": "No Valuables Found"
 }

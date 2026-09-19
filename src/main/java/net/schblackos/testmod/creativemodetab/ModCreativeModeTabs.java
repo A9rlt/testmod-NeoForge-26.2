@@ -22,12 +22,19 @@ public class ModCreativeModeTabs {
                 .title(Component.translatable("creativetab.testmod.silver_items"))
                 .displayItems((itemDisplayParameters, output) -> {
 
-                    /*BLOCKS*/
+                    /*ModItems*/
+
+                    //Items
                     output.accept(ModItems.SILVER_INGOT);
                     output.accept(ModItems.RAW_SILVER);
 
+                    //Advanced Items
+                    output.accept(ModItems.METAL_DETECTOR);
 
-                    /*BLOCKS*/
+
+                    /*ModBlocks*/
+
+                    //Blocks
                     output.accept(ModBlocks.RAW_SILVER_BLOCK);
                     output.accept(ModBlocks.SILVER_BLOCK);
                     output.accept(ModBlocks.DEEPSLATE_SILVER_ORE);

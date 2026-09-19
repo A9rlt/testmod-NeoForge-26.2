@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "experience": 0.25,
+  "group": "silver",
+  "ingredient": "testmod:silver_ore",
+  "result": {
+    "id": "testmod:silver_ingot"
+  }
+}

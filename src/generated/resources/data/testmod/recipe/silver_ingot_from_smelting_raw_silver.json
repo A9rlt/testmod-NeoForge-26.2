@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "experience": 0.25,
+  "group": "silver",
+  "ingredient": "testmod:raw_silver",
+  "result": {
+    "id": "testmod:silver_ingot"
+  }
+}

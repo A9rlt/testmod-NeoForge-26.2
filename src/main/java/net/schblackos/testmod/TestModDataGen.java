@@ -11,6 +11,7 @@ import net.neoforged.neoforge.data.event.GatherDataEvent;
 import net.schblackos.testmod.datagen.ModBlockLootTableProvider;
 import net.schblackos.testmod.datagen.ModBlockTagsProvider;
 import net.schblackos.testmod.datagen.ModModelProvider;
+import net.schblackos.testmod.datagen.ModRecipeProvider;
 
 import javax.xml.crypto.Data;
 import java.util.Collections;
@@ -31,6 +32,10 @@ public class TestModDataGen {
         generator.addProvider(true, new LootTableProvider(packOutput, Collections.emptySet(),
                 List.of(new LootTableProvider.SubProviderEntry(ModBlockLootTableProvider::new,
                         LootContextParamSets.BLOCK)),lookupProvider));
+
+        generator.addProvider(true, new ModRecipeProvider.Runner(packOutput, lookupProvider));
+
+
 
     }
 

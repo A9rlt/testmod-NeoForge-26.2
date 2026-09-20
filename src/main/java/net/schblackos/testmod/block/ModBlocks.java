@@ -1,8 +1,12 @@
 package net.schblackos.testmod.block;
 
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -13,6 +17,7 @@ import net.schblackos.testmod.Testmod;
 import net.schblackos.testmod.block.custom.MagicSpeedBlock;
 import net.schblackos.testmod.item.ModItems;
 
+import java.util.function.Consumer;
 import java.util.function.Function;
 
 public class ModBlocks {
@@ -62,9 +67,35 @@ public class ModBlocks {
             properties -> new MagicSpeedBlock(
                     properties.strength(4f)
                             .sound(SoundType.AMETHYST)
-                            .requiresCorrectToolForDrops()));
+                            .requiresCorrectToolForDrops()),
+            Component.translatable("tooltip.testmod.magic_speed_block.tooltip"));
 
 
+
+
+
+
+    /*===========================================================================TOOLTIP REGISTRATION====================================================================*/
+    private static<T extends Block> DeferredBlock<T> registerBlock(String name, Function<BlockBehaviour.Properties, T> function, Component... components) {
+        DeferredBlock<T> toReturn = BLOCKS.registerBlock(name, function);
+        registerBlockItem(name, toReturn, components);
+        return toReturn;
+    }
+
+                                                                                                //Can add multiple components
+    private static <T extends Block> void registerBlockItem(String name, DeferredBlock<T> block, Component... components){
+        ModItems.ITEMS.registerItem(name, properties -> new BlockItem(block.get(), properties.useBlockDescriptionPrefix()){
+            @Override
+            public void appendHoverText(ItemStack itemStack, TooltipContext context, TooltipDisplay display, Consumer<Component> builder, TooltipFlag tooltipFlag) {
+                for(var component : components){
+                    builder.accept(component);
+                }
+                super.appendHoverText(itemStack, context, display, builder, tooltipFlag);
+            }
+        });
+    }
+
+    /*===========================================================================BLOCK REGISTRATION=====================================================================*/
     private static<T extends Block> DeferredBlock<T> registerBlock(String name, Function<BlockBehaviour.Properties, T> function) {
         // Registers the block and saves it to "toReturn" variable
         DeferredBlock<T> toReturn = BLOCKS.registerBlock(name, function);

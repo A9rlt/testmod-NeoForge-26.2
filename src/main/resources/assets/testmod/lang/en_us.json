@@ -22,5 +22,12 @@
   "creativetab.testmod.silver_blocks": "Silver Blocks",
 
 
-  "item.testmod.metal_detector.no_valuables": "No Valuables Found"
+  "tooltip.testmod.metal_detector.tootltip": "Detects Gold and Iron.",
+  "tooltip.testmod.magic_speed_block.tooltip": "Holy magic.§",
+  "tooltip.testmod.metal_detector.tootltip.shift_down": "64 blocks under the selected block",
+
+  "item.testmod.metal_detector.no_valuables": "No Valuables Found",
+  "tooltip.testmod.onion.tootltip": "Stank ass breath"
+
+
 }

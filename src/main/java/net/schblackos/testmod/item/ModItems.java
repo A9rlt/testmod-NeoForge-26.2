@@ -1,12 +1,18 @@
 package net.schblackos.testmod.item;
 
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.component.TooltipDisplay;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.schblackos.testmod.Testmod;
 import net.schblackos.testmod.food.ModFoods;
 import net.schblackos.testmod.item.custom.MetalDetectorItem;
+
+import java.util.function.Consumer;
 
 public class ModItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Testmod.MODID);
@@ -26,7 +32,18 @@ public class ModItems {
 
     //Food Items
     public static final DeferredItem<Item> ONION = ITEMS.registerItem("onion",
-            properties -> new Item(properties.food(ModFoods.ONION, ModFoods.ONION_CONSUMABLE)));
+            properties -> new Item(properties.food(ModFoods.ONION, ModFoods.ONION_CONSUMABLE)){
+
+                // This is so clapped lol
+                @Override
+                public void appendHoverText(ItemStack itemStack, TooltipContext context, TooltipDisplay display,
+                                            Consumer<Component> builder, TooltipFlag tooltipFlag) {
+                    builder.accept(Component.translatable("tooltip.testmod.onion.tootltip"));
+
+                    super.appendHoverText(itemStack, context, display, builder, tooltipFlag);
+                }
+
+            });
 
 
     //Fuels

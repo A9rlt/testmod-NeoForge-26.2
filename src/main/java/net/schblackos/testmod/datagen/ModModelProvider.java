@@ -30,6 +30,9 @@ public class ModModelProvider extends ModelProvider {
         //Foods
         itemModels.generateFlatItem(ModItems.ONION.get(), ModelTemplates.FLAT_ITEM);
 
+        //Fuels
+        itemModels.generateFlatItem(ModItems.BROWN_COAL.get(), ModelTemplates.FLAT_ITEM);
+
 
         /*BLOCK MODELS*/
 

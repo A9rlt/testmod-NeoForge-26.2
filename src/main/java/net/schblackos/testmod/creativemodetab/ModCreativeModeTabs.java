@@ -8,7 +8,6 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.schblackos.testmod.Testmod;
 import net.schblackos.testmod.block.ModBlocks;
-import net.schblackos.testmod.food.ModFoods;
 import net.schblackos.testmod.item.ModItems;
 
 import java.util.function.Supplier;
@@ -34,6 +33,10 @@ public class ModCreativeModeTabs {
 
                     //FOODS
                     output.accept(ModItems.ONION);
+
+
+                    //FUELS
+                    output.accept(ModItems.BROWN_COAL);
 
 
                     /*ModBlocks*/

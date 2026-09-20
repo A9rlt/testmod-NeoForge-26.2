@@ -29,6 +29,10 @@ public class ModItems {
             properties -> new Item(properties.food(ModFoods.ONION, ModFoods.ONION_CONSUMABLE)));
 
 
+    //Fuels
+    public static final DeferredItem<Item> BROWN_COAL = ITEMS.registerSimpleItem("brown_coal");
+
+
 
 
 

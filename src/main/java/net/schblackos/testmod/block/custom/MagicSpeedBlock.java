@@ -17,6 +17,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.schblackos.testmod.item.ModItems;
+import net.schblackos.testmod.tags.ModTags;
 
 public class MagicSpeedBlock extends Block {
 
@@ -71,9 +72,7 @@ public class MagicSpeedBlock extends Block {
 
     private boolean isValidItem(ItemStack item) {
 
-        return  item.is(Items.IRON_INGOT) ||
-                item.is(ModItems.SILVER_INGOT);
-
+        return  item.is(ModTags.Items.TRANSFORMABLE_ITEMS);
 
     }
 }

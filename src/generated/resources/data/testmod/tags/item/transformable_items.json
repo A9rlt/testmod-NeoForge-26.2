@@ -1,0 +1,8 @@
+{
+  "values": [
+    "minecraft:iron_ingot",
+    "minecraft:copper_ingot",
+    "testmod:silver_ingot",
+    "minecraft:redstone"
+  ]
+}

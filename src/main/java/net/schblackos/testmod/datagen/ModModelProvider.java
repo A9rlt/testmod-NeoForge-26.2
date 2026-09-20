@@ -38,7 +38,7 @@ public class ModModelProvider extends ModelProvider {
         /*BLOCK MODELS*/
 
             //Blocks
-        blockModels.createTrivialCube(ModBlocks.SILVER_BLOCK.get());
+        //blockModels.createTrivialCube(ModBlocks.SILVER_BLOCK.get());
         blockModels.createTrivialCube(ModBlocks.RAW_SILVER_BLOCK.get());
         blockModels.createTrivialCube(ModBlocks.SILVER_ORE.get());
         blockModels.createTrivialCube(ModBlocks.DEEPSLATE_SILVER_ORE.get());
@@ -46,7 +46,7 @@ public class ModModelProvider extends ModelProvider {
 
 
             //Block Families
-        blockModels.family(ModBlocks.TEST_BLOCK.get())
+        blockModels.family(ModBlocks.SILVER_BLOCK.get())
                 .stairs(ModBlocks.TEST_STAIRS.get())
                 .slab(ModBlocks.TEST_SLAB.get());
                 

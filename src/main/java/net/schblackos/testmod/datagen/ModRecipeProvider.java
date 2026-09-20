@@ -87,14 +87,14 @@ public class ModRecipeProvider extends RecipeProvider {
 
 
             //Stair Recipes
-        stairBuilder(ModBlocks.TEST_STAIRS.get(), Ingredient.of(ModBlocks.TEST_BLOCK))
+        stairBuilder(ModBlocks.TEST_STAIRS.get(), Ingredient.of(ModBlocks.SILVER_BLOCK))
 
-                .unlockedBy(getHasName(ModBlocks.TEST_BLOCK.get()), has(ModBlocks.TEST_BLOCK))
+                .unlockedBy(getHasName(ModBlocks.SILVER_BLOCK.get()), has(ModBlocks.SILVER_BLOCK))
                 .group("test_blocks")
                 .save(output);
 
             //Slab Recipes
-        slab(RecipeCategory.BUILDING_BLOCKS, ModBlocks.TEST_BLOCK.get(), ModBlocks.TEST_BLOCK.get());
+        slab(RecipeCategory.BUILDING_BLOCKS, ModBlocks.TEST_SLAB.get(), ModBlocks.SILVER_BLOCK.get());
 
 
         /*ITEM RECIPES*/

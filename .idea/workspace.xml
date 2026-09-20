@@ -4,203 +4,48 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="84fcc49b-ec9b-4fa9-92d6-cb6c1f611e17" name="Changes" comment="?????">
-      <change afterPath="$PROJECT_DIR$/.gitattributes" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.github/workflows/build.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TEMPLATE_LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/assets/testmod/blockstates/deepslate_silver_ore.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/assets/testmod/blockstates/nether_silver_ore.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/assets/testmod/blockstates/raw_silver_block.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/assets/testmod/blockstates/silver_block.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/assets/testmod/blockstates/silver_ore.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/assets/testmod/blockstates/test_block.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/assets/testmod/items/brown_coal.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/assets/testmod/items/deepslate_silver_ore.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/assets/testmod/items/nether_silver_ore.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/assets/testmod/items/onion.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/assets/testmod/items/raw_silver.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/assets/testmod/items/raw_silver_block.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/assets/testmod/items/silver_block.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/assets/testmod/items/silver_ingot.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/assets/testmod/items/silver_ore.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/assets/testmod/items/test_block.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/assets/testmod/items/test_item.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/assets/testmod/models/block/deepslate_silver_ore.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/assets/testmod/models/block/nether_silver_ore.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/assets/testmod/models/block/raw_silver_block.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/assets/testmod/models/block/silver_block.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/assets/testmod/models/block/silver_ore.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/assets/testmod/models/block/test_block.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/assets/testmod/models/item/brown_coal.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/assets/testmod/models/item/onion.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/assets/testmod/models/item/raw_silver.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/assets/testmod/models/item/silver_ingot.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/assets/testmod/models/item/test_item.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/data/minecraft/tags/block/mineable/pickaxe.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/data/minecraft/tags/block/needs_iron_tool.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/data/neoforge/data_maps/item/furnace_fuels.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/data/testmod/advancement/recipes/misc/raw_silver_block.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/data/testmod/advancement/recipes/misc/silver_block.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/data/testmod/advancement/recipes/misc/silver_ingot.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/data/testmod/advancement/recipes/misc/silver_ingot_from_blasting_deepslate_silver_ore.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/data/testmod/advancement/recipes/misc/silver_ingot_from_blasting_nether_silver_ore.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/data/testmod/advancement/recipes/misc/silver_ingot_from_blasting_raw_silver.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/data/testmod/advancement/recipes/misc/silver_ingot_from_blasting_silver_ore.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/data/testmod/advancement/recipes/misc/silver_ingot_from_smelting_deepslate_silver_ore.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/data/testmod/advancement/recipes/misc/silver_ingot_from_smelting_nether_silver_ore.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/data/testmod/advancement/recipes/misc/silver_ingot_from_smelting_raw_silver.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/data/testmod/advancement/recipes/misc/silver_ingot_from_smelting_silver_ore.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/data/testmod/loot_table/blocks/deepslate_silver_ore.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/data/testmod/loot_table/blocks/nether_silver_ore.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/data/testmod/loot_table/blocks/raw_silver_block.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/data/testmod/loot_table/blocks/silver_block.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/data/testmod/loot_table/blocks/silver_ore.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/data/testmod/loot_table/blocks/test_block.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/data/testmod/recipe/raw_silver_block.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/data/testmod/recipe/silver_block.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/data/testmod/recipe/silver_ingot.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/data/testmod/recipe/silver_ingot_from_blasting_deepslate_silver_ore.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/data/testmod/recipe/silver_ingot_from_blasting_nether_silver_ore.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/data/testmod/recipe/silver_ingot_from_blasting_raw_silver.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/data/testmod/recipe/silver_ingot_from_blasting_silver_ore.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/data/testmod/recipe/silver_ingot_from_smelting_deepslate_silver_ore.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/data/testmod/recipe/silver_ingot_from_smelting_nether_silver_ore.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/data/testmod/recipe/silver_ingot_from_smelting_raw_silver.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/data/testmod/recipe/silver_ingot_from_smelting_silver_ore.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/data/testmod/tags/block/metal_detectables.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/data/testmod/tags/item/transformable_items.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/Config.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/TestModDataGen.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/Testmod.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/TestmodClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/block/ModBlocks.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/block/custom/TestBlock.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/creativemodetab/ModCreativeModeTabs.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/datagen/ModBlockLootTableProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/datagen/ModBlockTagsProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/datagen/ModDataMapProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/datagen/ModItemTagsProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/datagen/ModModelProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/datagen/ModRecipeProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/food/ModFoods.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/item/ModItems.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/item/custom/TestItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/tags/ModTags.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/testmod/lang/en_us.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/testmod/textures/block/silver_block.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/testmod/textures/item/raw_silver.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/testmod/textures/item/silver_ingot.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/testmod.mixins.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/templates/META-INF/neoforge.mods.toml" afterDir="false" />
+    <list default="true" id="84fcc49b-ec9b-4fa9-92d6-cb6c1f611e17" name="Changes" comment="#14.2 NeoForge Modding Tutorial - Stairs and Slabs fix &#10;( you cant use advanced blocks lol im retarded ahah)">
+      <change afterPath="$PROJECT_DIR$/src/generated/resources/assets/testmod/blockstates/test_slab.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/generated/resources/assets/testmod/blockstates/test_stairs.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/generated/resources/assets/testmod/items/test_slab.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/generated/resources/assets/testmod/items/test_stairs.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/generated/resources/assets/testmod/models/block/test_slab.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/generated/resources/assets/testmod/models/block/test_slab_top.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/generated/resources/assets/testmod/models/block/test_stairs.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/generated/resources/assets/testmod/models/block/test_stairs_inner.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/generated/resources/assets/testmod/models/block/test_stairs_outer.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/generated/resources/data/testmod/advancement/recipes/building_blocks/test_slab.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/generated/resources/data/testmod/advancement/recipes/building_blocks/test_stairs.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/generated/resources/data/testmod/loot_table/blocks/test_slab.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/generated/resources/data/testmod/loot_table/blocks/test_stairs.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/generated/resources/data/testmod/recipe/test_slab.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/generated/resources/data/testmod/recipe/test_stairs.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" afterPath="$PROJECT_DIR$/.gitattributes" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/build.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/build.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/.gitattributes" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/.github/workflows/build.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/TEMPLATE_LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/gradle.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/settings.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/generated/resources/assets/testmod/blockstates/deepslate_silver_ore.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/generated/resources/assets/testmod/blockstates/nether_silver_ore.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/generated/resources/assets/testmod/blockstates/raw_silver_block.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/generated/resources/assets/testmod/blockstates/silver_block.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/generated/resources/assets/testmod/blockstates/silver_ore.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/generated/resources/assets/testmod/blockstates/test_block.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/generated/resources/assets/testmod/items/brown_coal.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/generated/resources/assets/testmod/items/deepslate_silver_ore.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/generated/resources/assets/testmod/items/nether_silver_ore.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/generated/resources/assets/testmod/items/onion.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/generated/resources/assets/testmod/items/raw_silver.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/generated/resources/assets/testmod/items/raw_silver_block.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/generated/resources/assets/testmod/items/silver_block.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/generated/resources/assets/testmod/items/silver_ingot.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/generated/resources/assets/testmod/items/silver_ore.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/generated/resources/assets/testmod/items/test_block.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/generated/resources/assets/testmod/items/test_item.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/generated/resources/assets/testmod/models/block/deepslate_silver_ore.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/generated/resources/assets/testmod/models/block/nether_silver_ore.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/generated/resources/assets/testmod/models/block/raw_silver_block.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/generated/resources/assets/testmod/models/block/silver_block.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/generated/resources/assets/testmod/models/block/silver_ore.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/generated/resources/assets/testmod/models/block/test_block.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/generated/resources/assets/testmod/models/item/brown_coal.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/generated/resources/assets/testmod/models/item/onion.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/generated/resources/assets/testmod/models/item/raw_silver.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/generated/resources/assets/testmod/models/item/silver_ingot.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/generated/resources/assets/testmod/models/item/test_item.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/generated/resources/data/minecraft/tags/block/mineable/pickaxe.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/generated/resources/data/minecraft/tags/block/needs_iron_tool.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/generated/resources/data/neoforge/data_maps/item/furnace_fuels.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/generated/resources/data/testmod/advancement/recipes/misc/raw_silver_block.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/generated/resources/data/testmod/advancement/recipes/misc/silver_block.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/generated/resources/data/testmod/advancement/recipes/misc/silver_ingot.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/generated/resources/data/testmod/advancement/recipes/misc/silver_ingot_from_blasting_deepslate_silver_ore.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/generated/resources/data/testmod/advancement/recipes/misc/silver_ingot_from_blasting_nether_silver_ore.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/generated/resources/data/testmod/advancement/recipes/misc/silver_ingot_from_blasting_raw_silver.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/generated/resources/data/testmod/advancement/recipes/misc/silver_ingot_from_blasting_silver_ore.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/generated/resources/data/testmod/advancement/recipes/misc/silver_ingot_from_smelting_deepslate_silver_ore.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/generated/resources/data/testmod/advancement/recipes/misc/silver_ingot_from_smelting_nether_silver_ore.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/generated/resources/data/testmod/advancement/recipes/misc/silver_ingot_from_smelting_raw_silver.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/generated/resources/data/testmod/advancement/recipes/misc/silver_ingot_from_smelting_silver_ore.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/generated/resources/data/testmod/loot_table/blocks/deepslate_silver_ore.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/generated/resources/data/testmod/loot_table/blocks/nether_silver_ore.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/generated/resources/data/testmod/loot_table/blocks/raw_silver_block.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/generated/resources/data/testmod/loot_table/blocks/silver_block.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/generated/resources/data/testmod/loot_table/blocks/silver_ore.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/generated/resources/data/testmod/loot_table/blocks/test_block.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/generated/resources/data/testmod/recipe/raw_silver_block.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/generated/resources/data/testmod/recipe/silver_block.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/generated/resources/data/testmod/recipe/silver_ingot.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/generated/resources/data/testmod/recipe/silver_ingot_from_blasting_deepslate_silver_ore.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/generated/resources/data/testmod/recipe/silver_ingot_from_blasting_nether_silver_ore.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/generated/resources/data/testmod/recipe/silver_ingot_from_blasting_raw_silver.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/generated/resources/data/testmod/recipe/silver_ingot_from_blasting_silver_ore.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/generated/resources/data/testmod/recipe/silver_ingot_from_smelting_deepslate_silver_ore.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/generated/resources/data/testmod/recipe/silver_ingot_from_smelting_nether_silver_ore.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/generated/resources/data/testmod/recipe/silver_ingot_from_smelting_raw_silver.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/generated/resources/data/testmod/recipe/silver_ingot_from_smelting_silver_ore.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/generated/resources/data/testmod/tags/block/metal_detectables.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/generated/resources/data/testmod/tags/item/transformable_items.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/main/java/net/schblackos/testmod/Config.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/main/java/net/schblackos/testmod/TestModDataGen.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/main/java/net/schblackos/testmod/Testmod.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/main/java/net/schblackos/testmod/TestmodClient.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/main/java/net/schblackos/testmod/block/ModBlocks.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/main/java/net/schblackos/testmod/block/custom/TestBlock.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/main/java/net/schblackos/testmod/creativemodetab/ModCreativeModeTabs.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/main/java/net/schblackos/testmod/datagen/ModBlockLootTableProvider.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/main/java/net/schblackos/testmod/datagen/ModBlockTagsProvider.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/main/java/net/schblackos/testmod/datagen/ModDataMapProvider.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/main/java/net/schblackos/testmod/datagen/ModItemTagsProvider.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/main/java/net/schblackos/testmod/datagen/ModModelProvider.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/main/java/net/schblackos/testmod/datagen/ModRecipeProvider.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/main/java/net/schblackos/testmod/food/ModFoods.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/main/java/net/schblackos/testmod/item/ModItems.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/main/java/net/schblackos/testmod/item/custom/TestItem.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/main/java/net/schblackos/testmod/tags/ModTags.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/main/resources/assets/testmod/lang/en_us.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/main/resources/assets/testmod/textures/block/silver_block.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/main/resources/assets/testmod/textures/item/raw_silver.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/main/resources/assets/testmod/textures/item/silver_ingot.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/main/resources/testmod.mixins.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minecraft Mod/src/main/templates/META-INF/neoforge.mods.toml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TEMPLATE_LICENSE.txt" beforeDir="false" afterPath="$PROJECT_DIR$/TEMPLATE_LICENSE.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/minecraft/tags/block/mineable/pickaxe.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/minecraft/tags/block/mineable/pickaxe.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/Config.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/Testmod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/Testmod.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/TestmodClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/TestModClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/block/ModBlocks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/block/ModBlocks.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/datagen/ModModelProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/datagen/ModModelProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/datagen/ModRecipeProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/datagen/ModRecipeProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/testmod/lang/en_us.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/testmod/lang/en_us.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/testmod.mixins.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/testmod.mixins.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/templates/META-INF/neoforge.mods.toml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/templates/META-INF/neoforge.mods.toml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -223,7 +68,7 @@
             <expand>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="GitHub Repos" type="f1a62948:ProjectNode" />
+                <item name="Minecraft Mod" type="f1a62948:ProjectNode" />
               </path>
             </expand>
             <select />
@@ -256,7 +101,7 @@
   }
 }</component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="Security Analysis" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3,
@@ -270,6 +115,8 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Gradle.GitHub Repos [:net.neoforged.devlaunch.Main.main()].executor": "Run",
+    "Gradle.Minecraft Mod [:net.neoforged.devlaunch.Main.main()].executor": "Run",
+    "Gradle.Upgrade Gradle wrapper.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
@@ -281,17 +128,27 @@
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
     "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.Data">
+  <component name="RunManager" selected="Application.Client">
     <configuration name="Client" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="net.neoforged.devlaunch.Main" />
       <module name="Minecraft_Mod.main" />
-      <option name="PROGRAM_PARAMETERS" value="&quot;@E:\\Coding\\GitHub Repos\\Minecraft Mod\\build\\moddev\\clientRunProgramArgs.txt&quot;" />
-      <option name="VM_PARAMETERS" value="&quot;@E:\\Coding\\GitHub Repos\\Minecraft Mod\\build\\moddev\\clientRunVmArgs.txt&quot; &quot;-Dfml.modFolders=testmod%%E:\\Coding\\GitHub Repos\\Minecraft Mod\\build\\classes\\java\\main;testmod%%E:\\Coding\\GitHub Repos\\Minecraft Mod\\build\\resources\\main&quot;" />
+      <option name="PROGRAM_PARAMETERS" value="&quot;@E:\\Coding\\Minecraft Mod\\build\\moddev\\clientRunProgramArgs.txt&quot;" />
+      <option name="VM_PARAMETERS" value="&quot;@E:\\Coding\\Minecraft Mod\\build\\moddev\\clientRunVmArgs.txt&quot; &quot;-Dfml.modFolders=testmod%%E:\\Coding\\Minecraft Mod\\build\\classes\\java\\main;testmod%%E:\\Coding\\Minecraft Mod\\build\\resources\\main&quot;" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/run" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Client" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="net.neoforged.devlaunch.Main" />
+      <module name="Minecraft_Mod.main" />
+      <option name="PROGRAM_PARAMETERS" value="&quot;@E:\\Coding\\Minecraft Mod\\build\\moddev\\clientRunProgramArgs.txt&quot;" />
+      <option name="VM_PARAMETERS" value="&quot;@E:\\Coding\\Minecraft Mod\\build\\moddev\\clientRunVmArgs.txt&quot; &quot;-Dfml.modFolders=testmod%%E:\\Coding\\Minecraft Mod\\build\\classes\\java\\main;testmod%%E:\\Coding\\Minecraft Mod\\build\\resources\\main&quot;" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/run" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -300,8 +157,18 @@
     <configuration name="Data" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="net.neoforged.devlaunch.Main" />
       <module name="Minecraft_Mod.main" />
-      <option name="PROGRAM_PARAMETERS" value="&quot;@E:\\Coding\\GitHub Repos\\Minecraft Mod\\build\\moddev\\dataRunProgramArgs.txt&quot;" />
-      <option name="VM_PARAMETERS" value="&quot;@E:\\Coding\\GitHub Repos\\Minecraft Mod\\build\\moddev\\dataRunVmArgs.txt&quot; &quot;-Dfml.modFolders=testmod%%E:\\Coding\\GitHub Repos\\Minecraft Mod\\build\\classes\\java\\main;testmod%%E:\\Coding\\GitHub Repos\\Minecraft Mod\\build\\resources\\main&quot;" />
+      <option name="PROGRAM_PARAMETERS" value="&quot;@E:\\Coding\\Minecraft Mod\\build\\moddev\\dataRunProgramArgs.txt&quot;" />
+      <option name="VM_PARAMETERS" value="&quot;@E:\\Coding\\Minecraft Mod\\build\\moddev\\dataRunVmArgs.txt&quot; &quot;-Dfml.modFolders=testmod%%E:\\Coding\\Minecraft Mod\\build\\classes\\java\\main;testmod%%E:\\Coding\\Minecraft Mod\\build\\resources\\main&quot;" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/run" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Data" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="net.neoforged.devlaunch.Main" />
+      <module name="Minecraft_Mod.main" />
+      <option name="PROGRAM_PARAMETERS" value="&quot;@E:\\Coding\\Minecraft Mod\\build\\moddev\\dataRunProgramArgs.txt&quot;" />
+      <option name="VM_PARAMETERS" value="&quot;@E:\\Coding\\Minecraft Mod\\build\\moddev\\dataRunVmArgs.txt&quot; &quot;-Dfml.modFolders=testmod%%E:\\Coding\\Minecraft Mod\\build\\classes\\java\\main;testmod%%E:\\Coding\\Minecraft Mod\\build\\resources\\main&quot;" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/run" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -320,8 +187,18 @@
     <configuration name="GameTestServer" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="net.neoforged.devlaunch.Main" />
       <module name="Minecraft_Mod.main" />
-      <option name="PROGRAM_PARAMETERS" value="&quot;@E:\\Coding\\GitHub Repos\\Minecraft Mod\\build\\moddev\\gameTestServerRunProgramArgs.txt&quot;" />
-      <option name="VM_PARAMETERS" value="&quot;@E:\\Coding\\GitHub Repos\\Minecraft Mod\\build\\moddev\\gameTestServerRunVmArgs.txt&quot; &quot;-Dfml.modFolders=testmod%%E:\\Coding\\GitHub Repos\\Minecraft Mod\\build\\classes\\java\\main;testmod%%E:\\Coding\\GitHub Repos\\Minecraft Mod\\build\\resources\\main&quot;" />
+      <option name="PROGRAM_PARAMETERS" value="&quot;@E:\\Coding\\Minecraft Mod\\build\\moddev\\gameTestServerRunProgramArgs.txt&quot;" />
+      <option name="VM_PARAMETERS" value="&quot;@E:\\Coding\\Minecraft Mod\\build\\moddev\\gameTestServerRunVmArgs.txt&quot; &quot;-Dfml.modFolders=testmod%%E:\\Coding\\Minecraft Mod\\build\\classes\\java\\main;testmod%%E:\\Coding\\Minecraft Mod\\build\\resources\\main&quot;" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/run" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GameTestServer" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="net.neoforged.devlaunch.Main" />
+      <module name="Minecraft_Mod.main" />
+      <option name="PROGRAM_PARAMETERS" value="&quot;@E:\\Coding\\Minecraft Mod\\build\\moddev\\gameTestServerRunProgramArgs.txt&quot;" />
+      <option name="VM_PARAMETERS" value="&quot;@E:\\Coding\\Minecraft Mod\\build\\moddev\\gameTestServerRunVmArgs.txt&quot; &quot;-Dfml.modFolders=testmod%%E:\\Coding\\Minecraft Mod\\build\\classes\\java\\main;testmod%%E:\\Coding\\Minecraft Mod\\build\\resources\\main&quot;" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/run" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -340,8 +217,18 @@
     <configuration name="Server" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="net.neoforged.devlaunch.Main" />
       <module name="Minecraft_Mod.main" />
-      <option name="PROGRAM_PARAMETERS" value="&quot;@E:\\Coding\\GitHub Repos\\Minecraft Mod\\build\\moddev\\serverRunProgramArgs.txt&quot;" />
-      <option name="VM_PARAMETERS" value="&quot;@E:\\Coding\\GitHub Repos\\Minecraft Mod\\build\\moddev\\serverRunVmArgs.txt&quot; &quot;-Dfml.modFolders=testmod%%E:\\Coding\\GitHub Repos\\Minecraft Mod\\build\\classes\\java\\main;testmod%%E:\\Coding\\GitHub Repos\\Minecraft Mod\\build\\resources\\main&quot;" />
+      <option name="PROGRAM_PARAMETERS" value="&quot;@E:\\Coding\\Minecraft Mod\\build\\moddev\\serverRunProgramArgs.txt&quot;" />
+      <option name="VM_PARAMETERS" value="&quot;@E:\\Coding\\Minecraft Mod\\build\\moddev\\serverRunVmArgs.txt&quot; &quot;-Dfml.modFolders=testmod%%E:\\Coding\\Minecraft Mod\\build\\classes\\java\\main;testmod%%E:\\Coding\\Minecraft Mod\\build\\resources\\main&quot;" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/run" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Server" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="net.neoforged.devlaunch.Main" />
+      <module name="Minecraft_Mod.main" />
+      <option name="PROGRAM_PARAMETERS" value="&quot;@E:\\Coding\\Minecraft Mod\\build\\moddev\\serverRunProgramArgs.txt&quot;" />
+      <option name="VM_PARAMETERS" value="&quot;@E:\\Coding\\Minecraft Mod\\build\\moddev\\serverRunVmArgs.txt&quot; &quot;-Dfml.modFolders=testmod%%E:\\Coding\\Minecraft Mod\\build\\classes\\java\\main;testmod%%E:\\Coding\\Minecraft Mod\\build\\resources\\main&quot;" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/run" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -356,6 +243,17 @@
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="Minecraft Mod" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="Minecraft Mod" />
+      <option name="filePath" />
+      <method v="2" />
     </configuration>
   </component>
   <component name="SharedIndexes">
@@ -391,6 +289,9 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/.." />
+    </ignored-roots>
     <MESSAGE value="#6 NeoForge Modding Tutorial - Block loot tables and tags" />
     <MESSAGE value="#7 NeoForge Modding Tutorial - Custom crafting and furnace recipes &#10;&#10;(find out how to make a double output in a furnace)" />
     <MESSAGE value="#8.1 NeoForge Modding Tutorial - Advanced item (Metal Detector)" />
@@ -402,7 +303,8 @@
     <MESSAGE value="#13.1 NeoForge Modding Tutorial - Small name changes" />
     <MESSAGE value="#14 and 14.1 NeoForge Modding Tutorial - Stairs and Slabs + repo changes fix" />
     <MESSAGE value="?????" />
-    <option name="LAST_COMMIT_MESSAGE" value="?????" />
+    <MESSAGE value="#14.2 NeoForge Modding Tutorial - Stairs and Slabs fix &#10;( you cant use advanced blocks lol im retarded ahah)" />
+    <option name="LAST_COMMIT_MESSAGE" value="#14.2 NeoForge Modding Tutorial - Stairs and Slabs fix &#10;( you cant use advanced blocks lol im retarded ahah)" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

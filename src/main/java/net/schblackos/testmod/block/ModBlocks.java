@@ -83,7 +83,7 @@ public class ModBlocks {
         //Stairs
 
     public static final DeferredBlock<Block> TEST_STAIRS = registerBlock("test_stairs",
-            properties -> new StairBlock(ModBlocks.TEST_BLOCK.get().defaultBlockState(),
+            properties -> new StairBlock(ModBlocks.SILVER_BLOCK.get().defaultBlockState(),
                     properties
                             .strength(2f)
                             .sound(SoundType.AMETHYST)

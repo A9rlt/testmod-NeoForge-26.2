@@ -5,6 +5,8 @@
     "testmod:nether_silver_ore",
     "testmod:raw_silver_block",
     "testmod:silver_block",
-    "testmod:test_block"
+    "testmod:test_block",
+    "testmod:test_slab",
+    "testmod:test_stairs"
   ]
 }

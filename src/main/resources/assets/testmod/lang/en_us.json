@@ -2,7 +2,9 @@
   "item.testmod.silver_ingot": "Silver Ingot",
   "item.testmod.raw_silver": "Raw Silver",
 
-  "Item.testmod.metal_detector": "Metal Detector",
+  "item.testmod.metal_detector": "Metal Detector",
+
+  "item.testmod.onion": "Onion",
 
 
   "block.testmod.silver_block": "Block of Silver",

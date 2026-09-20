@@ -8,6 +8,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.schblackos.testmod.Testmod;
 import net.schblackos.testmod.block.ModBlocks;
+import net.schblackos.testmod.food.ModFoods;
 import net.schblackos.testmod.item.ModItems;
 
 import java.util.function.Supplier;
@@ -24,12 +25,15 @@ public class ModCreativeModeTabs {
 
                     /*ModItems*/
 
-                    //Items
+                    //NORMAL ITEMS
                     output.accept(ModItems.SILVER_INGOT);
                     output.accept(ModItems.RAW_SILVER);
 
-                    //Advanced Items
+                    //ADVANCED ITEMS
                     output.accept(ModItems.METAL_DETECTOR);
+
+                    //FOODS
+                    output.accept(ModItems.ONION);
 
 
                     /*ModBlocks*/

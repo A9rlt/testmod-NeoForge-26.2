@@ -27,7 +27,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.RAW_SILVER_BLOCK.get());
 
         //Advanced Blocks
-        dropSelf(ModBlocks.MAGIC_SPEED_BLOCK.get());
+        dropSelf(ModBlocks.TEST_BLOCK.get());
 
 
         /*DROPS FROM BLOCKS*/

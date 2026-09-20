@@ -7,13 +7,12 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.component.TooltipDisplay;
-import net.minecraft.world.level.block.Block;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.schblackos.testmod.Testmod;
 import net.schblackos.testmod.food.ModFoods;
-import net.schblackos.testmod.item.custom.MetalDetectorItem;
+import net.schblackos.testmod.item.custom.TestItem;
 
 import java.util.function.Consumer;
 
@@ -26,8 +25,8 @@ public class ModItems {
 
 
     //Advanced Items
-    public static final DeferredItem<Item> METAL_DETECTOR =ITEMS.registerItem("metal_detector",
-            properties -> new MetalDetectorItem(properties
+    public static final DeferredItem<Item> TEST_ITEM =ITEMS.registerItem("test_item",
+            properties -> new TestItem(properties
                     .durability(64)
                     .useCooldown(0.5f)
                     .stacksTo(1)));

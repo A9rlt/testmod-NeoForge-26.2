@@ -16,12 +16,11 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
-import net.schblackos.testmod.item.ModItems;
 import net.schblackos.testmod.tags.ModTags;
 
-public class MagicSpeedBlock extends Block {
+public class TestBlock extends Block {
 
-    public MagicSpeedBlock(Properties properties) {
+    public TestBlock(Properties properties) {
         super(properties);
     }
 

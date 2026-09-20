@@ -25,7 +25,7 @@ public class ModModelProvider extends ModelProvider {
         itemModels.generateFlatItem(ModItems.RAW_SILVER.get(), ModelTemplates.FLAT_ITEM);
 
         //Advanced items
-        itemModels.generateFlatItem(ModItems.METAL_DETECTOR.get(), ModelTemplates.FLAT_ITEM);
+        itemModels.generateFlatItem(ModItems.TEST_ITEM.get(), ModelTemplates.FLAT_ITEM);
 
         //Foods
         itemModels.generateFlatItem(ModItems.ONION.get(), ModelTemplates.FLAT_ITEM);
@@ -44,7 +44,7 @@ public class ModModelProvider extends ModelProvider {
         blockModels.createTrivialCube(ModBlocks.NETHER_SILVER_ORE.get());
 
         //Advanced Blocks
-        blockModels.createTrivialCube(ModBlocks.MAGIC_SPEED_BLOCK.get());
+        blockModels.createTrivialCube(ModBlocks.TEST_BLOCK.get());
 
     }
 }

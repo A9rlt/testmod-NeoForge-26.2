@@ -10,11 +10,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "testmod:magic_speed_block"
+          "name": "testmod:test_block"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "testmod:blocks/magic_speed_block"
+  "random_sequence": "testmod:blocks/test_block"
 }

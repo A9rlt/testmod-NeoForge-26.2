@@ -2,7 +2,7 @@
   "item.testmod.silver_ingot": "Silver Ingot",
   "item.testmod.raw_silver": "Raw Silver",
 
-  "item.testmod.metal_detector": "Metal Detector",
+  "item.testmod.test_item": "Test Item",
 
   "item.testmod.onion": "Onion",
 
@@ -15,7 +15,7 @@
   "block.testmod.deepslate_silver_ore": "Deepslate Silver Ore",
   "block.testmod.nether_silver_ore": "Nether Silver Ore",
 
-  "block.testmod.magic_speed_block": "Magic Speed Block",
+  "block.testmod.test_block": "Test Block",
 
 
   "creativetab.testmod.silver_items": "Silver Items",

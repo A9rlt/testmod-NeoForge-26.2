@@ -29,7 +29,7 @@ public class ModCreativeModeTabs {
                     output.accept(ModItems.RAW_SILVER);
 
                     //ADVANCED ITEMS
-                    output.accept(ModItems.METAL_DETECTOR);
+                    output.accept(ModItems.TEST_ITEM);
 
                     //FOODS
                     output.accept(ModItems.ONION);
@@ -49,7 +49,7 @@ public class ModCreativeModeTabs {
                     output.accept(ModBlocks.NETHER_SILVER_ORE);
 
                     //ADVANCED BLOCKS
-                    output.accept(ModBlocks.MAGIC_SPEED_BLOCK);
+                    output.accept(ModBlocks.TEST_BLOCK);
 
                 }).build());
 

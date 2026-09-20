@@ -14,7 +14,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.schblackos.testmod.Testmod;
-import net.schblackos.testmod.block.custom.MagicSpeedBlock;
+import net.schblackos.testmod.block.custom.TestBlock;
 import net.schblackos.testmod.item.ModItems;
 
 import java.util.function.Consumer;
@@ -63,8 +63,8 @@ public class ModBlocks {
 
 
     /*ADVANCED BLOCKS*/
-    public static final DeferredBlock<Block> MAGIC_SPEED_BLOCK = registerBlock("magic_speed_block",
-            properties -> new MagicSpeedBlock(
+    public static final DeferredBlock<Block> TEST_BLOCK = registerBlock("test_block",
+            properties -> new TestBlock(
                     properties.strength(4f)
                             .sound(SoundType.AMETHYST)
                             .requiresCorrectToolForDrops()),

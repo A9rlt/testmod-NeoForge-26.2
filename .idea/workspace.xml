@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="64bd0659-e0a3-47dc-b14a-d14072ae3b32" name="Changes" comment="">
+    <list default="true" id="716b87c2-4a1e-4380-a551-358d6383815e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.github/workflows/build.yml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
@@ -126,7 +126,7 @@
   "customColor": "",
   "associatedIndex": 3
 }]]></component>
-  <component name="ProjectId" id="3JbXlHfGOnXobfpARfhvvXwxZer" />
+  <component name="ProjectId" id="3Jbagn4MHHNVSfWMB6ita4ca6WF" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -152,12 +152,15 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="64bd0659-e0a3-47dc-b14a-d14072ae3b32" name="Changes" comment="" />
-      <created>1789930893286</created>
+      <changelist id="716b87c2-4a1e-4380-a551-358d6383815e" name="Changes" comment="" />
+      <created>1789932337063</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1789930893286</updated>
+      <updated>1789932337063</updated>
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
 </project>

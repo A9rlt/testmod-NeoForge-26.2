@@ -24,31 +24,47 @@ public class ModCreativeModeTabs {
 
                     /*ModItems*/
 
-                    //NORMAL ITEMS
+                        //NORMAL ITEMS
                     output.accept(ModItems.SILVER_INGOT);
                     output.accept(ModItems.RAW_SILVER);
 
-                    //ADVANCED ITEMS
+                        //ADVANCED ITEMS
                     output.accept(ModItems.TEST_ITEM);
 
-                    //FOODS
+                        //FOODS
                     output.accept(ModItems.ONION);
 
 
-                    //FUELS
+                        //FUELS
                     output.accept(ModItems.BROWN_COAL);
 
 
                     /*ModBlocks*/
 
-                    //NORMAL BLOCKS
+                        //NORMAL BLOCKS
                     output.accept(ModBlocks.RAW_SILVER_BLOCK);
                     output.accept(ModBlocks.SILVER_BLOCK);
                     output.accept(ModBlocks.DEEPSLATE_SILVER_ORE);
                     output.accept(ModBlocks.SILVER_ORE);
                     output.accept(ModBlocks.NETHER_SILVER_ORE);
 
-                    //ADVANCED BLOCKS
+                        //Slabs
+                    output.accept(ModBlocks.TEST_SLAB);
+
+                        //Stairs
+                    output.accept(ModBlocks.TEST_STAIRS);
+
+                        //Fences
+
+                        //Doors
+
+                        //Trapdoors
+
+                        //Buttons
+
+                        //Pressure Plates
+
+                        //ADVANCED BLOCKS
                     output.accept(ModBlocks.TEST_BLOCK);
 
                 }).build());

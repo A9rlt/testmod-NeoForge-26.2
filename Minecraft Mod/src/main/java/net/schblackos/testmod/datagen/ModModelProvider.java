@@ -20,30 +20,39 @@ public class ModModelProvider extends ModelProvider {
 
         /*ITEM MODELS*/
 
-        //Items
+            //Items
         itemModels.generateFlatItem(ModItems.SILVER_INGOT.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ModItems.RAW_SILVER.get(), ModelTemplates.FLAT_ITEM);
 
-        //Advanced items
+            //Advanced items
         itemModels.generateFlatItem(ModItems.TEST_ITEM.get(), ModelTemplates.FLAT_ITEM);
 
-        //Foods
+            //Foods
         itemModels.generateFlatItem(ModItems.ONION.get(), ModelTemplates.FLAT_ITEM);
 
-        //Fuels
+            //Fuels
         itemModels.generateFlatItem(ModItems.BROWN_COAL.get(), ModelTemplates.FLAT_ITEM);
+
 
 
         /*BLOCK MODELS*/
 
-        //Blocks
+            //Blocks
         blockModels.createTrivialCube(ModBlocks.SILVER_BLOCK.get());
         blockModels.createTrivialCube(ModBlocks.RAW_SILVER_BLOCK.get());
         blockModels.createTrivialCube(ModBlocks.SILVER_ORE.get());
         blockModels.createTrivialCube(ModBlocks.DEEPSLATE_SILVER_ORE.get());
         blockModels.createTrivialCube(ModBlocks.NETHER_SILVER_ORE.get());
 
-        //Advanced Blocks
+
+            //Block Families
+        blockModels.family(ModBlocks.TEST_BLOCK.get())
+                .stairs(ModBlocks.TEST_STAIRS.get())
+                .slab(ModBlocks.TEST_SLAB.get());
+                
+
+
+            //Advanced Blocks
         blockModels.createTrivialCube(ModBlocks.TEST_BLOCK.get());
 
     }

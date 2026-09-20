@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="64bd0659-e0a3-47dc-b14a-d14072ae3b32" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/build.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TEMPLATE_LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/assets/testmod/blockstates/deepslate_silver_ore.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/assets/testmod/blockstates/nether_silver_ore.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/assets/testmod/blockstates/raw_silver_block.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/assets/testmod/blockstates/silver_block.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/assets/testmod/blockstates/silver_ore.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/assets/testmod/blockstates/test_block.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/assets/testmod/items/brown_coal.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/assets/testmod/items/deepslate_silver_ore.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/assets/testmod/items/nether_silver_ore.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/assets/testmod/items/onion.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/assets/testmod/items/raw_silver.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/assets/testmod/items/raw_silver_block.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/assets/testmod/items/silver_block.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/assets/testmod/items/silver_ingot.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/assets/testmod/items/silver_ore.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/assets/testmod/items/test_block.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/assets/testmod/items/test_item.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/assets/testmod/models/block/deepslate_silver_ore.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/assets/testmod/models/block/nether_silver_ore.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/assets/testmod/models/block/raw_silver_block.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/assets/testmod/models/block/silver_block.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/assets/testmod/models/block/silver_ore.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/assets/testmod/models/block/test_block.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/assets/testmod/models/item/brown_coal.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/assets/testmod/models/item/onion.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/assets/testmod/models/item/raw_silver.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/assets/testmod/models/item/silver_ingot.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/assets/testmod/models/item/test_item.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/minecraft/tags/block/mineable/pickaxe.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/minecraft/tags/block/needs_iron_tool.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/neoforge/data_maps/item/furnace_fuels.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/testmod/advancement/recipes/misc/raw_silver_block.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/testmod/advancement/recipes/misc/silver_block.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/testmod/advancement/recipes/misc/silver_ingot.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/testmod/advancement/recipes/misc/silver_ingot_from_blasting_deepslate_silver_ore.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/testmod/advancement/recipes/misc/silver_ingot_from_blasting_nether_silver_ore.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/testmod/advancement/recipes/misc/silver_ingot_from_blasting_raw_silver.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/testmod/advancement/recipes/misc/silver_ingot_from_blasting_silver_ore.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/testmod/advancement/recipes/misc/silver_ingot_from_smelting_deepslate_silver_ore.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/testmod/advancement/recipes/misc/silver_ingot_from_smelting_nether_silver_ore.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/testmod/advancement/recipes/misc/silver_ingot_from_smelting_raw_silver.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/testmod/advancement/recipes/misc/silver_ingot_from_smelting_silver_ore.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/testmod/loot_table/blocks/deepslate_silver_ore.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/testmod/loot_table/blocks/nether_silver_ore.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/testmod/loot_table/blocks/raw_silver_block.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/testmod/loot_table/blocks/silver_block.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/testmod/loot_table/blocks/silver_ore.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/testmod/loot_table/blocks/test_block.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/testmod/recipe/raw_silver_block.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/testmod/recipe/silver_block.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/testmod/recipe/silver_ingot.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/testmod/recipe/silver_ingot_from_blasting_deepslate_silver_ore.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/testmod/recipe/silver_ingot_from_blasting_nether_silver_ore.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/testmod/recipe/silver_ingot_from_blasting_raw_silver.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/testmod/recipe/silver_ingot_from_blasting_silver_ore.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/testmod/recipe/silver_ingot_from_smelting_deepslate_silver_ore.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/testmod/recipe/silver_ingot_from_smelting_nether_silver_ore.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/testmod/recipe/silver_ingot_from_smelting_raw_silver.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/testmod/recipe/silver_ingot_from_smelting_silver_ore.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/testmod/tags/block/metal_detectables.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/testmod/tags/item/transformable_items.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/Config.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/TestModDataGen.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/Testmod.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/TestmodClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/block/ModBlocks.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/block/custom/TestBlock.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/creativemodetab/ModCreativeModeTabs.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/datagen/ModBlockLootTableProvider.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/datagen/ModBlockTagsProvider.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/datagen/ModDataMapProvider.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/datagen/ModItemTagsProvider.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/datagen/ModModelProvider.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/datagen/ModRecipeProvider.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/food/ModFoods.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/item/ModItems.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/item/custom/TestItem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/tags/ModTags.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/testmod/lang/en_us.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/testmod/textures/block/silver_block.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/testmod/textures/item/raw_silver.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/testmod/textures/item/silver_ingot.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/testmod.mixins.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/templates/META-INF/neoforge.mods.toml" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "A9rlt"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/A9rlt/testmod-NeoForge-26.2.git",
+    "accountId": "5fd01627-a583-4b24-bb0b-f843ca0a5e05"
+  }
+}]]></component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 3
+}]]></component>
+  <component name="ProjectId" id="3JbXlHfGOnXobfpARfhvvXwxZer" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-a203e0a19954-intellij.indexing.shared.core-IU-262.10968.63" />
+        <option value="bundled-js-predefined-d6986cc7102b-4abd2a77f808-JavaScript-IU-262.10968.63" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="64bd0659-e0a3-47dc-b14a-d14072ae3b32" name="Changes" comment="" />
+      <created>1789930893286</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1789930893286</updated>
+    </task>
+    <servers />
+  </component>
+</project>

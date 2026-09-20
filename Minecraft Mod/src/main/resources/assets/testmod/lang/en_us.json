@@ -17,6 +17,10 @@
 
   "block.testmod.test_block": "Test Block",
 
+  "block.testmod.test_stairs": "Test Stairs",
+
+  "block.testmod.test_slabs": "Test Stairs",
+
 
   "creativetab.testmod.silver_items": "Silver Items",
   "creativetab.testmod.silver_blocks": "Silver Blocks",

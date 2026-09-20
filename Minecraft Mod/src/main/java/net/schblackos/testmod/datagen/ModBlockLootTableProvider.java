@@ -26,6 +26,26 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.SILVER_BLOCK.get());
         dropSelf(ModBlocks.RAW_SILVER_BLOCK.get());
 
+        //Stairs
+        dropSelf(ModBlocks.TEST_STAIRS.get());
+
+        //Slabs
+        dropSelf(ModBlocks.TEST_SLAB.get());
+        add(ModBlocks.TEST_SLAB.get(), block -> createSlabItemTable(block));
+
+
+        //Fences
+
+        //Doors
+
+        //Trapdoors
+
+        //Buttons
+
+        //Pressure Plates
+
+
+
         //Advanced Blocks
         dropSelf(ModBlocks.TEST_BLOCK.get());
 

@@ -45,9 +45,9 @@ public class ModRecipeProvider extends RecipeProvider {
     protected void buildRecipes() {
 
 
-        //MISC SECTION
+        /*MISC SECTION*/
 
-        //SHAPED
+            //Shaped Recipes
         shaped(
                 RecipeCategory.MISC,
                 ModBlocks.SILVER_BLOCK.get())
@@ -76,7 +76,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .group("silver")
                 .save(output);
 
-        //SHAPELESS
+            //Shapeless Recipes
         shapeless(
                 RecipeCategory.MISC,
                 ModItems.SILVER_INGOT.get(), 9)
@@ -86,7 +86,19 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(output /*add {,"silver from ______"} for duplicate recipes*/);
 
 
-        //ITEM LISTS
+            //Stair Recipes
+        stairBuilder(ModBlocks.TEST_STAIRS.get(), Ingredient.of(ModBlocks.TEST_BLOCK))
+
+                .unlockedBy(getHasName(ModBlocks.TEST_BLOCK.get()), has(ModBlocks.TEST_BLOCK))
+                .group("test_blocks")
+                .save(output);
+
+            //Slab Recipes
+        slab(RecipeCategory.BUILDING_BLOCKS, ModBlocks.TEST_BLOCK.get(), ModBlocks.TEST_BLOCK.get());
+
+
+        /*ITEM RECIPES*/
+
         List<ItemLike> SILVER_SMELTABLES_INGOTS = List.of(
                 ModItems.RAW_SILVER,
                 ModBlocks.SILVER_ORE,
@@ -101,7 +113,9 @@ public class ModRecipeProvider extends RecipeProvider {
 
 
 
-        //SMELTING AND BLASTING
+        /*SMELTING AND BLASTING*/
+
+            //Smelting
         oreSmelting(SILVER_SMELTABLES_INGOTS,
 
                 RecipeCategory.MISC,
@@ -111,6 +125,8 @@ public class ModRecipeProvider extends RecipeProvider {
                 200,
                 "silver");
 
+
+            //Blasting
         oreBlasting(SILVER_SMELTABLES_INGOTS,
 
                 RecipeCategory.MISC,

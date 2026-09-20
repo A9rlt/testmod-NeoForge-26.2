@@ -25,7 +25,9 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
                 .add(ModBlocks.getRK(ModBlocks.NETHER_SILVER_ORE.get()))
                 .add(ModBlocks.getRK(ModBlocks.RAW_SILVER_BLOCK.get()))
                 .add(ModBlocks.getRK(ModBlocks.SILVER_BLOCK.get()))
-                .add(ModBlocks.getRK(ModBlocks.TEST_BLOCK.get()));
+                .add(ModBlocks.getRK(ModBlocks.TEST_BLOCK.get()))
+                .add(ModBlocks.getRK(ModBlocks.TEST_SLAB.get()))
+                .add(ModBlocks.getRK(ModBlocks.TEST_STAIRS.get()));
 
         tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(ModBlocks.getRK(ModBlocks.SILVER_ORE.get()))

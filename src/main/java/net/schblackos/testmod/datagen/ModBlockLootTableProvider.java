@@ -19,18 +19,25 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
     @Override
     protected void generate() {
 
-        //SOLID BLOCKS
+
+        /*SOLID DROPS*/
+
+        //Normal Blocks
         dropSelf(ModBlocks.SILVER_BLOCK.get());
         dropSelf(ModBlocks.RAW_SILVER_BLOCK.get());
 
+        //Advanced Blocks
+        dropSelf(ModBlocks.MAGIC_SPEED_BLOCK.get());
 
-        //TABLE DROPS
-        /*
-        createMultipleOreDrop minDrop maxDrop
-        */
+
+        /*DROPS FROM BLOCKS*/
+
+        //Ores
         add(ModBlocks.SILVER_ORE.get(),createOreDrop(ModBlocks.SILVER_ORE.get(), ModItems.RAW_SILVER.get()));
         add(ModBlocks.DEEPSLATE_SILVER_ORE.get(),createOreDrop(ModBlocks.DEEPSLATE_SILVER_ORE.get(), ModItems.RAW_SILVER.get()));
         add(ModBlocks.NETHER_SILVER_ORE.get(),createOreDrop(ModBlocks.NETHER_SILVER_ORE.get(), ModItems.RAW_SILVER.get()));
+
+        //createMultipleOreDrop minDrop maxDrop
     }
 
     //Converts the list of the blocks into a data type the call can use

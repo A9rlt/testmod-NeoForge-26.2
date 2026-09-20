@@ -27,6 +27,8 @@ public class ModModelProvider extends ModelProvider {
         //Advanced items
         itemModels.generateFlatItem(ModItems.METAL_DETECTOR.get(), ModelTemplates.FLAT_ITEM);
 
+
+
         /*BLOCK MODELS*/
 
         //Blocks
@@ -35,6 +37,9 @@ public class ModModelProvider extends ModelProvider {
         blockModels.createTrivialCube(ModBlocks.SILVER_ORE.get());
         blockModels.createTrivialCube(ModBlocks.DEEPSLATE_SILVER_ORE.get());
         blockModels.createTrivialCube(ModBlocks.NETHER_SILVER_ORE.get());
+
+        //Advanced Blocks
+        blockModels.createTrivialCube(ModBlocks.MAGIC_SPEED_BLOCK.get());
 
     }
 }

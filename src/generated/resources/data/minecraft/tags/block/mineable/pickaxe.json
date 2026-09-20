@@ -4,6 +4,7 @@
     "testmod:deepslate_silver_ore",
     "testmod:nether_silver_ore",
     "testmod:raw_silver_block",
-    "testmod:silver_block"
+    "testmod:silver_block",
+    "testmod:magic_speed_block"
   ]
 }

@@ -34,12 +34,15 @@ public class ModCreativeModeTabs {
 
                     /*ModBlocks*/
 
-                    //Blocks
+                    //NORMAL BLOCKS
                     output.accept(ModBlocks.RAW_SILVER_BLOCK);
                     output.accept(ModBlocks.SILVER_BLOCK);
                     output.accept(ModBlocks.DEEPSLATE_SILVER_ORE);
                     output.accept(ModBlocks.SILVER_ORE);
                     output.accept(ModBlocks.NETHER_SILVER_ORE);
+
+                    //ADVANCED BLOCKS
+                    output.accept(ModBlocks.MAGIC_SPEED_BLOCK);
 
                 }).build());
 

@@ -10,6 +10,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.schblackos.testmod.Testmod;
+import net.schblackos.testmod.block.custom.MagicSpeedBlock;
 import net.schblackos.testmod.item.ModItems;
 
 import java.util.function.Function;
@@ -20,9 +21,9 @@ public class ModBlocks {
 
     // Generates the new block alongside its properties
 
-    /*
-    .noLootTable
-    */
+    //.noLootTable
+
+    /*NORMAL BLOCKS*/
     public static final DeferredBlock<Block> SILVER_BLOCK = registerBlock("silver_block",
             properties -> new Block(
                     properties.strength(4f)
@@ -51,6 +52,16 @@ public class ModBlocks {
             properties -> new Block(
                     properties.strength(4f)
                             .sound(SoundType.NETHERRACK)
+                            .requiresCorrectToolForDrops()));
+
+
+
+
+    /*ADVANCED BLOCKS*/
+    public static final DeferredBlock<Block> MAGIC_SPEED_BLOCK = registerBlock("magic_speed_block",
+            properties -> new MagicSpeedBlock(
+                    properties.strength(4f)
+                            .sound(SoundType.AMETHYST)
                             .requiresCorrectToolForDrops()));
 
 

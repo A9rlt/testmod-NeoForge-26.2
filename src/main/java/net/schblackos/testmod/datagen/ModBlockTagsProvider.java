@@ -3,6 +3,7 @@ package net.schblackos.testmod.datagen;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
+import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.schblackos.testmod.Testmod;
@@ -58,5 +59,13 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
         tag(BlockTags.DOORS).add(ModBlocks.TEST_DOOR.getKey());
         tag(BlockTags.TRAPDOORS).add(ModBlocks.TEST_TRAPDOOR.getKey());
 
+
+        tag(ModTags.Blocks.NEEDS_SILVER_TOOL)
+                .add(ModBlocks.TEST_BLOCK.getKey())
+                .addTag(BlockTags.NEEDS_IRON_TOOL);
+
+        tag(ModTags.Blocks.INCORRECT_FOR_SILVER_TOOL)
+                .addTag(BlockTags.INCORRECT_FOR_IRON_TOOL)
+                .remove(ModTags.Blocks.NEEDS_SILVER_TOOL);
     }
 }

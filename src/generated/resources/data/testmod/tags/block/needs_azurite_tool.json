@@ -1,0 +1,6 @@
+{
+  "values": [
+    "testmod:test_block",
+    "#minecraft:needs_iron_tool"
+  ]
+}

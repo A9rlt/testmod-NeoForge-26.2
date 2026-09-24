@@ -1,15 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "equipment",
   "group": "silver",
   "key": {
+    "O": "minecraft:stick",
     "X": "testmod:raw_silver"
   },
   "pattern": [
-    "XXX",
-    "XXX",
-    "XXX"
+    "X",
+    "X",
+    "O"
   ],
   "result": {
-    "id": "testmod:raw_silver_block"
+    "id": "testmod:test_sword"
   }
 }

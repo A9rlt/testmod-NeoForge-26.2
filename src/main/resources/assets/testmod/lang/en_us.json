@@ -8,6 +8,13 @@
 
   "item.testmod.brown_coal": "Brown Coal",
 
+  "item.testmod.test_sword": "Test Sword",
+  "item.testmod.test_pickaxe": "Test Pickaxe",
+  "item.testmod.test_axe": "Test Axe",
+  "item.testmod.test_shovel": "Test Shovel",
+  "item.testmod.test_hoe": "Test Hoe",
+  "item.testmod.test_spear": "Test Spear",
+
 
   "block.testmod.silver_block": "Block of Silver",
   "block.testmod.raw_silver_block": "Block of Raw Silver",

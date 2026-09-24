@@ -4,6 +4,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.references.BlockItemIds;
 import net.minecraft.references.ItemIds;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.neoforged.neoforge.common.data.ItemTagsProvider;
 import net.schblackos.testmod.Testmod;
@@ -27,6 +28,14 @@ public class ModItemTagsProvider extends ItemTagsProvider {
                  .add(BlockItemIds.REDSTONE_DUST.item());
 
 
+         tag(ModTags.Items.SILVER_REPAIRABLE)
+                 .add(ModItems.SILVER_INGOT.getKey());
 
+         tag(ItemTags.SWORDS).add(ModItems.TEST_SWORD.getKey());
+         tag(ItemTags.PICKAXES).add(ModItems.TEST_PICKAXE.getKey());
+         tag(ItemTags.AXES).add(ModItems.TEST_AXE.getKey());
+         tag(ItemTags.SHOVELS).add(ModItems.TEST_SHOVEL.getKey());
+         tag(ItemTags.HOES).add(ModItems.TEST_HOE.getKey());
+         tag(ItemTags.SPEARS).add(ModItems.TEST_SPEAR.getKey());
     }
 }

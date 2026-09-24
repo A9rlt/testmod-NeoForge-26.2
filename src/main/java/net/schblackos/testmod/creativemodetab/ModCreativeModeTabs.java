@@ -38,6 +38,14 @@ public class ModCreativeModeTabs {
                         //FUELS
                     output.accept(ModItems.BROWN_COAL);
 
+                        //TOOLS
+                    output.accept(ModItems.TEST_SWORD);
+                    output.accept(ModItems.TEST_PICKAXE);
+                    output.accept(ModItems.TEST_SHOVEL);
+                    output.accept(ModItems.TEST_AXE);
+                    output.accept(ModItems.TEST_HOE);
+                    output.accept(ModItems.TEST_SPEAR);
+
 
                     /*ModBlocks*/
 

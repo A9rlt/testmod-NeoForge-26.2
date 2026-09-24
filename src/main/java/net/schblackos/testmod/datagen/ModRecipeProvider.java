@@ -8,6 +8,7 @@ import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.AbstractCookingRecipe;
 import net.minecraft.world.item.crafting.CookingBookCategory;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -62,18 +63,87 @@ public class ModRecipeProvider extends RecipeProvider {
                 .group("silver")
                 .save(output);
 
+        shaped(
+                RecipeCategory.TOOLS,
+                ModItems.TEST_SWORD.get())
 
+                .pattern("X")
+                .pattern("X")
+                .pattern("O")
+                .define('X', ModItems.RAW_SILVER.get())
+                .define('O', Items.STICK)
+
+                .unlockedBy(getHasName(ModItems.SILVER_INGOT.get()), has(ModItems.SILVER_INGOT))
+                .group("silver")
+                .save(output);
 
         shaped(
-                RecipeCategory.MISC,
-                ModBlocks.RAW_SILVER_BLOCK.get())
+                RecipeCategory.TOOLS,
+                ModItems.TEST_PICKAXE.get())
 
                 .pattern("XXX")
-                .pattern("XXX")
-                .pattern("XXX")
+                .pattern(" O ")
+                .pattern(" O ")
                 .define('X', ModItems.RAW_SILVER.get())
+                .define('O', Items.STICK)
 
-                .unlockedBy(getHasName(ModItems.RAW_SILVER.get()), has(ModItems.RAW_SILVER))
+                .unlockedBy(getHasName(ModItems.SILVER_INGOT.get()), has(ModItems.SILVER_INGOT))
+                .group("silver")
+                .save(output);
+
+        shaped(
+                RecipeCategory.TOOLS,
+                ModItems.TEST_AXE.get())
+
+                .pattern("XX")
+                .pattern("OX")
+                .pattern("O ")
+                .define('X', ModItems.RAW_SILVER.get())
+                .define('O', Items.STICK)
+
+                .unlockedBy(getHasName(ModItems.SILVER_INGOT.get()), has(ModItems.SILVER_INGOT))
+                .group("silver")
+                .save(output);
+
+        shaped(
+                RecipeCategory.TOOLS,
+                ModItems.TEST_SHOVEL.get())
+
+                .pattern("X")
+                .pattern("O")
+                .pattern("O")
+                .define('X', ModItems.RAW_SILVER.get())
+                .define('O', Items.STICK)
+
+                .unlockedBy(getHasName(ModItems.SILVER_INGOT.get()), has(ModItems.SILVER_INGOT))
+                .group("silver")
+                .save(output);
+
+        shaped(
+                RecipeCategory.TOOLS,
+                ModItems.TEST_HOE.get())
+
+                .pattern("XX")
+                .pattern("O ")
+                .pattern("O ")
+                .define('X', ModItems.RAW_SILVER.get())
+                .define('O', Items.STICK)
+
+                .unlockedBy(getHasName(ModItems.SILVER_INGOT.get()), has(ModItems.SILVER_INGOT))
+                .group("silver")
+                .save(output);
+
+        shaped(
+                RecipeCategory.TOOLS,
+                ModItems.TEST_SPEAR.get())
+
+                .pattern("  X")
+                .pattern(" O ")
+                .pattern("O  ")
+                .define('X', ModItems.RAW_SILVER.get())
+                .define('O', Items.STICK)
+
+                .unlockedBy(getHasName(ModItems.SILVER_INGOT.get()), has(ModItems.SILVER_INGOT))
                 .group("silver")
                 .save(output);
 

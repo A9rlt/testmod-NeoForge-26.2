@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "silver",
+  "key": {
+    "O": "minecraft:stick",
+    "X": "testmod:raw_silver"
+  },
+  "pattern": [
+    "XX",
+    "O ",
+    "O "
+  ],
+  "result": {
+    "id": "testmod:test_hoe"
+  }
+}

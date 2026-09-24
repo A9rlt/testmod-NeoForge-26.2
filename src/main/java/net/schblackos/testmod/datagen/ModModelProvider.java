@@ -33,7 +33,13 @@ public class ModModelProvider extends ModelProvider {
             //Fuels
         itemModels.generateFlatItem(ModItems.BROWN_COAL.get(), ModelTemplates.FLAT_ITEM);
 
-
+            //Tools
+        itemModels.generateFlatItem(ModItems.TEST_SWORD.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        itemModels.generateFlatItem(ModItems.TEST_PICKAXE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        itemModels.generateFlatItem(ModItems.TEST_AXE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        itemModels.generateFlatItem(ModItems.TEST_SHOVEL.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        itemModels.generateFlatItem(ModItems.TEST_HOE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        itemModels.generateSpear(ModItems.TEST_SPEAR.get());
 
         /*BLOCK MODELS*/
 

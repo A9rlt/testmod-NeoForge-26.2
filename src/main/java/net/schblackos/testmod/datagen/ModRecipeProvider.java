@@ -96,6 +96,15 @@ public class ModRecipeProvider extends RecipeProvider {
             //Slab Recipes
         slab(RecipeCategory.BUILDING_BLOCKS, ModBlocks.TEST_SLAB.get(), ModBlocks.SILVER_BLOCK.get());
 
+            //Button Recipes
+        buttonBuilder(ModBlocks.TEST_BUTTON.get(), Ingredient.of(ModItems.SILVER_INGOT.get()))
+
+                .unlockedBy(getHasName(ModItems.SILVER_INGOT.get()), has(ModBlocks.SILVER_BLOCK))
+                .group("test_blocks")
+                .save(output);
+
+            //Pressure Plates Recipes
+        pressurePlate(ModBlocks.TEST_PRESSURE_PLATE.get(), ModItems.SILVER_INGOT.get());
 
         /*ITEM RECIPES*/
 

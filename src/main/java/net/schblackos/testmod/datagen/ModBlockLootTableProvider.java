@@ -41,9 +41,10 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         //Trapdoors
 
         //Buttons
+        dropSelf(ModBlocks.TEST_BUTTON.get());
 
         //Pressure Plates
-
+        dropSelf(ModBlocks.TEST_PRESSURE_PLATE.get());
 
 
         //Advanced Blocks

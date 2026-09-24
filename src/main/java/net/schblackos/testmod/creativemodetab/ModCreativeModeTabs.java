@@ -61,8 +61,10 @@ public class ModCreativeModeTabs {
                         //Trapdoors
 
                         //Buttons
+                    output.accept(ModBlocks.TEST_BUTTON);
 
                         //Pressure Plates
+                    output.accept(ModBlocks.TEST_PRESSURE_PLATE);
 
                         //ADVANCED BLOCKS
                     output.accept(ModBlocks.TEST_BLOCK);

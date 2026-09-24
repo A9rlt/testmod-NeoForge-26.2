@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "group": "test_blocks",
+  "ingredients": [
+    "testmod:silver_ingot"
+  ],
+  "result": {
+    "id": "testmod:test_button"
+  }
+}

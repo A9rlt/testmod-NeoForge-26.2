@@ -21,6 +21,10 @@
 
   "block.testmod.test_slabs": "Test Stairs",
 
+  "block.testmod.test_pressure_plate": "Test Pressure Plate",
+
+  "block.testmod.test_button": "Test Button",
+
 
   "creativetab.testmod.silver_items": "Silver Items",
   "creativetab.testmod.silver_blocks": "Silver Blocks",

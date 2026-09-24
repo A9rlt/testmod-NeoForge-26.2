@@ -7,11 +7,11 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.component.TooltipDisplay;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.SlabBlock;
-import net.minecraft.world.level.block.SoundType;
-import net.minecraft.world.level.block.StairBlock;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.properties.BlockSetType;
+import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
+import net.minecraft.world.level.material.PushReaction;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -97,7 +97,25 @@ public class ModBlocks {
 
         //Buttons
 
+    public static final DeferredBlock<Block> TEST_BUTTON = registerBlock("test_button",
+            properties -> new ButtonBlock(BlockSetType.IRON,10,properties
+                    .forceSolidOn()
+                    .instrument(NoteBlockInstrument.BASS)
+                    .noCollision()
+                    .strength(0.5f)
+                    .pushReaction(PushReaction.DESTROY)));
+
+
+
         //Pressure Plates
+
+    public static final DeferredBlock<Block> TEST_PRESSURE_PLATE = registerBlock("test_pressure_plate",
+            properties -> new PressurePlateBlock(BlockSetType.IRON, properties
+                    .forceSolidOn()
+                    .instrument(NoteBlockInstrument.BASS)
+                    .noCollision()
+                    .strength(0.5f)
+                    .pushReaction(PushReaction.DESTROY)));
 
 
 

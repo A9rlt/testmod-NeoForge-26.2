@@ -37,5 +37,18 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
 
         tag(ModTags.Blocks.METAL_DETECTABLES)
                 .addTag(Tags.Blocks.ORES);
+
+
+        tag(BlockTags.STAIRS)
+                .add(ModBlocks.getRK(ModBlocks.TEST_STAIRS.get()));
+
+        tag(BlockTags.SLABS)
+                .add(ModBlocks.getRK(ModBlocks.TEST_SLAB.get()));
+
+        tag(BlockTags.PRESSURE_PLATES)
+                .add(ModBlocks.getRK(ModBlocks.TEST_PRESSURE_PLATE.get()));
+
+        tag(BlockTags.BUTTONS)
+                .add(ModBlocks.getRK(ModBlocks.TEST_BUTTON.get()));
     }
 }

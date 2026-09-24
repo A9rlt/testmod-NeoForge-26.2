@@ -5,47 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="84fcc49b-ec9b-4fa9-92d6-cb6c1f611e17" name="Changes" comment="#14.2 NeoForge Modding Tutorial - Stairs and Slabs fix &#10;( you cant use advanced blocks lol im retarded ahah)">
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/assets/testmod/blockstates/test_slab.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/assets/testmod/blockstates/test_stairs.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/assets/testmod/items/test_slab.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/assets/testmod/items/test_stairs.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/assets/testmod/models/block/test_slab.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/assets/testmod/models/block/test_slab_top.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/assets/testmod/models/block/test_stairs.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/assets/testmod/models/block/test_stairs_inner.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/assets/testmod/models/block/test_stairs_outer.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/data/testmod/advancement/recipes/building_blocks/test_slab.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/data/testmod/advancement/recipes/building_blocks/test_stairs.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/data/testmod/loot_table/blocks/test_slab.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/data/testmod/loot_table/blocks/test_stairs.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/data/testmod/recipe/test_slab.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/generated/resources/data/testmod/recipe/test_stairs.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" afterPath="$PROJECT_DIR$/.gitattributes" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/build.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/build.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TEMPLATE_LICENSE.txt" beforeDir="false" afterPath="$PROJECT_DIR$/TEMPLATE_LICENSE.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/minecraft/tags/block/mineable/pickaxe.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/minecraft/tags/block/mineable/pickaxe.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/Config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/Testmod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/Testmod.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/TestmodClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/TestModClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/block/ModBlocks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/block/ModBlocks.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/creativemodetab/ModCreativeModeTabs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/creativemodetab/ModCreativeModeTabs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/datagen/ModBlockLootTableProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/datagen/ModBlockLootTableProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/datagen/ModBlockTagsProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/datagen/ModBlockTagsProvider.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/datagen/ModModelProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/datagen/ModModelProvider.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/datagen/ModRecipeProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/datagen/ModRecipeProvider.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/assets/testmod/lang/en_us.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/testmod/lang/en_us.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/testmod.mixins.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/testmod.mixins.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/templates/META-INF/neoforge.mods.toml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/templates/META-INF/neoforge.mods.toml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,6 +36,11 @@
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="Minecraft Mod" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Minecraft Mod" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
               </path>
             </expand>
             <select />
@@ -115,6 +87,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Gradle.GitHub Repos [:net.neoforged.devlaunch.Main.main()].executor": "Run",
+    "Gradle.Load Gradle Dependencies.executor": "Run",
     "Gradle.Minecraft Mod [:net.neoforged.devlaunch.Main.main()].executor": "Run",
     "Gradle.Upgrade Gradle wrapper.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",

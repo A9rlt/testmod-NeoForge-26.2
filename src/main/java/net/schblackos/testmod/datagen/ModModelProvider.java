@@ -50,8 +50,11 @@ public class ModModelProvider extends ModelProvider {
                 .stairs(ModBlocks.TEST_STAIRS.get())
                 .slab(ModBlocks.TEST_SLAB.get())
                 .pressurePlate(ModBlocks.TEST_PRESSURE_PLATE.get())
-                .button(ModBlocks.TEST_BUTTON.get());
-                
+                .button(ModBlocks.TEST_BUTTON.get())
+                .fence(ModBlocks.TEST_FENCE.get())
+                .fenceGate(ModBlocks.TEST_FENCE_GATE.get())
+                .wall(ModBlocks.TEST_WALL.get());
+
 
 
             //Advanced Blocks

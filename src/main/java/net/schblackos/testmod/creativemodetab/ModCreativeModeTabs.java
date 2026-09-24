@@ -17,7 +17,7 @@ public class ModCreativeModeTabs {
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, Testmod.MODID);
 
     // Adds tab for the items use .withTabsBefore/After to choose where to place the tabs
-    public static final Supplier<CreativeModeTab> SILVER_ITEMS_TAB = CREATIVE_MODE_TABS.register("silver_items_tab",
+    public static final Supplier<CreativeModeTab> TESTMOD_TAB = CREATIVE_MODE_TABS.register("testmod_tab",
         () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.SILVER_INGOT.get()))
                 .title(Component.translatable("creativetab.testmod.silver_items"))
                 .displayItems((itemDisplayParameters, output) -> {
@@ -55,7 +55,13 @@ public class ModCreativeModeTabs {
                     output.accept(ModBlocks.TEST_STAIRS);
 
                         //Fences
+                    output.accept(ModBlocks.TEST_FENCE);
 
+                        //Fencegates
+                    output.accept(ModBlocks.TEST_FENCE_GATE);
+
+                        //Walls
+                    output.accept(ModBlocks.TEST_WALL);
                         //Doors
 
                         //Trapdoors

@@ -50,5 +50,10 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
 
         tag(BlockTags.BUTTONS)
                 .add(ModBlocks.getRK(ModBlocks.TEST_BUTTON.get()));
+
+        //Allows connection to other fences/walls (vanilla)
+        tag(BlockTags.FENCES).add(ModBlocks.TEST_FENCE.getKey());
+        tag(BlockTags.FENCE_GATES).add(ModBlocks.TEST_FENCE_GATE.getKey());
+        tag(BlockTags.WALLS).add(ModBlocks.TEST_WALL.getKey());
     }
 }

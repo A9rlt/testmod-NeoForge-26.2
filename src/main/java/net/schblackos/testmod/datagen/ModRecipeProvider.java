@@ -2,6 +2,7 @@ package net.schblackos.testmod.datagen;
 
 import com.jcraft.jorbis.Block;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.data.BlockFamily;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
@@ -106,6 +107,23 @@ public class ModRecipeProvider extends RecipeProvider {
             //Pressure Plates Recipes
         pressurePlate(ModBlocks.TEST_PRESSURE_PLATE.get(), ModItems.SILVER_INGOT.get());
 
+            //Fence recipes
+        fenceBuilder(ModBlocks.TEST_FENCE.get(), Ingredient.of(ModItems.SILVER_INGOT))
+
+                .unlockedBy(getHasName(ModItems.SILVER_INGOT.get()), has(ModBlocks.SILVER_BLOCK))
+                .group("test_blocks")
+                .save(output);
+
+            //Fencegates
+        fenceGateBuilder(ModBlocks.TEST_FENCE_GATE.get(), Ingredient.of(ModItems.SILVER_INGOT))
+
+                .unlockedBy(getHasName(ModItems.SILVER_INGOT.get()), has(ModBlocks.SILVER_BLOCK))
+                .group("test_blocks")
+                .save(output);
+
+            //Walls
+        wall(RecipeCategory.BUILDING_BLOCKS, ModBlocks.TEST_WALL.get(), ModBlocks.SILVER_BLOCK.get());
+
         /*ITEM RECIPES*/
 
         List<ItemLike> SILVER_SMELTABLES_INGOTS = List.of(
@@ -119,7 +137,6 @@ public class ModRecipeProvider extends RecipeProvider {
         List<ItemLike> SMELTABLES_BLOCKS = List.of(
                 ModItems.RAW_SILVER
         );
-
 
 
         /*SMELTING AND BLASTING*/

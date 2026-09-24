@@ -21,12 +21,18 @@
 
   "block.testmod.test_slabs": "Test Stairs",
 
+  "block.testmod.test_fence": "Test Fence",
+
+  "block.testmod.test_fence_gate": "Test Fence Gate",
+
+  "block.testmod.test_wall": "Test Wall",
+
   "block.testmod.test_pressure_plate": "Test Pressure Plate",
 
   "block.testmod.test_button": "Test Button",
 
 
-  "creativetab.testmod.silver_items": "Silver Items",
+  "creativetab.testmod.testmod_tab": "Testmod",
   "creativetab.testmod.silver_blocks": "Silver Blocks",
 
 

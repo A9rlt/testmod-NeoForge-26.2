@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "group": "test_blocks",
+  "key": {
+    "#": "minecraft:stick",
+    "W": "testmod:silver_ingot"
+  },
+  "pattern": [
+    "#W#",
+    "#W#"
+  ],
+  "result": {
+    "id": "testmod:test_fence_gate"
+  }
+}

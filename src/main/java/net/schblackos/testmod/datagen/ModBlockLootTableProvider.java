@@ -35,6 +35,13 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
 
 
         //Fences
+        dropSelf(ModBlocks.TEST_FENCE.get());
+
+        //Fencegates
+        dropSelf(ModBlocks.TEST_FENCE_GATE.get());
+
+        //Walls
+        dropSelf(ModBlocks.TEST_WALL.get());
 
         //Doors
 

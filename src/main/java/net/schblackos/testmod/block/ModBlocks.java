@@ -1,8 +1,11 @@
 package net.schblackos.testmod.block;
 
+import net.minecraft.client.resources.sounds.Sound;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
@@ -11,8 +14,10 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
+import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.PushReaction;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.common.data.SoundDefinition;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.schblackos.testmod.Testmod;
@@ -90,6 +95,30 @@ public class ModBlocks {
                             .requiresCorrectToolForDrops()));
 
         //Fences
+
+    public static final DeferredBlock<Block> TEST_FENCE = registerBlock("test_fence",
+            properties -> new FenceBlock(
+                    properties
+                            .strength(2f)
+                            .sound(SoundType.AMETHYST)
+                            .requiresCorrectToolForDrops()));
+
+        //Fence Gates
+
+    public static final DeferredBlock<Block> TEST_FENCE_GATE = registerBlock("test_fence_gate",
+            properties -> new FenceGateBlock(WoodType.OAK,
+                    properties
+                            .strength(2f)
+                            .sound(SoundType.AMETHYST)
+                            .requiresCorrectToolForDrops()));
+
+        //Walls
+        public static final DeferredBlock<Block> TEST_WALL = registerBlock("test_wall",
+                properties -> new WallBlock(
+                        properties
+                                .strength(2f)
+                                .sound(SoundType.AMETHYST)
+                                .requiresCorrectToolForDrops()));
 
         //Doors
 

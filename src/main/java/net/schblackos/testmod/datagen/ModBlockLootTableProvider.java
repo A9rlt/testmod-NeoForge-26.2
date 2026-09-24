@@ -31,8 +31,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
 
         //Slabs
         dropSelf(ModBlocks.TEST_SLAB.get());
-        add(ModBlocks.TEST_SLAB.get(), block -> createSlabItemTable(block));
-
+        add(ModBlocks.TEST_SLAB.get(), this::createSlabItemTable);
 
         //Fences
         dropSelf(ModBlocks.TEST_FENCE.get());
@@ -44,8 +43,11 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.TEST_WALL.get());
 
         //Doors
+        dropSelf(ModBlocks.TEST_DOOR.get());
+        add(ModBlocks.TEST_DOOR.get(), this::createDoorTable);
 
         //Trapdoors
+        dropSelf(ModBlocks.TEST_TRAPDOOR.get());
 
         //Buttons
         dropSelf(ModBlocks.TEST_BUTTON.get());

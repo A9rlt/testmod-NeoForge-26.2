@@ -88,7 +88,7 @@ public class ModRecipeProvider extends RecipeProvider {
 
 
             //Stair Recipes
-        stairBuilder(ModBlocks.TEST_STAIRS.get(), Ingredient.of(ModBlocks.SILVER_BLOCK))
+        stairBuilder(ModBlocks.TEST_STAIRS.get(), Ingredient.of(ModBlocks.SILVER_BLOCK.get()))
 
                 .unlockedBy(getHasName(ModBlocks.SILVER_BLOCK.get()), has(ModBlocks.SILVER_BLOCK))
                 .group("test_blocks")
@@ -108,14 +108,14 @@ public class ModRecipeProvider extends RecipeProvider {
         pressurePlate(ModBlocks.TEST_PRESSURE_PLATE.get(), ModItems.SILVER_INGOT.get());
 
             //Fence recipes
-        fenceBuilder(ModBlocks.TEST_FENCE.get(), Ingredient.of(ModItems.SILVER_INGOT))
+        fenceBuilder(ModBlocks.TEST_FENCE.get(), Ingredient.of(ModItems.SILVER_INGOT.get()))
 
                 .unlockedBy(getHasName(ModItems.SILVER_INGOT.get()), has(ModBlocks.SILVER_BLOCK))
                 .group("test_blocks")
                 .save(output);
 
             //Fencegates
-        fenceGateBuilder(ModBlocks.TEST_FENCE_GATE.get(), Ingredient.of(ModItems.SILVER_INGOT))
+        fenceGateBuilder(ModBlocks.TEST_FENCE_GATE.get(), Ingredient.of(ModItems.SILVER_INGOT.get()))
 
                 .unlockedBy(getHasName(ModItems.SILVER_INGOT.get()), has(ModBlocks.SILVER_BLOCK))
                 .group("test_blocks")
@@ -123,6 +123,22 @@ public class ModRecipeProvider extends RecipeProvider {
 
             //Walls
         wall(RecipeCategory.BUILDING_BLOCKS, ModBlocks.TEST_WALL.get(), ModBlocks.SILVER_BLOCK.get());
+
+            //Doors
+        doorBuilder(ModBlocks.TEST_DOOR.get(), Ingredient.of(ModItems.SILVER_INGOT.get()))
+
+                .unlockedBy(getHasName(ModItems.SILVER_INGOT.get()), has(ModBlocks.SILVER_BLOCK))
+                .group("test_blocks")
+                .save(output);
+
+            //Trapdoors
+        trapdoorBuilder(ModBlocks.TEST_TRAPDOOR.get(), Ingredient.of(ModItems.SILVER_INGOT.get()))
+
+                .unlockedBy(getHasName(ModItems.SILVER_INGOT.get()), has(ModBlocks.SILVER_BLOCK))
+                .group("test_blocks")
+                .save(output);
+
+
 
         /*ITEM RECIPES*/
 

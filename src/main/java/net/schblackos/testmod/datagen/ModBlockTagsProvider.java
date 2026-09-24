@@ -55,5 +55,8 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
         tag(BlockTags.FENCES).add(ModBlocks.TEST_FENCE.getKey());
         tag(BlockTags.FENCE_GATES).add(ModBlocks.TEST_FENCE_GATE.getKey());
         tag(BlockTags.WALLS).add(ModBlocks.TEST_WALL.getKey());
+        tag(BlockTags.DOORS).add(ModBlocks.TEST_DOOR.getKey());
+        tag(BlockTags.TRAPDOORS).add(ModBlocks.TEST_TRAPDOOR.getKey());
+
     }
 }

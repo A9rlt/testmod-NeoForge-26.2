@@ -53,8 +53,10 @@ public class ModModelProvider extends ModelProvider {
                 .button(ModBlocks.TEST_BUTTON.get())
                 .fence(ModBlocks.TEST_FENCE.get())
                 .fenceGate(ModBlocks.TEST_FENCE_GATE.get())
-                .wall(ModBlocks.TEST_WALL.get());
-
+                .wall(ModBlocks.TEST_WALL.get())
+                .door(ModBlocks.TEST_DOOR.get())
+                .trapdoor(ModBlocks.TEST_TRAPDOOR.get());
+                //Trapdoor has to be the final in a family cuz it pulls a void
 
 
             //Advanced Blocks

@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="84fcc49b-ec9b-4fa9-92d6-cb6c1f611e17" name="Changes" comment="#15.1 NeoForge Modding Tutorial - Random BS">
+    <list default="true" id="84fcc49b-ec9b-4fa9-92d6-cb6c1f611e17" name="Changes" comment="#16 NeoForge Modding Tutorial - Fences Gates and Walls &#10;(family for recipes?)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/block/ModBlocks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/block/ModBlocks.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/creativemodetab/ModCreativeModeTabs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/creativemodetab/ModCreativeModeTabs.java" afterDir="false" />
@@ -279,7 +279,8 @@
     <MESSAGE value="#14.2 NeoForge Modding Tutorial - Stairs and Slabs fix &#10;( you cant use advanced blocks lol im retarded ahah)" />
     <MESSAGE value="#15 NeoForge Modding Tutorial - Buttons and Pressure Plates" />
     <MESSAGE value="#15.1 NeoForge Modding Tutorial - Random BS" />
-    <option name="LAST_COMMIT_MESSAGE" value="#15.1 NeoForge Modding Tutorial - Random BS" />
+    <MESSAGE value="#16 NeoForge Modding Tutorial - Fences Gates and Walls &#10;(family for recipes?)" />
+    <option name="LAST_COMMIT_MESSAGE" value="#16 NeoForge Modding Tutorial - Fences Gates and Walls &#10;(family for recipes?)" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

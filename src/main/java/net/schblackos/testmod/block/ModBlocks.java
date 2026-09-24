@@ -121,8 +121,22 @@ public class ModBlocks {
                                 .requiresCorrectToolForDrops()));
 
         //Doors
+        public static final DeferredBlock<Block> TEST_DOOR = registerBlock("test_door",
+                properties -> new DoorBlock(BlockSetType.IRON,
+                        properties
+                                .strength(2f)
+                                .sound(SoundType.AMETHYST)
+                                .requiresCorrectToolForDrops()
+                                .noOcclusion()/*Allows see through pixles without xray*/));
 
         //Trapdoors
+        public static final DeferredBlock<Block> TEST_TRAPDOOR = registerBlock("test_trapdoor",
+                properties -> new TrapDoorBlock(BlockSetType.IRON,
+                        properties
+                                .strength(2f)
+                                .sound(SoundType.AMETHYST)
+                                .requiresCorrectToolForDrops()
+                                .noOcclusion()/*Allows see through pixles without xray*/));
 
         //Buttons
 

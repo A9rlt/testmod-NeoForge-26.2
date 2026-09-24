@@ -19,7 +19,7 @@
 
   "block.testmod.test_stairs": "Test Stairs",
 
-  "block.testmod.test_slabs": "Test Stairs",
+  "block.testmod.test_slab": "Test Slab",
 
   "block.testmod.test_fence": "Test Fence",
 
@@ -31,9 +31,14 @@
 
   "block.testmod.test_button": "Test Button",
 
+  "block.testmod.test_door": "Test Door",
+
+  "block.testmod.test_trapdoor": "Test Trapdoor",
+
 
   "creativetab.testmod.testmod_tab": "Testmod",
   "creativetab.testmod.silver_blocks": "Silver Blocks",
+  "creativetab.testmod.silver_items": "Testmod",
 
 
   "tooltip.testmod.metal_detector.tootltip": "Detects Gold and Iron.",

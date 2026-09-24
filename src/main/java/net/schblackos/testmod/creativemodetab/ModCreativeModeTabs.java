@@ -62,9 +62,12 @@ public class ModCreativeModeTabs {
 
                         //Walls
                     output.accept(ModBlocks.TEST_WALL);
+
                         //Doors
+                    output.accept(ModBlocks.TEST_DOOR);
 
                         //Trapdoors
+                    output.accept(ModBlocks.TEST_TRAPDOOR);
 
                         //Buttons
                     output.accept(ModBlocks.TEST_BUTTON);

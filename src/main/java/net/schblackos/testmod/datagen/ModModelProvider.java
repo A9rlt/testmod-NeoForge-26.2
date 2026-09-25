@@ -4,10 +4,16 @@ package net.schblackos.testmod.datagen;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.ModelProvider;
+import net.minecraft.client.data.models.blockstates.MultiVariantGenerator;
+import net.minecraft.client.data.models.model.ModelTemplate;
 import net.minecraft.client.data.models.model.ModelTemplates;
+import net.minecraft.client.data.models.model.TextureMapping;
+import net.minecraft.client.data.models.model.TexturedModel;
 import net.minecraft.data.PackOutput;
+import net.neoforged.fml.common.Mod;
 import net.schblackos.testmod.Testmod;
 import net.schblackos.testmod.block.ModBlocks;
+import net.schblackos.testmod.block.custom.TestLamp;
 import net.schblackos.testmod.item.ModArmorMaterial;
 import net.schblackos.testmod.item.ModItems;
 
@@ -78,6 +84,14 @@ public class ModModelProvider extends ModelProvider {
 
             //Advanced Blocks
         blockModels.createTrivialCube(ModBlocks.TEST_BLOCK.get());
+
+        blockModels.blockStateOutput.accept(
+                MultiVariantGenerator.dispatch(ModBlocks.TEST_LAMP.get()).with(BlockModelGenerators.createBooleanModelDispatch(TestLamp.CLICKED,
+                        BlockModelGenerators.plainVariant(blockModels.createSuffixedVariant(ModBlocks.TEST_LAMP.get(), "_on",
+                                ModelTemplates.CUBE_ALL, TextureMapping ::cube)),
+                        BlockModelGenerators.plainVariant(TexturedModel.CUBE.create(ModBlocks.TEST_LAMP.get(), blockModels.modelOutput))))
+
+        );
 
     }
 }

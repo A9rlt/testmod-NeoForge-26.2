@@ -7,6 +7,7 @@
     "testmod:silver_block",
     "testmod:test_block",
     "testmod:test_slab",
-    "testmod:test_stairs"
+    "testmod:test_stairs",
+    "testmod:test_lamp"
   ]
 }

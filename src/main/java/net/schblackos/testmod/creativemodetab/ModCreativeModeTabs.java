@@ -55,7 +55,7 @@ public class ModCreativeModeTabs {
 
                     /*ModBlocks*/
 
-                        //NORMAL BLOCKS
+                    //NORMAL BLOCKS
                     output.accept(ModBlocks.RAW_SILVER_BLOCK);
                     output.accept(ModBlocks.SILVER_BLOCK);
                     output.accept(ModBlocks.DEEPSLATE_SILVER_ORE);
@@ -89,8 +89,13 @@ public class ModCreativeModeTabs {
                         //Pressure Plates
                     output.accept(ModBlocks.TEST_PRESSURE_PLATE);
 
-                        //ADVANCED BLOCKS
+                    //ADVANCED BLOCKS
+
+                        //Test Block
                     output.accept(ModBlocks.TEST_BLOCK);
+
+                        //Test Lamp
+                    output.accept(ModBlocks.TEST_LAMP);
 
                 }).build());
 

@@ -28,7 +28,8 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
                 .add(ModBlocks.getRK(ModBlocks.SILVER_BLOCK.get()))
                 .add(ModBlocks.getRK(ModBlocks.TEST_BLOCK.get()))
                 .add(ModBlocks.getRK(ModBlocks.TEST_SLAB.get()))
-                .add(ModBlocks.getRK(ModBlocks.TEST_STAIRS.get()));
+                .add(ModBlocks.getRK(ModBlocks.TEST_STAIRS.get()))
+                .add(ModBlocks.getRK(ModBlocks.TEST_LAMP.get()));
 
         tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(ModBlocks.getRK(ModBlocks.SILVER_ORE.get()))

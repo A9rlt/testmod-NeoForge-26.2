@@ -12,6 +12,7 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.block.state.properties.WoodType;
@@ -22,6 +23,7 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.schblackos.testmod.Testmod;
 import net.schblackos.testmod.block.custom.TestBlock;
+import net.schblackos.testmod.block.custom.TestLamp;
 import net.schblackos.testmod.item.ModItems;
 
 import java.util.function.Consumer;
@@ -113,7 +115,7 @@ public class ModBlocks {
                             .requiresCorrectToolForDrops()));
 
         //Walls
-        public static final DeferredBlock<Block> TEST_WALL = registerBlock("test_wall",
+    public static final DeferredBlock<Block> TEST_WALL = registerBlock("test_wall",
                 properties -> new WallBlock(
                         properties
                                 .strength(2f)
@@ -121,7 +123,7 @@ public class ModBlocks {
                                 .requiresCorrectToolForDrops()));
 
         //Doors
-        public static final DeferredBlock<Block> TEST_DOOR = registerBlock("test_door",
+    public static final DeferredBlock<Block> TEST_DOOR = registerBlock("test_door",
                 properties -> new DoorBlock(BlockSetType.IRON,
                         properties
                                 .strength(2f)
@@ -130,7 +132,7 @@ public class ModBlocks {
                                 .noOcclusion()/*Allows see through pixles without xray*/));
 
         //Trapdoors
-        public static final DeferredBlock<Block> TEST_TRAPDOOR = registerBlock("test_trapdoor",
+    public static final DeferredBlock<Block> TEST_TRAPDOOR = registerBlock("test_trapdoor",
                 properties -> new TrapDoorBlock(BlockSetType.IRON,
                         properties
                                 .strength(2f)
@@ -163,12 +165,23 @@ public class ModBlocks {
 
 
     /*ADVANCED BLOCKS*/
+
+            //Test Block
     public static final DeferredBlock<Block> TEST_BLOCK = registerBlock("test_block",
             properties -> new TestBlock(
                     properties.strength(4f)
                             .sound(SoundType.AMETHYST)
                             .requiresCorrectToolForDrops()),
             Component.translatable("tooltip.testmod.magic_speed_block.tooltip"));
+
+
+            //Test Lamp
+    public static final DeferredBlock<Block> TEST_LAMP = registerBlock("test_lamp",
+            properties -> new TestLamp(
+                    properties.strength(2f)
+                            .sound(SoundType.AMETHYST)
+                            .requiresCorrectToolForDrops()
+                            .lightLevel(state -> state.getValue(TestLamp.CLICKED) ? 15 : 0)));
 
 
 

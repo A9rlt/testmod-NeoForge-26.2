@@ -22,42 +22,47 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
 
         /*SOLID DROPS*/
 
-        //Normal Blocks
+            //Normal Blocks
         dropSelf(ModBlocks.SILVER_BLOCK.get());
         dropSelf(ModBlocks.RAW_SILVER_BLOCK.get());
 
-        //Stairs
+            //Stairs
         dropSelf(ModBlocks.TEST_STAIRS.get());
 
-        //Slabs
+            //Slabs
         dropSelf(ModBlocks.TEST_SLAB.get());
         add(ModBlocks.TEST_SLAB.get(), this::createSlabItemTable);
 
-        //Fences
+            //Fences
         dropSelf(ModBlocks.TEST_FENCE.get());
 
-        //Fencegates
+            //Fencegates
         dropSelf(ModBlocks.TEST_FENCE_GATE.get());
 
-        //Walls
+            //Walls
         dropSelf(ModBlocks.TEST_WALL.get());
 
-        //Doors
+            //Doors
         dropSelf(ModBlocks.TEST_DOOR.get());
         add(ModBlocks.TEST_DOOR.get(), this::createDoorTable);
 
-        //Trapdoors
+            //Trapdoors
         dropSelf(ModBlocks.TEST_TRAPDOOR.get());
 
-        //Buttons
+            //Buttons
         dropSelf(ModBlocks.TEST_BUTTON.get());
 
-        //Pressure Plates
+            //Pressure Plates
         dropSelf(ModBlocks.TEST_PRESSURE_PLATE.get());
 
 
-        //Advanced Blocks
+        //ADVANCED BLOCKS
+
+            //Test Block
         dropSelf(ModBlocks.TEST_BLOCK.get());
+
+            //Test Lamp
+        dropSelf(ModBlocks.TEST_LAMP.get());
 
 
         /*DROPS FROM BLOCKS*/

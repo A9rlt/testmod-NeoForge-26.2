@@ -98,7 +98,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("XX")
                 .pattern("OX")
                 .pattern("O ")
-                .define('X', ModItems.RAW_SILVER.get())
+                .define('X', ModItems.SILVER_INGOT.get())
                 .define('O', Items.STICK)
 
                 .unlockedBy(getHasName(ModItems.SILVER_INGOT.get()), has(ModItems.SILVER_INGOT))
@@ -112,7 +112,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("X")
                 .pattern("O")
                 .pattern("O")
-                .define('X', ModItems.RAW_SILVER.get())
+                .define('X', ModItems.SILVER_INGOT.get())
                 .define('O', Items.STICK)
 
                 .unlockedBy(getHasName(ModItems.SILVER_INGOT.get()), has(ModItems.SILVER_INGOT))
@@ -126,7 +126,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("XX")
                 .pattern("O ")
                 .pattern("O ")
-                .define('X', ModItems.RAW_SILVER.get())
+                .define('X', ModItems.SILVER_INGOT.get())
                 .define('O', Items.STICK)
 
                 .unlockedBy(getHasName(ModItems.SILVER_INGOT.get()), has(ModItems.SILVER_INGOT))
@@ -140,8 +140,59 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("  X")
                 .pattern(" O ")
                 .pattern("O  ")
-                .define('X', ModItems.RAW_SILVER.get())
+                .define('X', ModItems.SILVER_INGOT.get())
                 .define('O', Items.STICK)
+
+                .unlockedBy(getHasName(ModItems.SILVER_INGOT.get()), has(ModItems.SILVER_INGOT))
+                .group("silver")
+                .save(output);
+
+        //Armor
+        shaped(
+                RecipeCategory.COMBAT,
+                ModItems.TEST_HELMET.get())
+
+                .pattern("XXX")
+                .pattern("X X")
+                .define('X', ModItems.SILVER_INGOT.get())
+
+                .unlockedBy(getHasName(ModItems.SILVER_INGOT.get()), has(ModItems.SILVER_INGOT))
+                .group("silver")
+                .save(output);
+
+        shaped(
+                RecipeCategory.COMBAT,
+                ModItems.TEST_CHESTPLATE.get())
+
+                .pattern("X X")
+                .pattern("XXX")
+                .pattern("XXX")
+                .define('X', ModItems.SILVER_INGOT.get())
+
+                .unlockedBy(getHasName(ModItems.SILVER_INGOT.get()), has(ModItems.SILVER_INGOT))
+                .group("silver")
+                .save(output);
+
+        shaped(
+                RecipeCategory.COMBAT,
+                ModItems.TEST_LEGGINGS.get())
+
+                .pattern("XXX")
+                .pattern("X X")
+                .pattern("X X")
+                .define('X', ModItems.SILVER_INGOT.get())
+
+                .unlockedBy(getHasName(ModItems.SILVER_INGOT.get()), has(ModItems.SILVER_INGOT))
+                .group("silver")
+                .save(output);
+
+        shaped(
+                RecipeCategory.COMBAT,
+                ModItems.TEST_BOOTS.get())
+
+                .pattern("X X")
+                .pattern("X X")
+                .define('X', ModItems.SILVER_INGOT.get())
 
                 .unlockedBy(getHasName(ModItems.SILVER_INGOT.get()), has(ModItems.SILVER_INGOT))
                 .group("silver")

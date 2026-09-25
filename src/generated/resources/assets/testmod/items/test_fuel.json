@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "testmod:item/onion"
+    "model": "testmod:item/test_fuel"
   }
 }

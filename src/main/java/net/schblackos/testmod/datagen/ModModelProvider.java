@@ -8,6 +8,7 @@ import net.minecraft.client.data.models.model.ModelTemplates;
 import net.minecraft.data.PackOutput;
 import net.schblackos.testmod.Testmod;
 import net.schblackos.testmod.block.ModBlocks;
+import net.schblackos.testmod.item.ModArmorMaterial;
 import net.schblackos.testmod.item.ModItems;
 
 public class ModModelProvider extends ModelProvider {
@@ -28,10 +29,10 @@ public class ModModelProvider extends ModelProvider {
         itemModels.generateFlatItem(ModItems.TEST_ITEM.get(), ModelTemplates.FLAT_ITEM);
 
             //Foods
-        itemModels.generateFlatItem(ModItems.ONION.get(), ModelTemplates.FLAT_ITEM);
+        itemModels.generateFlatItem(ModItems.TEST_FOOD.get(), ModelTemplates.FLAT_ITEM);
 
             //Fuels
-        itemModels.generateFlatItem(ModItems.BROWN_COAL.get(), ModelTemplates.FLAT_ITEM);
+        itemModels.generateFlatItem(ModItems.TEST_FUEL.get(), ModelTemplates.FLAT_ITEM);
 
             //Tools
         itemModels.generateFlatItem(ModItems.TEST_SWORD.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
@@ -40,6 +41,16 @@ public class ModModelProvider extends ModelProvider {
         itemModels.generateFlatItem(ModItems.TEST_SHOVEL.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         itemModels.generateFlatItem(ModItems.TEST_HOE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         itemModels.generateSpear(ModItems.TEST_SPEAR.get());
+
+            //Armor
+        itemModels.generateTrimmableItem(ModItems.TEST_HELMET.get(), ModArmorMaterial.TEST_KEY,
+                ItemModelGenerators.TRIM_PREFIX_HELMET, false);
+        itemModels.generateTrimmableItem(ModItems.TEST_CHESTPLATE.get(), ModArmorMaterial.TEST_KEY,
+                ItemModelGenerators.TRIM_PREFIX_CHESTPLATE, false);
+        itemModels.generateTrimmableItem(ModItems.TEST_LEGGINGS.get(), ModArmorMaterial.TEST_KEY,
+                ItemModelGenerators.TRIM_PREFIX_LEGGINGS, false);
+        itemModels.generateTrimmableItem(ModItems.TEST_BOOTS.get(), ModArmorMaterial.TEST_KEY,
+                ItemModelGenerators.TRIM_PREFIX_BOOTS, false);
 
         /*BLOCK MODELS*/
 

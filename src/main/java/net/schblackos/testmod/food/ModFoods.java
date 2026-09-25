@@ -9,14 +9,14 @@ import net.minecraft.world.item.consume_effects.ApplyStatusEffectsConsumeEffect;
 
 public class ModFoods {
 
-    public static final FoodProperties ONION = new FoodProperties.Builder()
+    public static final FoodProperties TEST_FOOD = new FoodProperties.Builder()
             .nutrition(2)
             .saturationModifier(0.3f)
             .build();
 
 
 
-    public static final Consumable ONION_CONSUMABLE = Consumables.defaultFood()
+    public static final Consumable TEST_FOOD_CONSUMABLE = Consumables.defaultFood()
             .consumeSeconds(2.5f)
             .onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(
                     MobEffects.NAUSEA,

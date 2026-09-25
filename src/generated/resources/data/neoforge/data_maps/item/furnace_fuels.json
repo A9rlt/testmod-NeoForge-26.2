@@ -1,6 +1,6 @@
 {
   "values": {
-    "testmod:brown_coal": {
+    "testmod:test_fuel": {
       "burn_time": 4800
     }
   }

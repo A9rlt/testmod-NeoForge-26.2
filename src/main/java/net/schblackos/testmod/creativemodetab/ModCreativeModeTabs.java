@@ -31,20 +31,26 @@ public class ModCreativeModeTabs {
                         //ADVANCED ITEMS
                     output.accept(ModItems.TEST_ITEM);
 
-                        //FOODS
-                    output.accept(ModItems.ONION);
+                        //Foods
+                    output.accept(ModItems.TEST_FOOD);
 
 
-                        //FUELS
-                    output.accept(ModItems.BROWN_COAL);
+                        //Fuels
+                    output.accept(ModItems.TEST_FUEL);
 
-                        //TOOLS
+                        //Tools
                     output.accept(ModItems.TEST_SWORD);
                     output.accept(ModItems.TEST_PICKAXE);
                     output.accept(ModItems.TEST_SHOVEL);
                     output.accept(ModItems.TEST_AXE);
                     output.accept(ModItems.TEST_HOE);
                     output.accept(ModItems.TEST_SPEAR);
+
+                        //Armor
+                    output.accept(ModItems.TEST_HELMET);
+                    output.accept(ModItems.TEST_CHESTPLATE);
+                    output.accept(ModItems.TEST_LEGGINGS);
+                    output.accept(ModItems.TEST_BOOTS);
 
 
                     /*ModBlocks*/

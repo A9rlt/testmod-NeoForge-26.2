@@ -5,17 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="84fcc49b-ec9b-4fa9-92d6-cb6c1f611e17" name="Changes" comment="#16 NeoForge Modding Tutorial - Fences Gates and Walls &#10;(family for recipes?)">
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/item/custom/ModToolTiers.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/datagen/ModEquipmentAssetProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/item/ModArmorMaterial.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/testmod/textures/entity/equipment/humanoid/test.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/testmod/textures/entity/equipment/humanoid_baby/test.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/testmod/textures/entity/equipment/humanoid_leggings/test.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/testmod/textures/entity/equipment/zzzz" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/testmod/advancement/recipes/misc/raw_silver_block.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/testmod/recipe/raw_silver_block.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/assets/testmod/items/brown_coal.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/assets/testmod/items/onion.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/assets/testmod/models/item/brown_coal.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/assets/testmod/models/item/onion.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/neoforge/data_maps/item/furnace_fuels.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/neoforge/data_maps/item/furnace_fuels.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/testmod/recipe/test_axe.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/testmod/recipe/test_axe.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/testmod/recipe/test_hoe.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/testmod/recipe/test_hoe.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/testmod/recipe/test_shovel.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/testmod/recipe/test_shovel.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/testmod/recipe/test_spear.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/testmod/recipe/test_spear.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/TestModDataGen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/TestModDataGen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/creativemodetab/ModCreativeModeTabs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/creativemodetab/ModCreativeModeTabs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/datagen/ModBlockTagsProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/datagen/ModBlockTagsProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/datagen/ModDataMapProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/datagen/ModDataMapProvider.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/datagen/ModItemTagsProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/datagen/ModItemTagsProvider.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/datagen/ModModelProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/datagen/ModModelProvider.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/datagen/ModRecipeProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/datagen/ModRecipeProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/food/ModFoods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/food/ModFoods.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/item/ModItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/item/ModItems.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/tags/ModTags.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/tags/ModTags.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/item/custom/ModToolTiers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/item/ModToolTiers.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/assets/testmod/lang/en_us.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/testmod/lang/en_us.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -88,28 +102,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Gradle.GitHub Repos [:net.neoforged.devlaunch.Main.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Load Gradle Dependencies.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Minecraft Mod [:net.neoforged.devlaunch.Main.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Upgrade Gradle wrapper.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/Coding/Minecraft Mod&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.GitHub Repos [:net.neoforged.devlaunch.Main.main()].executor": "Run",
+    "Gradle.Load Gradle Dependencies.executor": "Run",
+    "Gradle.Minecraft Mod [:net.neoforged.devlaunch.Main.main()].executor": "Run",
+    "Gradle.Upgrade Gradle wrapper.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "E:/Coding/Minecraft Mod",
+    "node.js.detected.package.jshint": "true",
+    "node.js.selected.package.jshint": "",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Coding\Minecraft Mod\src\main\resources\assets\testmod\textures\entity\equipment\humanoid_leggings" />
+      <recent name="E:\Coding\Minecraft Mod\src\main\resources\assets\testmod\textures\entity\equipment\humanoid_baby" />
+      <recent name="E:\Coding\Minecraft Mod\src\main\resources\assets\testmod\textures\entity\equipment\humanoid" />
+    </key>
+  </component>
   <component name="RunManager" selected="Application.Client">
     <configuration name="Client" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="net.neoforged.devlaunch.Main" />
@@ -285,7 +308,8 @@
     <MESSAGE value="#15.1 NeoForge Modding Tutorial - Random BS" />
     <MESSAGE value="#16 NeoForge Modding Tutorial - Fences Gates and Walls &#10;(family for recipes?)" />
     <MESSAGE value="#17 NeoForge Modding Tutorial - Doors and Trapdoors + Small naming fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="#17 NeoForge Modding Tutorial - Doors and Trapdoors + Small naming fixes" />
+    <MESSAGE value="#18 NeoForge Modding Tutorial - Tools" />
+    <option name="LAST_COMMIT_MESSAGE" value="#18 NeoForge Modding Tutorial - Tools" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

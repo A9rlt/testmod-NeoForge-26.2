@@ -1,4 +1,4 @@
-package net.schblackos.testmod.item.custom;
+package net.schblackos.testmod.item;
 
 import net.minecraft.world.item.ToolMaterial;
 import net.schblackos.testmod.tags.ModTags;

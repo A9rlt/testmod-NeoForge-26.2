@@ -4,17 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="84fcc49b-ec9b-4fa9-92d6-cb6c1f611e17" name="Changes" comment="#20 NeoForge Modding Tutorial - Lamp Blcok">
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/datacomponents/ModDataComponents.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/item/custom/TestDataItem.java" afterDir="false" />
+    <list default="true" id="84fcc49b-ec9b-4fa9-92d6-cb6c1f611e17" name="Changes" comment="#21 NeoForge Modding Tutorial - Data Components&#10;&#10;I did the block data component alone yay">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/Testmod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/Testmod.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/block/ModBlocks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/block/ModBlocks.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/creativemodetab/ModCreativeModeTabs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/creativemodetab/ModCreativeModeTabs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/datagen/ModBlockLootTableProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/datagen/ModBlockLootTableProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/datagen/ModItemTagsProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/datagen/ModItemTagsProvider.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/datagen/ModModelProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/datagen/ModModelProvider.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/item/ModItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/item/ModItems.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/item/custom/TestItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/item/custom/TestItem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/assets/testmod/lang/en_us.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/testmod/lang/en_us.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -75,6 +70,9 @@
     &quot;accountId&quot;: &quot;5fd01627-a583-4b24-bb0b-f843ca0a5e05&quot;
   }
 }</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$PROJECT_DIR$/build/moddev/artifacts/minecraft-patched-26.2.0.88-merged.jar!/net/minecraft/world/item/BowItem.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -296,7 +294,8 @@
     <MESSAGE value="#18 NeoForge Modding Tutorial - Tools" />
     <MESSAGE value="#19 NeoForge Modding Tutorial - Armor" />
     <MESSAGE value="#20 NeoForge Modding Tutorial - Lamp Blcok" />
-    <option name="LAST_COMMIT_MESSAGE" value="#20 NeoForge Modding Tutorial - Lamp Blcok" />
+    <MESSAGE value="#21 NeoForge Modding Tutorial - Data Components&#10;&#10;I did the block data component alone yay" />
+    <option name="LAST_COMMIT_MESSAGE" value="#21 NeoForge Modding Tutorial - Data Components&#10;&#10;I did the block data component alone yay" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

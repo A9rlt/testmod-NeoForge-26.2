@@ -44,12 +44,15 @@ public class ModCreativeModeTabs {
                     output.accept(ModItems.TEST_AXE);
                     output.accept(ModItems.TEST_HOE);
                     output.accept(ModItems.TEST_SPEAR);
+                    output.accept(ModItems.TEST_BOW);
 
                     //Armor
                     output.accept(ModItems.TEST_HELMET);
                     output.accept(ModItems.TEST_CHESTPLATE);
                     output.accept(ModItems.TEST_LEGGINGS);
                     output.accept(ModItems.TEST_BOOTS);
+
+
 
                         //ADVANCED ITEMS
                     output.accept(ModItems.TEST_ITEM);

@@ -37,6 +37,7 @@ public class ModItemTagsProvider extends ItemTagsProvider {
          tag(ItemTags.SHOVELS).add(ModItems.TEST_SHOVEL.getKey());
          tag(ItemTags.HOES).add(ModItems.TEST_HOE.getKey());
          tag(ItemTags.SPEARS).add(ModItems.TEST_SPEAR.getKey());
+         tag(ItemTags.BOW_ENCHANTABLE).add(ModItems.TEST_BOW.getKey());
 
          tag(ItemTags.HEAD_ARMOR).add(ModItems.TEST_HELMET.getKey());
          tag(ItemTags.CHEST_ARMOR).add(ModItems.TEST_CHESTPLATE.getKey());

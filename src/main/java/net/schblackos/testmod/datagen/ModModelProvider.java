@@ -71,6 +71,12 @@ public class ModModelProvider extends ModelProvider {
         itemModels.generateFlatItem(ModItems.TEST_HOE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         itemModels.generateSpear(ModItems.TEST_SPEAR.get());
 
+            //Bows
+        itemModels.createFlatItemModel(ModItems.TEST_BOW.get(), ModelTemplates.BOW);
+        itemModels.generateBow(ModItems.TEST_BOW.get());
+
+
+
             //Armor
         itemModels.generateTrimmableItem(ModItems.TEST_HELMET.get(), ModArmorMaterial.TEST_KEY,
                 ItemModelGenerators.TRIM_PREFIX_HELMET, false);

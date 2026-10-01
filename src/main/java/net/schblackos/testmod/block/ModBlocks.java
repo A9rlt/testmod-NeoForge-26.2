@@ -37,7 +37,7 @@ public class ModBlocks {
 
     //.noLootTable
 
-    /*NORMAL BLOCKS*/
+    /*NORMAL ORES*/
 
         //Full Bocks
 
@@ -164,7 +164,7 @@ public class ModBlocks {
 
 
 
-    /*ADVANCED BLOCKS*/
+    /*ADVANCED ORES*/
 
             //Test Block
     public static final DeferredBlock<Block> TEST_BLOCK = registerBlock("test_block",

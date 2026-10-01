@@ -11,6 +11,7 @@ import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.schblackos.testmod.Testmod;
 import net.schblackos.testmod.food.ModFoods;
+import net.schblackos.testmod.item.custom.TestDataItem;
 import net.schblackos.testmod.item.custom.TestItem;
 
 import java.util.function.Consumer;
@@ -29,6 +30,10 @@ public class ModItems {
                     .durability(64)
                     .useCooldown(0.5f)
                     .stacksTo(1)));
+
+
+    public static final DeferredItem<Item> TEST_DATA_ITEM =ITEMS.registerItem("test_data_item",
+            properties -> new TestDataItem(properties.stacksTo(1)));
 
 
     //Food Items

@@ -18,6 +18,8 @@ import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
+import net.schblackos.testmod.datacomponents.ModDataComponents;
+import net.schblackos.testmod.item.ModItems;
 import net.schblackos.testmod.tags.ModTags;
 
 import java.util.function.Consumer;
@@ -60,6 +62,8 @@ public class TestItem extends Item {
                     //Particles
                     spawnFoundParticles(level, positionClicked, blockState);
 
+                    addDataToItem(player, positionClicked.below(i), blockState);
+
 
 
                     break;
@@ -75,6 +79,20 @@ public class TestItem extends Item {
 
 
         return InteractionResult.SUCCESS;
+    }
+
+    private void addDataToItem(Player player, BlockPos position , BlockState blockState) {
+
+        //Gets the first data from the item and ignores items that have data already been set on them
+        int slotIndex = player.getInventory().findSlotMatchingItem(new ItemStack(ModItems.TEST_DATA_ITEM.get()));
+
+
+        if (slotIndex == -1){return;}
+
+        //Coordinate form the item is set on the tablet as position causing isFoil
+        ItemStack testDataItem = player.getInventory().getItem(slotIndex);
+        testDataItem.set(ModDataComponents.COORDINATES, position);
+        testDataItem.set(ModDataComponents.ORES, blockState);
     }
 
     private void spawnFoundParticles(Level level, BlockPos positionClicked, BlockState blockState) {

@@ -56,7 +56,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.TEST_PRESSURE_PLATE.get());
 
 
-        //ADVANCED BLOCKS
+        //ADVANCED ORES
 
             //Test Block
         dropSelf(ModBlocks.TEST_BLOCK.get());
@@ -65,7 +65,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.TEST_LAMP.get());
 
 
-        /*DROPS FROM BLOCKS*/
+        /*DROPS FROM ORES*/
 
         //Ores
         add(ModBlocks.SILVER_ORE.get(),createOreDrop(ModBlocks.SILVER_ORE.get(), ModItems.RAW_SILVER.get()));

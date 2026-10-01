@@ -5,17 +5,21 @@ import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.ModelProvider;
 import net.minecraft.client.data.models.blockstates.MultiVariantGenerator;
-import net.minecraft.client.data.models.model.ModelTemplate;
-import net.minecraft.client.data.models.model.ModelTemplates;
-import net.minecraft.client.data.models.model.TextureMapping;
-import net.minecraft.client.data.models.model.TexturedModel;
+import net.minecraft.client.data.models.model.*;
+import net.minecraft.client.renderer.item.ClientItem;
+import net.minecraft.client.renderer.item.ConditionalItemModel;
+import net.minecraft.client.renderer.item.ItemModel;
+import net.minecraft.client.renderer.item.properties.conditional.HasComponent;
 import net.minecraft.data.PackOutput;
 import net.neoforged.fml.common.Mod;
 import net.schblackos.testmod.Testmod;
 import net.schblackos.testmod.block.ModBlocks;
 import net.schblackos.testmod.block.custom.TestLamp;
+import net.schblackos.testmod.datacomponents.ModDataComponents;
 import net.schblackos.testmod.item.ModArmorMaterial;
 import net.schblackos.testmod.item.ModItems;
+
+import java.util.Optional;
 
 public class ModModelProvider extends ModelProvider {
     public ModModelProvider(PackOutput output) {
@@ -33,6 +37,25 @@ public class ModModelProvider extends ModelProvider {
 
             //Advanced items
         itemModels.generateFlatItem(ModItems.TEST_ITEM.get(), ModelTemplates.FLAT_ITEM);
+
+        ItemModel.Unbaked unbakedDataItemUnused = ItemModelUtils.plainModel(
+                itemModels.createFlatItemModel(ModItems.TEST_DATA_ITEM.get(), ModelTemplates.FLAT_ITEM));
+
+        ItemModel.Unbaked unbakedDataItemUsed = ItemModelUtils.plainModel(
+                itemModels.createFlatItemModel(ModItems.TEST_DATA_ITEM.get(), "_used" ,ModelTemplates.FLAT_ITEM));
+
+        itemModels.itemModelOutput.register(ModItems.TEST_DATA_ITEM.get(),
+                new ClientItem(new ConditionalItemModel.Unbaked(
+                        Optional.empty(),
+                        new HasComponent(ModDataComponents.COORDINATES.get(),
+                                false),
+
+                        unbakedDataItemUsed, unbakedDataItemUnused),
+
+                        new ClientItem.Properties(
+                                false,
+                                false,
+                                1f)));
 
             //Foods
         itemModels.generateFlatItem(ModItems.TEST_FOOD.get(), ModelTemplates.FLAT_ITEM);
@@ -86,10 +109,13 @@ public class ModModelProvider extends ModelProvider {
         blockModels.createTrivialCube(ModBlocks.TEST_BLOCK.get());
 
         blockModels.blockStateOutput.accept(
-                MultiVariantGenerator.dispatch(ModBlocks.TEST_LAMP.get()).with(BlockModelGenerators.createBooleanModelDispatch(TestLamp.CLICKED,
-                        BlockModelGenerators.plainVariant(blockModels.createSuffixedVariant(ModBlocks.TEST_LAMP.get(), "_on",
+                MultiVariantGenerator.dispatch(ModBlocks.TEST_LAMP.get()).with(
+                        BlockModelGenerators.createBooleanModelDispatch(TestLamp.CLICKED,
+                        BlockModelGenerators.plainVariant(blockModels.createSuffixedVariant(ModBlocks.TEST_LAMP.get(),
+                                "_on",
                                 ModelTemplates.CUBE_ALL, TextureMapping ::cube)),
-                        BlockModelGenerators.plainVariant(TexturedModel.CUBE.create(ModBlocks.TEST_LAMP.get(), blockModels.modelOutput))))
+                        BlockModelGenerators.plainVariant(TexturedModel.CUBE.create(ModBlocks.TEST_LAMP.get(),
+                                blockModels.modelOutput))))
 
         );
 

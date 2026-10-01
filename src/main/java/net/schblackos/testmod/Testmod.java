@@ -2,6 +2,7 @@ package net.schblackos.testmod;
 
 import net.schblackos.testmod.block.ModBlocks;
 import net.schblackos.testmod.creativemodetab.ModCreativeModeTabs;
+import net.schblackos.testmod.datacomponents.ModDataComponents;
 import net.schblackos.testmod.item.ModItems;
 import org.slf4j.Logger;
 
@@ -49,6 +50,8 @@ public class Testmod {
         // Registers the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
+        ModDataComponents.register(modEventBus);
+
         // Registers the new made mod tab lists
         ModCreativeModeTabs.register(modEventBus);
 
@@ -79,7 +82,7 @@ public class Testmod {
             event.accept(ModItems.RAW_SILVER);
         }
 
-        /*BLOCKS*/
+        /*ORES*/
         if(event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
             event.accept(ModBlocks.SILVER_BLOCK);
         }

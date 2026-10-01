@@ -1,0 +1,16 @@
+{
+  "hand_animation_on_swap": false,
+  "model": {
+    "type": "minecraft:condition",
+    "component": "testmod:coordinates",
+    "on_false": {
+      "type": "minecraft:model",
+      "model": "testmod:item/test_data_item"
+    },
+    "on_true": {
+      "type": "minecraft:model",
+      "model": "testmod:item/test_data_item_used"
+    },
+    "property": "minecraft:has_component"
+  }
+}

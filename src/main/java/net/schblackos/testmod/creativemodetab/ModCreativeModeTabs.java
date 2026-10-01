@@ -25,20 +25,19 @@ public class ModCreativeModeTabs {
                     /*ModItems*/
 
                         //NORMAL ITEMS
+
+                    //Misc
                     output.accept(ModItems.SILVER_INGOT);
                     output.accept(ModItems.RAW_SILVER);
 
-                        //ADVANCED ITEMS
-                    output.accept(ModItems.TEST_ITEM);
-
-                        //Foods
+                    //Foods
                     output.accept(ModItems.TEST_FOOD);
 
 
-                        //Fuels
+                    //Fuels
                     output.accept(ModItems.TEST_FUEL);
 
-                        //Tools
+                    //Tools
                     output.accept(ModItems.TEST_SWORD);
                     output.accept(ModItems.TEST_PICKAXE);
                     output.accept(ModItems.TEST_SHOVEL);
@@ -46,16 +45,20 @@ public class ModCreativeModeTabs {
                     output.accept(ModItems.TEST_HOE);
                     output.accept(ModItems.TEST_SPEAR);
 
-                        //Armor
+                    //Armor
                     output.accept(ModItems.TEST_HELMET);
                     output.accept(ModItems.TEST_CHESTPLATE);
                     output.accept(ModItems.TEST_LEGGINGS);
                     output.accept(ModItems.TEST_BOOTS);
 
+                        //ADVANCED ITEMS
+                    output.accept(ModItems.TEST_ITEM);
+                    output.accept(ModItems.TEST_DATA_ITEM);
+
 
                     /*ModBlocks*/
 
-                    //NORMAL BLOCKS
+                    //NORMAL ORES
                     output.accept(ModBlocks.RAW_SILVER_BLOCK);
                     output.accept(ModBlocks.SILVER_BLOCK);
                     output.accept(ModBlocks.DEEPSLATE_SILVER_ORE);
@@ -89,7 +92,7 @@ public class ModCreativeModeTabs {
                         //Pressure Plates
                     output.accept(ModBlocks.TEST_PRESSURE_PLATE);
 
-                    //ADVANCED BLOCKS
+                    //ADVANCED ORES
 
                         //Test Block
                     output.accept(ModBlocks.TEST_BLOCK);

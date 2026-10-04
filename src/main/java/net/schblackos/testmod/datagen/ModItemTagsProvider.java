@@ -43,5 +43,7 @@ public class ModItemTagsProvider extends ItemTagsProvider {
          tag(ItemTags.CHEST_ARMOR).add(ModItems.TEST_CHESTPLATE.getKey());
          tag(ItemTags.LEG_ARMOR).add(ModItems.TEST_LEGGINGS.getKey());
          tag(ItemTags.FOOT_ARMOR).add(ModItems.TEST_BOOTS.getKey());
+
+         tag(ItemTags.ARROWS).add(ModItems.TEST_ARROW_ITEM.getKey());
     }
 }

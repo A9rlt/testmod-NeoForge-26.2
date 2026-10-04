@@ -34,6 +34,7 @@ public class ModModelProvider extends ModelProvider {
             //Items
         itemModels.generateFlatItem(ModItems.SILVER_INGOT.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ModItems.RAW_SILVER.get(), ModelTemplates.FLAT_ITEM);
+        itemModels.generateFlatItem(ModItems.TEST_ARROW_ITEM.get(), ModelTemplates.FLAT_ITEM);
 
             //Advanced items
         itemModels.generateFlatItem(ModItems.TEST_ITEM.get(), ModelTemplates.FLAT_ITEM);
@@ -75,6 +76,7 @@ public class ModModelProvider extends ModelProvider {
         itemModels.createFlatItemModel(ModItems.TEST_BOW.get(), ModelTemplates.BOW);
         itemModels.generateBow(ModItems.TEST_BOW.get());
 
+            //Arrows
 
 
             //Armor

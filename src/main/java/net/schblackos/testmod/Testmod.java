@@ -3,6 +3,7 @@ package net.schblackos.testmod;
 import net.schblackos.testmod.block.ModBlocks;
 import net.schblackos.testmod.creativemodetab.ModCreativeModeTabs;
 import net.schblackos.testmod.datacomponents.ModDataComponents;
+import net.schblackos.testmod.datagen.ModEntities;
 import net.schblackos.testmod.item.ModItems;
 import org.slf4j.Logger;
 
@@ -59,6 +60,8 @@ public class Testmod {
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
 
+        // Registers the new made entities
+        ModEntities.register(modEventBus);
 
         NeoForge.EVENT_BUS.register(this);
 

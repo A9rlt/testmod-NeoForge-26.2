@@ -4,10 +4,12 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.ItemLike;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.schblackos.testmod.Testmod;
 import net.schblackos.testmod.block.ModBlocks;
+import net.schblackos.testmod.datagen.ModEntities;
 import net.schblackos.testmod.item.ModItems;
 
 import java.util.function.Supplier;
@@ -29,6 +31,7 @@ public class ModCreativeModeTabs {
                     //Misc
                     output.accept(ModItems.SILVER_INGOT);
                     output.accept(ModItems.RAW_SILVER);
+                    output.accept(ModItems.TEST_ARROW_ITEM);
 
                     //Foods
                     output.accept(ModItems.TEST_FOOD);

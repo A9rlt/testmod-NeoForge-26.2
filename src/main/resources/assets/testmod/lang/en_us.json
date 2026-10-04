@@ -1,6 +1,7 @@
 {
   "item.testmod.silver_ingot": "Silver Ingot",
   "item.testmod.raw_silver": "Raw Silver",
+  "item.testmod.test_arrow_item": "Test Arrow",
 
   "item.testmod.test_item": "Test Item",
   "item.testmod.test_data_item": "Test Data Item",
@@ -61,7 +62,8 @@
   "tooltip.testmod.metal_detector.tootltip.shift_down": "64 blocks under the selected block",
 
   "item.testmod.metal_detector.no_valuables": "No Valuables Found",
-  "tooltip.testmod.onion.tootltip": "Stank ass breath"
+  "tooltip.testmod.onion.tootltip": "Stank ass breath",
+  "Test Arrow": "test_arrow"
 
 
 }

@@ -4,8 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="84fcc49b-ec9b-4fa9-92d6-cb6c1f611e17" name="Changes" comment="#21 NeoForge Modding Tutorial - Data Components&#10;&#10;I did the block data component alone yay">
+    <list default="true" id="84fcc49b-ec9b-4fa9-92d6-cb6c1f611e17" name="Changes" comment="#22 NeoForge Modding Tutorial - Custom Bow (nothing special)">
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/datagen/ModEntities.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/entity/custom/TestArrow.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/item/custom/TestArrowItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/item/custom/TestBowItem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/Testmod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/Testmod.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/creativemodetab/ModCreativeModeTabs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/creativemodetab/ModCreativeModeTabs.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/datagen/ModItemTagsProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/datagen/ModItemTagsProvider.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/datagen/ModModelProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/datagen/ModModelProvider.java" afterDir="false" />
@@ -111,12 +116,16 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Coding\Minecraft Mod\src\main\java\net\schblackos\testmod\entity" />
       <recent name="E:\Coding\Minecraft Mod\src\main\resources\assets\testmod\textures\entity\equipment\humanoid_leggings" />
       <recent name="E:\Coding\Minecraft Mod\src\main\resources\assets\testmod\textures\entity\equipment\humanoid_baby" />
       <recent name="E:\Coding\Minecraft Mod\src\main\resources\assets\testmod\textures\entity\equipment\humanoid" />
     </key>
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="net.schblackos.testmod.item.custom" />
+    </key>
   </component>
-  <component name="RunManager" selected="Application.Client">
+  <component name="RunManager" selected="Application.Data">
     <configuration name="Client" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="net.neoforged.devlaunch.Main" />
       <module name="Minecraft_Mod.main" />
@@ -295,7 +304,8 @@
     <MESSAGE value="#19 NeoForge Modding Tutorial - Armor" />
     <MESSAGE value="#20 NeoForge Modding Tutorial - Lamp Blcok" />
     <MESSAGE value="#21 NeoForge Modding Tutorial - Data Components&#10;&#10;I did the block data component alone yay" />
-    <option name="LAST_COMMIT_MESSAGE" value="#21 NeoForge Modding Tutorial - Data Components&#10;&#10;I did the block data component alone yay" />
+    <MESSAGE value="#22 NeoForge Modding Tutorial - Custom Bow (nothing special)" />
+    <option name="LAST_COMMIT_MESSAGE" value="#22 NeoForge Modding Tutorial - Custom Bow (nothing special)" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

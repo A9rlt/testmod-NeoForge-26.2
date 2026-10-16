@@ -4,21 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="84fcc49b-ec9b-4fa9-92d6-cb6c1f611e17" name="Changes" comment="#22.1 NeoForge Modding Tutorial - Custom Bow (extended) and custom arrow&#10;Arrow shoots upwards but no model comes out (doing model later and shooting upwards is meant to be)">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/testmod/textures/entity/arrow/test_arrow_item.png" afterDir="false" />
+    <list default="true" id="84fcc49b-ec9b-4fa9-92d6-cb6c1f611e17" name="Changes" comment="#22.2 NeoForge Modding Tutorial - Custom Bow (extended) re naming">
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/event/ModEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/testmod/textures/item/test_arrow_item.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/resources/data/minecraft/tags/item/enchantable/bow.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/data/minecraft/tags/item/enchantable/bow.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/creativemodetab/ModCreativeModeTabs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/creativemodetab/ModCreativeModeTabs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/datagen/ModEntities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/datagen/ModEntities.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/datagen/ModItemTagsProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/datagen/ModItemTagsProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/datagen/ModModelProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/datagen/ModModelProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/entity/custom/TestArrow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/entity/custom/TestArrowEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/entity/zz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/item/ModItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/item/ModItems.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/item/custom/TestArrowItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/item/custom/TestArrowItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/item/custom/TestBowItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/item/custom/TestCustomBowItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/testmod/lang/en_us.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/testmod/lang/en_us.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/testmod/textures/entity/equipment/zzzz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/TestModClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/TestModClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/item/custom/TestCustomBowItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/item/custom/TestCustomBowItem.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,6 +72,69 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="jar://$PROJECT_DIR$/build/moddev/artifacts/minecraft-patched-26.2.0.88-merged.jar!/net/minecraft/world/item/BowItem.java" root0="FORCE_HIGHLIGHTING" />
   </component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="5.075312530772016E-7" />
+      <entry key="MS500" value="0.055092509869198114" />
+      <entry key="S2" value="0.48447697244437016" />
+      <entry key="S5" value="0.748357741793244" />
+      <entry key="S10" value="0.8650767260573944" />
+      <entry key="S30" value="0.9539944175454032" />
+      <entry key="S60" value="1.0454395884410674" />
+      <entry key="M2" value="1.5838498809877215" />
+      <entry key="M5" value="3.9227539246920884" />
+      <entry key="M10" value="9.000845447422622" />
+      <entry key="M15" value="14.382234312412532" />
+      <entry key="M30" value="25.905981467998128" />
+      <entry key="H1" value="36.256433932786344" />
+      <entry key="H2" value="43.29584524810938" />
+      <entry key="H4" value="47.41580377308773" />
+      <entry key="D1" value="51.201452674952655" />
+      <entry key="W1" value="51.885045129084716" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0" />
+      <entry key="S2" value="1.0" />
+      <entry key="S5" value="1.0" />
+      <entry key="S10" value="1.0000000000105511" />
+      <entry key="S30" value="1.0002206217823526" />
+      <entry key="S60" value="1.017130079958122" />
+      <entry key="M2" value="1.2271976586723172" />
+      <entry key="M5" value="2.5057539843873187" />
+      <entry key="M10" value="4.1994007363392845" />
+      <entry key="M15" value="5.423690504862336" />
+      <entry key="M30" value="7.740983233327727" />
+      <entry key="H1" value="9.792255604050029" />
+      <entry key="H2" value="11.210800736858442" />
+      <entry key="H4" value="12.05264207071539" />
+      <entry key="D1" value="12.834157504658046" />
+      <entry key="W1" value="12.97610484839742" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="0.00404402453661486" />
+      <entry key="MS500" value="0.361288341939902" />
+      <entry key="S2" value="1.1722546610679676" />
+      <entry key="S5" value="1.5977707660066471" />
+      <entry key="S10" value="1.784314634081387" />
+      <entry key="S30" value="1.9258883037078245" />
+      <entry key="S60" value="2.0465878483750206" />
+      <entry key="M2" value="2.7955169977375967" />
+      <entry key="M5" value="6.40776657191696" />
+      <entry key="M10" value="13.181500027441956" />
+      <entry key="M15" value="19.789963161620403" />
+      <entry key="M30" value="33.63614155088278" />
+      <entry key="H1" value="46.04214458211381" />
+      <entry key="H2" value="54.503000038609976" />
+      <entry key="H4" value="59.46651448694971" />
+      <entry key="D1" value="64.0352717324484" />
+      <entry key="W1" value="64.8611012011568" />
+    </decayedShown>
+  </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -94,10 +148,12 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Gradle.Build Minecraft Mod.executor": "Run",
     "Gradle.GitHub Repos [:net.neoforged.devlaunch.Main.main()].executor": "Run",
     "Gradle.Load Gradle Dependencies.executor": "Run",
     "Gradle.Minecraft Mod [:net.neoforged.devlaunch.Main.main()].executor": "Run",
     "Gradle.Upgrade Gradle wrapper.executor": "Run",
+    "RunOnceActivity.MCP Project settings loaded": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
@@ -121,6 +177,7 @@
       <recent name="E:\Coding\Minecraft Mod\src\main\resources\assets\testmod\textures\entity\arrow" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Coding\Minecraft Mod\src\main\resources\assets\testmod\textures\item" />
       <recent name="E:\Coding\Minecraft Mod\src\main\java\net\schblackos\testmod\entity" />
       <recent name="E:\Coding\Minecraft Mod\src\main\resources\assets\testmod\textures\entity\equipment\humanoid_leggings" />
       <recent name="E:\Coding\Minecraft Mod\src\main\resources\assets\testmod\textures\entity\equipment\humanoid_baby" />
@@ -130,7 +187,7 @@
       <recent name="net.schblackos.testmod.item.custom" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Data">
+  <component name="RunManager" selected="Application.Client">
     <configuration name="Client" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="net.neoforged.devlaunch.Main" />
       <module name="Minecraft_Mod.main" />
@@ -311,7 +368,8 @@
     <MESSAGE value="#21 NeoForge Modding Tutorial - Data Components&#10;&#10;I did the block data component alone yay" />
     <MESSAGE value="#22 NeoForge Modding Tutorial - Custom Bow (nothing special)" />
     <MESSAGE value="#22.1 NeoForge Modding Tutorial - Custom Bow (extended) and custom arrow&#10;Arrow shoots upwards but no model comes out (doing model later and shooting upwards is meant to be)" />
-    <option name="LAST_COMMIT_MESSAGE" value="#22.1 NeoForge Modding Tutorial - Custom Bow (extended) and custom arrow&#10;Arrow shoots upwards but no model comes out (doing model later and shooting upwards is meant to be)" />
+    <MESSAGE value="#22.2 NeoForge Modding Tutorial - Custom Bow (extended) re naming" />
+    <option name="LAST_COMMIT_MESSAGE" value="#22.2 NeoForge Modding Tutorial - Custom Bow (extended) re naming" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -1,5 +1,6 @@
 {
   "values": [
-    "testmod:test_bow"
+    "testmod:test_bow",
+    "testmod:test_custombow_item"
   ]
 }

@@ -14,6 +14,7 @@ import net.schblackos.testmod.food.ModFoods;
 import net.schblackos.testmod.item.custom.TestArrowItem;
 import net.schblackos.testmod.item.custom.TestDataItem;
 import net.schblackos.testmod.item.custom.TestItem;
+import net.schblackos.testmod.item.custom.TestCustomBowItem;
 
 import java.util.function.Consumer;
 
@@ -92,7 +93,7 @@ public class ModItems {
                     13.37f,
                     4.67f)));
 
-        //Bows
+        //Simple Bows
     public static final DeferredItem<Item> TEST_BOW = ITEMS.registerItem("test_bow",
             properties -> new BowItem(properties.durability(500)));
 
@@ -137,6 +138,10 @@ public class ModItems {
 
     public static final DeferredItem<TestArrowItem> TEST_ARROW_ITEM = ITEMS.registerItem("test_arrow_item",
             TestArrowItem::new);
+
+    public static final DeferredItem<Item> TEST_CUSTOMBOW_ITEM =ITEMS.registerItem("test_custombow_item",
+            properties -> new TestCustomBowItem(properties.stacksTo(1)));
+
 
 
 

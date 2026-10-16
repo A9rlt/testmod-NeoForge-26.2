@@ -1,13 +1,12 @@
 package net.schblackos.testmod.entity.custom;
 
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.projectile.arrow.AbstractArrow;
 import net.minecraft.world.entity.projectile.arrow.Arrow;
 import net.minecraft.world.level.Level;
 
-public class TestArrow extends Arrow {
+public class TestArrowEntity extends Arrow {
 
-    public TestArrow(EntityType<? extends Arrow> type, Level level) {
+    public TestArrowEntity(EntityType<? extends Arrow> type, Level level) {
         super(type, level);
 
     }

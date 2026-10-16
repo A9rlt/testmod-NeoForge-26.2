@@ -76,6 +76,9 @@ public class ModModelProvider extends ModelProvider {
         itemModels.createFlatItemModel(ModItems.TEST_BOW.get(), ModelTemplates.BOW);
         itemModels.generateBow(ModItems.TEST_BOW.get());
 
+        itemModels.createFlatItemModel(ModItems.TEST_CUSTOMBOW_ITEM.get(), ModelTemplates.BOW);
+        itemModels.generateBow(ModItems.TEST_CUSTOMBOW_ITEM.get());
+
             //Arrows
 
 

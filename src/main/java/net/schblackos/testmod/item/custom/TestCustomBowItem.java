@@ -9,18 +9,18 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ProjectileWeaponItem;
 import net.minecraft.world.level.Level;
 import net.schblackos.testmod.datagen.ModEntities;
-import net.schblackos.testmod.entity.custom.TestArrow;
+import net.schblackos.testmod.entity.custom.TestArrowEntity;
 import org.jspecify.annotations.Nullable;
 
 import java.util.List;
 import java.util.function.Predicate;
 
-public class TestBowItem extends ProjectileWeaponItem {
+public class TestCustomBowItem extends ProjectileWeaponItem {
 
     public static final int MAX_DRAW_DURATION = 10;
     public static final int DEFAULT_RANGE = 20;
 
-    public TestBowItem(Item.Properties properties) {
+    public TestCustomBowItem(Item.Properties properties) {
         super(properties);
     }
 
@@ -60,7 +60,21 @@ public class TestBowItem extends ProjectileWeaponItem {
             return false;
         }
 
-        List<ItemStack> firedProjectiles = draw(itemStack, projectile, player);
+        List<ItemStack> drawnProjectiles = draw(itemStack, projectile, player);
+        List<ItemStack> firedProjectiles;
+
+
+        if(!drawnProjectiles.isEmpty()){
+            ItemStack arrowStack = drawnProjectiles.get(0);
+
+            firedProjectiles = List.of(
+                    arrowStack.copy(),
+                    arrowStack.copy(),
+                    arrowStack.copy()
+            );
+        }else {
+            firedProjectiles = List.of();
+        }
 
         if (level instanceof ServerLevel serverLevel && !firedProjectiles.isEmpty()){
 
@@ -103,9 +117,10 @@ public class TestBowItem extends ProjectileWeaponItem {
                                           ItemStack projectile, boolean isCrit) {
 
 
-        TestArrow arrow = new TestArrow(ModEntities.TEST_ARROW.get(), level);
+        TestArrowEntity arrow = new TestArrowEntity(ModEntities.TEST_ARROW.get(), level);
 
         arrow.setOwner(shooter);
+        arrow.setPos(shooter.getX(), shooter.getEyeY() - 0.1, shooter.getZ());
 
         if (isCrit) {arrow.setCritArrow(true);}
 

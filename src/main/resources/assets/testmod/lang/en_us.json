@@ -17,6 +17,7 @@
   "item.testmod.test_hoe": "Test Hoe",
   "item.testmod.test_spear": "Test Spear",
   "item.testmod.test_bow": "Test Bow",
+  "item.testmod.test_custombow_item": "Test Custom Bow",
 
   "item.testmod.test_helmet": "Test Helmet",
   "item.testmod.test_chestplate": "Test Chestplate",

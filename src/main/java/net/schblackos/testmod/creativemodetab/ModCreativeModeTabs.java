@@ -48,6 +48,7 @@ public class ModCreativeModeTabs {
                     output.accept(ModItems.TEST_HOE);
                     output.accept(ModItems.TEST_SPEAR);
                     output.accept(ModItems.TEST_BOW);
+                    output.accept(ModItems.TEST_CUSTOMBOW_ITEM);
 
                     //Armor
                     output.accept(ModItems.TEST_HELMET);

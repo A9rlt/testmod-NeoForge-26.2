@@ -182,3 +182,23 @@ idea {
         downloadJavadoc = true
     }
 }
+
+sourceSets {
+    statMathTest {
+        compileClasspath += sourceSets.main.output
+        runtimeClasspath += sourceSets.main.output
+    }
+}
+
+tasks.register('statMathTest', JavaExec) {
+    group = 'verification'
+    description = 'Verifies combat stat calculations without starting Minecraft.'
+    dependsOn tasks.named('statMathTestClasses')
+    classpath = sourceSets.statMathTest.runtimeClasspath
+    mainClass = 'net.schblackos.testmod.stats.StatMathTest'
+    javaLauncher = javaToolchains.launcherFor(java.toolchain)
+}
+
+tasks.named('check') {
+    dependsOn tasks.named('statMathTest')
+}

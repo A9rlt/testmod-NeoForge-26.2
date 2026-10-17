@@ -1,4 +1,10 @@
 {
+  "attribute.name.attack_damage": "Damage",
+  "attribute.name.armor": "Defence",
+  "attribute.testmod.critical_chance": "Critical Chance (%)",
+  "attribute.testmod.resistance": "Resistance (%)",
+  "attribute.testmod.evasion": "Evasion (%)",
+  "command.testmod.stats": "Damage: %s | Critical Chance: %s%% | Defence: %s | Resistance: %s%% | Evasion: %s%%",
   "item.testmod.silver_ingot": "Silver Ingot",
   "item.testmod.raw_silver": "Raw Silver",
   "item.testmod.test_arrow_item": "Test Arrow",

@@ -4,15 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="84fcc49b-ec9b-4fa9-92d6-cb6c1f611e17" name="Changes" comment="#23 NeoForge Modding Tutorial - FOV Even for Bows and Custom Mod events explination">
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/stats/ModStats.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="84fcc49b-ec9b-4fa9-92d6-cb6c1f611e17" name="Changes" comment="#24 NeoForge Modding Tutorial - Fixed Custom Bow and Arrow and added extra packages">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/TestModClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/TestModClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/datagen/ModEntities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/datagen/ModEntities.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/entity/custom/TestArrowEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/entity/custom/TestArrowEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/item/custom/TestArrowItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/item/custom/TestArrowItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/item/custom/TestCustomBowItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/item/custom/TestCustomBowItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/Testmod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/Testmod.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/stats/ModStats.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/stats/ModStats.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/testmod/lang/en_us.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/testmod/lang/en_us.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +54,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>
@@ -81,61 +83,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="2.9746205047064707E-9" />
-      <entry key="MS500" value="0.04613433052807317" />
-      <entry key="S2" value="1.5500879354992465" />
-      <entry key="S5" value="6.49708055376618" />
-      <entry key="S10" value="12.120254810269326" />
-      <entry key="S30" value="19.00203466859098" />
-      <entry key="S60" value="21.343434504505762" />
-      <entry key="M2" value="23.097483299701228" />
-      <entry key="M5" value="45.930884671726346" />
-      <entry key="M10" value="122.18050826843991" />
-      <entry key="M15" value="192.6588947578535" />
-      <entry key="M30" value="324.99286069048577" />
-      <entry key="H1" value="435.0147718866537" />
-      <entry key="H2" value="508.1007789366178" />
-      <entry key="H4" value="550.6562066062158" />
-      <entry key="D1" value="589.747716159554" />
-      <entry key="W1" value="596.8118320291184" />
+      <entry key="MS100" value="1.000249270539315" />
+      <entry key="MS500" value="1.1967361641483" />
+      <entry key="S2" value="2.5692421236784497" />
+      <entry key="S5" value="5.433025699729048" />
+      <entry key="S10" value="8.226096968798252" />
+      <entry key="S30" value="11.8630863659234" />
+      <entry key="S60" value="13.468810355477432" />
+      <entry key="M2" value="14.60654977471783" />
+      <entry key="M5" value="19.268119502348153" />
+      <entry key="M10" value="34.24568281706904" />
+      <entry key="M15" value="52.60560620200152" />
+      <entry key="M30" value="129.98225379603156" />
+      <entry key="H1" value="278.0528886719564" />
+      <entry key="H2" value="439.01492267629794" />
+      <entry key="H4" value="560.6893695142049" />
+      <entry key="D1" value="692.5678213442015" />
+      <entry key="W1" value="718.5612796670741" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="1.0000000000000175" />
-      <entry key="MS500" value="1.0017749572586885" />
-      <entry key="S2" value="1.2052565263683057" />
-      <entry key="S5" value="1.5307851818252391" />
-      <entry key="S10" value="1.7285500544404888" />
-      <entry key="S30" value="1.8998147991105117" />
-      <entry key="S60" value="1.9485856836782078" />
-      <entry key="M2" value="1.9739705335236146" />
-      <entry key="M5" value="2.0221522584265648" />
-      <entry key="M10" value="2.5174481742054544" />
-      <entry key="M15" value="3.436830843497675" />
-      <entry key="M30" value="6.39271367310751" />
-      <entry key="H1" value="10.15727744303752" />
-      <entry key="H2" value="13.339555867464192" />
-      <entry key="H4" value="15.443770301507879" />
-      <entry key="D1" value="17.538243333613107" />
-      <entry key="W1" value="17.93309688392294" />
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="0.0" />
+      <entry key="S5" value="1.3693477700339263E-264" />
+      <entry key="S10" value="1.6348643166141676E-132" />
+      <entry key="S30" value="1.8648526325118477E-44" />
+      <entry key="S60" value="1.9305725783652047E-22" />
+      <entry key="M2" value="1.964825465854051E-11" />
+      <entry key="M5" value="8.035394028400733E-5" />
+      <entry key="M10" value="0.01586927920581781" />
+      <entry key="M15" value="0.11727963318339041" />
+      <entry key="M30" value="1.1809118316761789" />
+      <entry key="H1" value="4.365594822074683" />
+      <entry key="H2" value="8.74529422661726" />
+      <entry key="H4" value="12.504601649121422" />
+      <entry key="D1" value="16.931892896150913" />
+      <entry key="W1" value="17.843184040185637" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="1.1369645366713073E-6" />
-      <entry key="MS500" value="0.11052652303175323" />
-      <entry key="S2" value="2.1437375851610776" />
-      <entry key="S5" value="7.638256276802263" />
-      <entry key="S10" value="13.608723780141577" />
-      <entry key="S30" value="20.80819542968462" />
-      <entry key="S60" value="23.243198033894807" />
-      <entry key="M2" value="25.04647501728307" />
-      <entry key="M5" value="47.941737937309476" />
-      <entry key="M10" value="124.68673671603203" />
-      <entry key="M15" value="196.08263204254007" />
-      <entry key="M30" value="331.37168633518445" />
-      <entry key="H1" value="445.16120557639914" />
-      <entry key="H2" value="521.4334331359665" />
-      <entry key="H4" value="566.0960641875603" />
-      <entry key="D1" value="607.2852334862739" />
-      <entry key="W1" value="614.7448232455334" />
+      <entry key="MS100" value="0.9728957268819353" />
+      <entry key="MS500" value="1.189839660635873" />
+      <entry key="S2" value="2.563392904910513" />
+      <entry key="S5" value="5.42053731817674" />
+      <entry key="S10" value="8.212575083812686" />
+      <entry key="S30" value="11.855242515843168" />
+      <entry key="S60" value="13.464270071703774" />
+      <entry key="M2" value="14.604098856578771" />
+      <entry key="M5" value="19.267120713743235" />
+      <entry key="M10" value="34.26084151410896" />
+      <entry key="M15" value="52.72195594657238" />
+      <entry key="M30" value="131.16030621870124" />
+      <entry key="H1" value="282.4136533194836" />
+      <entry key="H2" value="447.7555996569457" />
+      <entry key="H4" value="573.1907544702677" />
+      <entry key="D1" value="709.4990048671867" />
+      <entry key="W1" value="736.404357350572" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -149,36 +151,36 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Gradle.Build Minecraft Mod.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.GitHub Repos [:net.neoforged.devlaunch.Main.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Load Gradle Dependencies.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Minecraft Mod [:net.neoforged.devlaunch.Main.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Upgrade Gradle wrapper.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/Coding/Minecraft Mod/src/main/resources/assets/testmod/textures/entity/arrow&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.jshint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.jshint&quot;: &quot;&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.Build Minecraft Mod.executor": "Run",
+    "Gradle.GitHub Repos [:net.neoforged.devlaunch.Main.main()].executor": "Run",
+    "Gradle.Load Gradle Dependencies.executor": "Run",
+    "Gradle.Minecraft Mod [:net.neoforged.devlaunch.Main.main()].executor": "Run",
+    "Gradle.Upgrade Gradle wrapper.executor": "Run",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "non-tutorial",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "E:/Coding/Minecraft Mod/src/main/resources/assets/testmod/textures/entity/arrow",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.jshint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.jshint": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\Coding\Minecraft Mod\src\main\resources\assets\testmod\textures\entity\arrow" />
@@ -377,7 +379,8 @@
     <MESSAGE value="#22.1 NeoForge Modding Tutorial - Custom Bow (extended) and custom arrow&#10;Arrow shoots upwards but no model comes out (doing model later and shooting upwards is meant to be)" />
     <MESSAGE value="#22.2 NeoForge Modding Tutorial - Custom Bow (extended) re naming" />
     <MESSAGE value="#23 NeoForge Modding Tutorial - FOV Even for Bows and Custom Mod events explination" />
-    <option name="LAST_COMMIT_MESSAGE" value="#23 NeoForge Modding Tutorial - FOV Even for Bows and Custom Mod events explination" />
+    <MESSAGE value="#24 NeoForge Modding Tutorial - Fixed Custom Bow and Arrow and added extra packages" />
+    <option name="LAST_COMMIT_MESSAGE" value="#24 NeoForge Modding Tutorial - Fixed Custom Bow and Arrow and added extra packages" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

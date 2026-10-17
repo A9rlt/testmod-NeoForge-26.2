@@ -5,7 +5,6 @@ import net.minecraft.world.entity.projectile.arrow.AbstractArrow;
 import net.minecraft.world.item.ArrowItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.schblackos.testmod.datagen.ModEntities;
 import net.schblackos.testmod.entity.custom.TestArrowEntity;
 import org.jspecify.annotations.Nullable;
 
@@ -20,7 +19,7 @@ public class TestArrowItem extends ArrowItem {
     public AbstractArrow createArrow(Level level, ItemStack itemStack,
                                      LivingEntity owner, @Nullable ItemStack firedFromWeapon) {
 
-        return new TestArrowEntity(ModEntities.TEST_ARROW.get(), level);
+        return new TestArrowEntity(level, owner, itemStack, firedFromWeapon);
     }
 }
 

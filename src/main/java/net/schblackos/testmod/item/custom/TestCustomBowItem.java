@@ -4,21 +4,22 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
+import net.minecraft.world.item.ArrowItem;
 import net.minecraft.world.item.BowItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.schblackos.testmod.datagen.ModEntities;
-import net.schblackos.testmod.entity.custom.TestArrowEntity;
 import org.jspecify.annotations.Nullable;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
 
 public class TestCustomBowItem extends BowItem {
 
-    public static final int MAX_DRAW_DURATION = 10;
     public static final int DEFAULT_RANGE = 20;
+    public static final int PROJECTILES_PER_SHOT = 3;
+    public static final float ARROW_SPREAD_DEGREES = 10.0F;
 
     public TestCustomBowItem(Item.Properties properties) {
         super(properties);
@@ -60,23 +61,27 @@ public class TestCustomBowItem extends BowItem {
             return false;
         }
 
-        List<ItemStack> drawnProjectiles = draw(itemStack, projectile, player);
-        List<ItemStack> firedProjectiles;
+
+        if (level instanceof ServerLevel serverLevel) {
+            List<ItemStack> firedProjectiles = new ArrayList<>(PROJECTILES_PER_SHOT);
+            for (int i = 0; i < PROJECTILES_PER_SHOT; i++) {
+
+                ItemStack ammo = player.getProjectile(itemStack);
+                if (ammo.isEmpty()) {
+                    break;
+                }
 
 
-        if(!drawnProjectiles.isEmpty()){
-            ItemStack arrowStack = drawnProjectiles.get(0);
+                ItemStack consumedArrow = useAmmo(itemStack, ammo, player, false);
+                if (consumedArrow.isEmpty()) {
+                    break;
+                }
+                firedProjectiles.add(consumedArrow);
+            }
 
-            firedProjectiles = List.of(
-                    arrowStack.copy(),
-                    arrowStack.copy(),
-                    arrowStack.copy()
-            );
-        }else {
-            firedProjectiles = List.of();
-        }
-
-        if (level instanceof ServerLevel serverLevel && !firedProjectiles.isEmpty()){
+            if (firedProjectiles.isEmpty()) {
+                return false;
+            }
 
             this.shoot(
                     serverLevel,
@@ -104,27 +109,13 @@ public class TestCustomBowItem extends BowItem {
 
     @Override
     public Predicate<ItemStack> getAllSupportedProjectiles() {
-        return ARROW_ONLY;
+
+        return ARROW_ONLY.or(stack -> stack.getItem() instanceof ArrowItem);
     }
 
     @Override
     public int getDefaultProjectileRange() {
         return DEFAULT_RANGE;
-    }
-
-    @Override
-    protected Projectile createProjectile(Level level, LivingEntity shooter, ItemStack weapon,
-                                          ItemStack projectile, boolean isCrit) {
-
-
-        TestArrowEntity arrow = new TestArrowEntity(ModEntities.TEST_ARROW.get(), level);
-
-        arrow.setOwner(shooter);
-        arrow.setPos(shooter.getX(), shooter.getEyeY() - 0.1, shooter.getZ());
-
-        if (isCrit) {arrow.setCritArrow(true);}
-
-        return arrow;
     }
 
     @Override
@@ -137,10 +128,18 @@ public class TestCustomBowItem extends BowItem {
             float angle,
             @Nullable LivingEntity targetOverride) {
 
+
+
+        float spreadAngle = switch (index) {
+            case 1 -> -ARROW_SPREAD_DEGREES;
+            case 2 -> ARROW_SPREAD_DEGREES;
+            default -> 0.0F;
+        };
+
         projectile.shootFromRotation(
                 shooter,
                 shooter.getXRot(),
-                shooter.getYRot() + angle,
+                shooter.getYRot() + angle + spreadAngle,
                 0.0F,
                 power,
                 uncertainty

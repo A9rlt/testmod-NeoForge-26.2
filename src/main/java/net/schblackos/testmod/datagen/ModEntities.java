@@ -20,7 +20,7 @@ public class ModEntities {
             Identifier.fromNamespaceAndPath(Testmod.MODID, "test_arrow"));
 
     public static final Supplier<EntityType<TestArrowEntity>> TEST_ARROW = ENTITY_TYPES.register("test_arrow",
-            () -> EntityType.Builder.of(TestArrowEntity::new, MobCategory.MISC)
+            () -> EntityType.Builder.<TestArrowEntity>of(TestArrowEntity::new, MobCategory.MISC)
                     .sized(0.5f, 0.5f)
                     .build(TEST_ARROW_KEY));
 

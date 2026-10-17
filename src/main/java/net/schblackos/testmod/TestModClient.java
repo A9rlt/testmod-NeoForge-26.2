@@ -1,7 +1,6 @@
 package net.schblackos.testmod;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.entity.TippableArrowRenderer;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
@@ -13,6 +12,7 @@ import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 import net.schblackos.testmod.datagen.ModEntities;
+import net.schblackos.testmod.client.renderer.TestArrowRenderer;
 import net.schblackos.testmod.item.ModItems;
 
 // This class will not load on dedicated servers. Accessing client side code from here is safe.
@@ -36,7 +36,7 @@ public class TestModClient {
 
     @SubscribeEvent
     public static void onRegisterRenderers(EntityRenderersEvent.RegisterRenderers event) {
-        event.registerEntityRenderer(ModEntities.TEST_ARROW.get(), TippableArrowRenderer::new);
+        event.registerEntityRenderer(ModEntities.TEST_ARROW.get(), TestArrowRenderer::new);
     }
 
     @SubscribeEvent

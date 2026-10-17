@@ -5,6 +5,9 @@ import net.schblackos.testmod.creativemodetab.ModCreativeModeTabs;
 import net.schblackos.testmod.datacomponents.ModDataComponents;
 import net.schblackos.testmod.datagen.ModEntities;
 import net.schblackos.testmod.item.ModItems;
+import net.schblackos.testmod.stats.ModStats;
+import net.schblackos.testmod.stats.StatsGameTests;
+import net.schblackos.testmod.network.ModNetworking;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -62,6 +65,9 @@ public class Testmod {
 
         // Registers the new made entities
         ModEntities.register(modEventBus);
+        ModStats.register(modEventBus);
+        ModNetworking.register(modEventBus);
+        StatsGameTests.register(modEventBus);
 
         NeoForge.EVENT_BUS.register(this);
 

@@ -14,8 +14,13 @@ public final class StatsMath {
         return (float) Math.max(0.0D, damage - Math.max(0.0D, defence));
     }
 
-    public static float afterResistance(float damage, double resistancePercent) {
-        return (float) (Math.max(0.0F, damage) * (1.0D - clampPercent(resistancePercent) / 100.0D));
+    public static float afterResistance(float damage, double resistance) {
+        return (float) Math.max(0.0D, damage - Math.max(0.0D, resistance));
+    }
+
+    /** Defence reduces physical damage; resistance reduces magic damage. */
+    public static float combinedDamage(float physical, float magic, double defence, double resistance) {
+        return afterDefence(physical, defence) + afterResistance(magic, resistance);
     }
 
     public static float criticalDamage(float damage) {

@@ -1,14 +1,21 @@
 package net.schblackos.testmod.tags;
 
 import net.minecraft.resources.Identifier;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.level.block.Block;
 import net.schblackos.testmod.Testmod;
 
 public class ModTags {
+    public static class DamageTypes {
+        public static final TagKey<DamageType> MAGIC_DAMAGE = TagKey.create(Registries.DAMAGE_TYPE,
+                Identifier.fromNamespaceAndPath(Testmod.MODID, "magic_damage"));
+    }
+
     public static class Blocks {
 
         public static final TagKey<Block> METAL_DETECTABLES = createTag("metal_detectables");

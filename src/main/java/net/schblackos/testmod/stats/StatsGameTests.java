@@ -1,9 +1,11 @@
 package net.schblackos.testmod.stats;
 
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.function.Consumer;
 import net.minecraft.core.Holder;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.gametest.framework.FunctionGameTestInstance;
 import net.minecraft.gametest.framework.GameTestHelper;
@@ -17,14 +19,17 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.network.CommonListenerCookie;
 import net.minecraft.server.network.ServerGamePacketListenerImpl;
 import net.minecraft.world.Difficulty;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.EquipmentSlotGroup;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.animal.cow.Cow;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.level.GameType;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.bus.api.IEventBus;
@@ -39,7 +44,8 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import net.schblackos.testmod.Testmod;
 import net.schblackos.testmod.entity.custom.TestArrowEntity;
 import net.schblackos.testmod.item.ModItems;
-import net.schblackos.testmod.network.DamageNumberPayload;
+import net.schblackos.testmod.network.payload.DamageNumberPayload;
+import net.schblackos.testmod.network.style.DamageNumbers;
 
 /** Integration tests run by the existing Gradle runGameTestServer task. */
 public final class StatsGameTests {
@@ -52,6 +58,9 @@ public final class StatsGameTests {
         addTest("stats_armour_equip_and_remove", StatsGameTests::armourEquipAndRemove);
         addTest("stats_sword_damage_and_critical_chance", StatsGameTests::swordDamageAndCriticalChance);
         addTest("stats_defence_and_resistance", StatsGameTests::defenceAndResistance);
+        addTest("stats_magic_damage_and_resistance", StatsGameTests::magicDamageAndResistance);
+        addTest("stats_mixed_weapon_damage", StatsGameTests::mixedWeaponDamage);
+        addTest("stats_mixed_weapon_shield", StatsGameTests::mixedWeaponShield);
         addTest("stats_evasion_respects_damage_source", StatsGameTests::evasionRespectsDamageSource);
         addTest("stats_arrow_snapshots_firing_weapon", StatsGameTests::arrowSnapshotsFiringWeapon);
         addTest("stats_player_clone_preserves_base_stats", StatsGameTests::playerClonePreservesBaseStats);
@@ -101,21 +110,23 @@ public final class StatsGameTests {
 
     private static void defaultsAndEquipment(GameTestHelper helper) {
         ServerPlayer player = player(helper);
-        near(helper, player.getAttributeValue(ModStats.DAMAGE), 1.0, "Unarmed damage");
-        near(helper, player.getAttributeValue(ModStats.CRITICAL_CHANCE), 0.0, "Base critical chance");
-        near(helper, player.getAttributeValue(ModStats.RESISTANCE), 0.0, "Base resistance");
-        near(helper, player.getAttributeValue(ModStats.EVASION), 0.0, "Base evasion");
+        near(helper, player.getAttributeValue(ModCustomStats.DAMAGE), 1.0, "Unarmed damage");
+        near(helper, player.getAttributeValue(ModCustomStats.MAGIC_DAMAGE), 0.0, "Base magic damage");
+        near(helper, player.getAttributeValue(ModCustomStats.CRITICAL_CHANCE), 0.0, "Base critical chance");
+        near(helper, player.getAttributeValue(ModCustomStats.RESISTANCE), 0.0, "Base resistance");
+        near(helper, player.getAttributeValue(ModCustomStats.EVASION), 0.0, "Base evasion");
 
         player.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Items.WOODEN_SWORD));
         player.doTick();
-        near(helper, player.getAttributeValue(ModStats.DAMAGE), 5.0, "Wooden sword total damage");
-        near(helper, player.getAttributeValue(ModStats.CRITICAL_CHANCE), 1.0, "Wooden sword critical chance");
+        near(helper, player.getAttributeValue(ModCustomStats.DAMAGE), 5.0, "Wooden sword total damage");
+        near(helper, player.getAttributeValue(ModCustomStats.MAGIC_DAMAGE), 0.0, "Wooden sword has no default magic bonus");
+        near(helper, player.getAttributeValue(ModCustomStats.CRITICAL_CHANCE), 1.0, "Wooden sword critical chance");
 
         player.setItemSlot(EquipmentSlot.OFFHAND, player.getMainHandItem());
         player.setItemSlot(EquipmentSlot.MAINHAND, ItemStack.EMPTY);
         player.doTick();
-        near(helper, player.getAttributeValue(ModStats.DAMAGE), 1.0, "Damage after moving sword to offhand");
-        near(helper, player.getAttributeValue(ModStats.CRITICAL_CHANCE), 0.0, "Critical chance after unequipping sword");
+        near(helper, player.getAttributeValue(ModCustomStats.DAMAGE), 1.0, "Damage after moving sword to offhand");
+        near(helper, player.getAttributeValue(ModCustomStats.CRITICAL_CHANCE), 0.0, "Critical chance after unequipping sword");
         helper.succeed();
     }
 
@@ -126,18 +137,32 @@ public final class StatsGameTests {
         player.setItemSlot(EquipmentSlot.LEGS, new ItemStack(ModItems.TEST_LEGGINGS.get()));
         player.setItemSlot(EquipmentSlot.FEET, new ItemStack(ModItems.TEST_BOOTS.get()));
         player.doTick();
-        near(helper, player.getAttributeValue(ModStats.DEFENCE), 26.0, "Full custom armour defence");
-        near(helper, player.getAttributeValue(ModStats.RESISTANCE), 8.0, "Full custom armour resistance");
-        near(helper, player.getAttributeValue(ModStats.EVASION), 4.0, "Full custom armour evasion");
+        near(helper, player.getAttributeValue(ModCustomStats.DEFENCE), 26.0, "Full custom armour defence");
+        near(helper, player.getAttributeValue(ModCustomStats.RESISTANCE), 0.0, "Unconfigured custom armour resistance");
+        near(helper, player.getAttributeValue(ModCustomStats.EVASION), 0.0, "Unconfigured custom armour evasion");
+
+        // Use test-only stack modifiers: the player's item presets remain independent
+        // of the values needed to exercise stacking and independent removal.
+        player.setItemSlot(EquipmentSlot.HEAD, armourWithStats(
+                player.getItemBySlot(EquipmentSlot.HEAD).copy(), EquipmentSlot.HEAD, 2.0, 1.0));
+        player.setItemSlot(EquipmentSlot.CHEST, armourWithStats(
+                player.getItemBySlot(EquipmentSlot.CHEST).copy(), EquipmentSlot.CHEST, 3.0, 2.0));
+        player.doTick();
+        near(helper, player.getAttributeValue(ModCustomStats.RESISTANCE), 5.0, "Flat armour resistance stacks");
+        near(helper, player.getAttributeValue(ModCustomStats.EVASION), 3.0, "Armour evasion stacks");
+        player.setItemSlot(EquipmentSlot.HEAD, ItemStack.EMPTY);
+        player.doTick();
+        near(helper, player.getAttributeValue(ModCustomStats.RESISTANCE), 3.0, "Removing helmet removes only its resistance");
+        near(helper, player.getAttributeValue(ModCustomStats.EVASION), 2.0, "Removing helmet removes only its evasion");
 
         for (EquipmentSlot slot : new EquipmentSlot[]{EquipmentSlot.HEAD, EquipmentSlot.CHEST,
                 EquipmentSlot.LEGS, EquipmentSlot.FEET}) {
             player.setItemSlot(slot, ItemStack.EMPTY);
         }
         player.doTick();
-        near(helper, player.getAttributeValue(ModStats.DEFENCE), 0.0, "Defence after removing armour");
-        near(helper, player.getAttributeValue(ModStats.RESISTANCE), 0.0, "Resistance after removing armour");
-        near(helper, player.getAttributeValue(ModStats.EVASION), 0.0, "Evasion after removing armour");
+        near(helper, player.getAttributeValue(ModCustomStats.DEFENCE), 0.0, "Defence after removing armour");
+        near(helper, player.getAttributeValue(ModCustomStats.RESISTANCE), 0.0, "Resistance after removing armour");
+        near(helper, player.getAttributeValue(ModCustomStats.EVASION), 0.0, "Evasion after removing armour");
         helper.succeed();
     }
 
@@ -145,8 +170,8 @@ public final class StatsGameTests {
         ServerPlayer player = player(helper);
         player.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Items.WOODEN_SWORD));
         chargeAttack(player);
-        player.getAttribute(ModStats.CRITICAL_CHANCE).removeModifiers();
-        player.getAttribute(ModStats.CRITICAL_CHANCE).setBaseValue(0.0);
+        player.getAttribute(ModCustomStats.CRITICAL_CHANCE).removeModifiers();
+        player.getAttribute(ModCustomStats.CRITICAL_CHANCE).setBaseValue(0.0);
         // Falling would be a guaranteed vanilla critical. Zero chance must still
         // produce the configured 5 damage under the custom critical system.
         player.setOnGround(false);
@@ -159,8 +184,8 @@ public final class StatsGameTests {
         chargeAttack(player);
         player.setOnGround(true);
         player.fallDistance = 0.0;
-        player.getAttribute(ModStats.CRITICAL_CHANCE).removeModifiers();
-        player.getAttribute(ModStats.CRITICAL_CHANCE).setBaseValue(100.0);
+        player.getAttribute(ModCustomStats.CRITICAL_CHANCE).removeModifiers();
+        player.getAttribute(ModCustomStats.CRITICAL_CHANCE).setBaseValue(100.0);
         Cow criticalTarget = target(helper);
         health = criticalTarget.getHealth();
         player.attack(criticalTarget);
@@ -171,25 +196,123 @@ public final class StatsGameTests {
     private static void defenceAndResistance(GameTestHelper helper) {
         ServerPlayer attacker = player(helper);
         Cow target = target(helper);
-        target.getAttribute(ModStats.DEFENCE).setBaseValue(3.0);
-        target.getAttribute(ModStats.RESISTANCE).setBaseValue(20.0);
+        target.getAttribute(ModCustomStats.DEFENCE).setBaseValue(3.0);
+        target.getAttribute(ModCustomStats.RESISTANCE).setBaseValue(20.0);
         float health = target.getHealth();
         helper.assertTrue(target.hurtServer(helper.getLevel(), target.damageSources().mobAttack(attacker), 10.0F),
                 "The test attack should damage the target");
-        near(helper, health - target.getHealth(), 5.6, "(10 damage - 3 defence) * 80%");
+        near(helper, health - target.getHealth(), 7.0, "Physical damage ignores magic resistance: 10 - 3 defence");
 
         Cow bypassTarget = target(helper);
-        bypassTarget.getAttribute(ModStats.DEFENCE).setBaseValue(100.0);
+        bypassTarget.getAttribute(ModCustomStats.DEFENCE).setBaseValue(100.0);
         health = bypassTarget.getHealth();
         bypassTarget.hurtServer(helper.getLevel(), bypassTarget.damageSources().fall(), 4.0F);
         near(helper, health - bypassTarget.getHealth(), 4.0, "Fall damage bypasses defence");
         helper.succeed();
     }
 
+    private static void magicDamageAndResistance(GameTestHelper helper) {
+        ServerPlayer attacker = player(helper);
+        attacker.getAttribute(ModCustomStats.MAGIC_DAMAGE).setBaseValue(4.0);
+        Cow target = target(helper);
+        near(helper, target.getAttributeValue(ModCustomStats.MAGIC_DAMAGE), 0.0, "Mobs receive the magic damage attribute");
+        target.getAttribute(ModCustomStats.DEFENCE).setBaseValue(30.0);
+        target.getAttribute(ModCustomStats.RESISTANCE).setBaseValue(3.0);
+        float health = target.getHealth();
+        helper.assertTrue(target.hurtServer(helper.getLevel(),
+                        target.damageSources().indirectMagic(attacker, attacker), 10.0F),
+                "Magic with an attributed caster should damage the target");
+        near(helper, health - target.getHealth(), 11.0,
+                "Magic ignores defence and uses flat resistance: 10 + 4 - 3");
+
+        Cow blocked = target(helper);
+        blocked.getAttribute(ModCustomStats.RESISTANCE).setBaseValue(200.0);
+        near(helper, blocked.getAttributeValue(ModCustomStats.RESISTANCE), 200.0,
+                "Flat resistance may exceed the old percentage maximum");
+        health = blocked.getHealth();
+        blocked.hurtServer(helper.getLevel(), blocked.damageSources().magic(), 4.0F);
+        near(helper, blocked.getHealth(), health, "Resistance fully absorbs a smaller magic hit");
+        helper.succeed();
+    }
+
+    private static void mixedWeaponDamage(GameTestHelper helper) {
+        ServerPlayer attacker = player(helper);
+        attacker.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Items.WOODEN_SWORD));
+        attacker.getAttribute(ModCustomStats.MAGIC_DAMAGE).setBaseValue(4.0);
+        chargeAttack(attacker);
+        attacker.getAttribute(ModCustomStats.CRITICAL_CHANCE).removeModifiers();
+        attacker.getAttribute(ModCustomStats.CRITICAL_CHANCE).setBaseValue(0.0);
+
+        Cow target = target(helper);
+        target.getAttribute(ModCustomStats.DEFENCE).setBaseValue(2.0);
+        target.getAttribute(ModCustomStats.RESISTANCE).setBaseValue(1.0);
+        float health = target.getHealth();
+        attacker.attack(target);
+        near(helper, health - target.getHealth(), 6.0,
+                "A sword adds independently reduced physical and magic damage: (5 - 2) + (4 - 1)");
+
+        chargeAttack(attacker);
+        attacker.getAttribute(ModCustomStats.CRITICAL_CHANCE).removeModifiers();
+        attacker.getAttribute(ModCustomStats.CRITICAL_CHANCE).setBaseValue(100.0);
+        Cow criticalTarget = target(helper);
+        criticalTarget.getAttribute(ModCustomStats.DEFENCE).setBaseValue(2.0);
+        criticalTarget.getAttribute(ModCustomStats.RESISTANCE).setBaseValue(1.0);
+        health = criticalTarget.getHealth();
+        attacker.attack(criticalTarget);
+        near(helper, health - criticalTarget.getHealth(), 10.5,
+                "Critical multiplier applies to both channels before reduction: (7.5 - 2) + (6 - 1)");
+
+        chargeAttack(attacker);
+        attacker.getAttribute(ModCustomStats.CRITICAL_CHANCE).removeModifiers();
+        attacker.getAttribute(ModCustomStats.CRITICAL_CHANCE).setBaseValue(0.0);
+        Cow physicalBlocked = target(helper);
+        physicalBlocked.getAttribute(ModCustomStats.DEFENCE).setBaseValue(30.0);
+        physicalBlocked.getAttribute(ModCustomStats.RESISTANCE).setBaseValue(1.0);
+        health = physicalBlocked.getHealth();
+        attacker.attack(physicalBlocked);
+        near(helper, health - physicalBlocked.getHealth(), 3.0,
+                "Excess defence does not consume the magic channel");
+
+        chargeAttack(attacker);
+        attacker.getAttribute(ModCustomStats.CRITICAL_CHANCE).removeModifiers();
+        attacker.getAttribute(ModCustomStats.CRITICAL_CHANCE).setBaseValue(0.0);
+        Cow magicBlocked = target(helper);
+        magicBlocked.getAttribute(ModCustomStats.DEFENCE).setBaseValue(2.0);
+        magicBlocked.getAttribute(ModCustomStats.RESISTANCE).setBaseValue(30.0);
+        health = magicBlocked.getHealth();
+        attacker.attack(magicBlocked);
+        near(helper, health - magicBlocked.getHealth(), 3.0,
+                "Excess resistance does not consume the physical channel");
+        helper.succeed();
+    }
+
+    private static void mixedWeaponShield(GameTestHelper helper) {
+        ServerPlayer attacker = player(helper);
+        attacker.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Items.WOODEN_SWORD));
+        attacker.getAttribute(ModCustomStats.MAGIC_DAMAGE).setBaseValue(4.0);
+        chargeAttack(attacker);
+        attacker.getAttribute(ModCustomStats.CRITICAL_CHANCE).removeModifiers();
+        attacker.getAttribute(ModCustomStats.CRITICAL_CHANCE).setBaseValue(0.0);
+        ServerPlayer victim = player(helper);
+        victim.setYRot(0.0F);
+        victim.setYHeadRot(0.0F);
+        attacker.setPos(victim.position().add(0.0, 0.0, 2.0));
+        victim.setItemSlot(EquipmentSlot.OFFHAND, new ItemStack(Items.SHIELD));
+        victim.startUsingItem(InteractionHand.OFF_HAND);
+        for (int tick = 0; tick < 6; tick++) {
+            victim.doTick();
+        }
+        helper.assertTrue(victim.isBlocking(), "The shield must be raised before the attack");
+        float health = victim.getHealth();
+        attacker.attack(victim);
+        near(helper, victim.getHealth(), health, "A shield blocks the combined weapon hit without a second magic hit");
+        helper.succeed();
+    }
+
     private static void evasionRespectsDamageSource(GameTestHelper helper) {
         ServerPlayer attacker = player(helper);
         Cow target = target(helper);
-        target.getAttribute(ModStats.EVASION).setBaseValue(100.0);
+        target.getAttribute(ModCustomStats.EVASION).setBaseValue(100.0);
         float health = target.getHealth();
         boolean hit = target.hurtServer(helper.getLevel(), target.damageSources().mobAttack(attacker), 4.0F);
         helper.assertFalse(hit, "100% evasion should cancel entity attacks");
@@ -203,8 +326,9 @@ public final class StatsGameTests {
         ServerPlayer player = player(helper);
         ItemStack bow = new ItemStack(ModItems.TEST_CUSTOMBOW_ITEM.get());
         player.setItemSlot(EquipmentSlot.MAINHAND, bow);
-        player.getAttribute(ModStats.DAMAGE).setBaseValue(3.0);
-        player.getAttribute(ModStats.CRITICAL_CHANCE).setBaseValue(100.0);
+        player.getAttribute(ModCustomStats.DAMAGE).setBaseValue(3.0);
+        player.getAttribute(ModCustomStats.MAGIC_DAMAGE).setBaseValue(4.0);
+        player.getAttribute(ModCustomStats.CRITICAL_CHANCE).setBaseValue(100.0);
         player.doTick();
 
         TestArrowEntity arrow = new TestArrowEntity(helper.getLevel(), player,
@@ -212,17 +336,22 @@ public final class StatsGameTests {
         arrow.setCritArrow(true);
         helper.assertTrue(helper.getLevel().addFreshEntity(arrow), "The custom arrow should spawn");
         helper.assertFalse(arrow.isCritArrow(), "Vanilla charged-arrow critical damage must be disabled");
+        near(helper, arrow.getPersistentData().getDoubleOr("testmod_shot_magic_damage", -1.0),
+                4.0, "Arrow snapshots the shooter's magic damage at launch");
 
         // Switching weapons and changing base stats after firing must not change this shot.
-        player.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Items.WOODEN_SWORD));
-        player.getAttribute(ModStats.DAMAGE).setBaseValue(1.0);
-        player.getAttribute(ModStats.CRITICAL_CHANCE).setBaseValue(0.0);
+        player.setItemSlot(EquipmentSlot.MAINHAND, weaponWithMagic(new ItemStack(Items.WOODEN_SWORD), 8.0));
+        player.getAttribute(ModCustomStats.DAMAGE).setBaseValue(1.0);
+        player.getAttribute(ModCustomStats.MAGIC_DAMAGE).setBaseValue(0.0);
+        player.getAttribute(ModCustomStats.CRITICAL_CHANCE).setBaseValue(0.0);
         player.doTick();
         Cow target = target(helper);
+        target.getAttribute(ModCustomStats.DEFENCE).setBaseValue(2.0);
+        target.getAttribute(ModCustomStats.RESISTANCE).setBaseValue(1.0);
         float health = target.getHealth();
         target.hurtServer(helper.getLevel(), target.damageSources().arrow(arrow, player), 4.0F);
-        near(helper, health - target.getHealth(), 9.0,
-                "Arrow retains launch damage bonus 2 and guaranteed critical: (4 + 2) * 1.5");
+        near(helper, health - target.getHealth(), 12.0,
+                "Arrow retains both launch stats and critical: ((4 + 2) * 1.5 - 2) + (4 * 1.5 - 1)");
         helper.assertTrue(arrow.getWeaponItem() != null
                         && arrow.getWeaponItem().is(ModItems.TEST_CUSTOMBOW_ITEM.get()),
                 "The arrow should retain its actual firing bow");
@@ -237,6 +366,8 @@ public final class StatsGameTests {
                 0.0, "Off-hand bow does not inherit main-hand sword damage");
         near(helper, offhandArrow.getPersistentData().getDoubleOr("testmod_shot_critical_chance", -1.0),
                 1.0, "Off-hand bow has its own critical chance");
+        near(helper, offhandArrow.getPersistentData().getDoubleOr("testmod_shot_magic_damage", -1.0),
+                0.0, "Off-hand bow does not inherit main-hand sword magic damage");
         arrow.discard();
         offhandArrow.discard();
         helper.succeed();
@@ -244,38 +375,47 @@ public final class StatsGameTests {
 
     private static void playerClonePreservesBaseStats(GameTestHelper helper) {
         ServerPlayer original = player(helper);
-        original.getAttribute(ModStats.DAMAGE).setBaseValue(3.0);
-        original.getAttribute(ModStats.DEFENCE).setBaseValue(3.0);
-        original.getAttribute(ModStats.CRITICAL_CHANCE).setBaseValue(7.0);
-        original.getAttribute(ModStats.RESISTANCE).setBaseValue(8.0);
-        original.getAttribute(ModStats.EVASION).setBaseValue(9.0);
+        original.getAttribute(ModCustomStats.DAMAGE).setBaseValue(3.0);
+        original.getAttribute(ModCustomStats.MAGIC_DAMAGE).setBaseValue(4.0);
+        original.getAttribute(ModCustomStats.DEFENCE).setBaseValue(3.0);
+        original.getAttribute(ModCustomStats.CRITICAL_CHANCE).setBaseValue(7.0);
+        original.getAttribute(ModCustomStats.RESISTANCE).setBaseValue(8.0);
+        original.getAttribute(ModCustomStats.EVASION).setBaseValue(9.0);
         Identifier permanentBonus = id("stats_test_permanent_critical_bonus");
-        original.getAttribute(ModStats.CRITICAL_CHANCE).addPermanentModifier(new AttributeModifier(
+        original.getAttribute(ModCustomStats.CRITICAL_CHANCE).addPermanentModifier(new AttributeModifier(
                 permanentBonus, 2.0, AttributeModifier.Operation.ADD_VALUE));
+        Identifier permanentMagic = id("stats_test_permanent_magic_bonus");
+        original.getAttribute(ModCustomStats.MAGIC_DAMAGE).addPermanentModifier(new AttributeModifier(
+                permanentMagic, 2.0, AttributeModifier.Operation.ADD_VALUE));
         original.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Items.WOODEN_SWORD));
         original.setItemSlot(EquipmentSlot.HEAD, new ItemStack(ModItems.TEST_HELMET.get()));
         original.doTick();
-        near(helper, original.getAttributeValue(ModStats.DAMAGE), 7.0, "Original equipped damage");
-        near(helper, original.getAttributeValue(ModStats.CRITICAL_CHANCE), 10.0,
+        near(helper, original.getAttributeValue(ModCustomStats.DAMAGE), 7.0, "Original equipped damage");
+        near(helper, original.getAttributeValue(ModCustomStats.CRITICAL_CHANCE), 10.0,
                 "Original critical chance with permanent and sword bonuses");
 
         ServerPlayer replacement = player(helper);
         NeoForge.EVENT_BUS.post(new PlayerEvent.Clone(replacement, original, true));
         replacement.doTick();
-        near(helper, replacement.getAttributeBaseValue(ModStats.DAMAGE), 3.0, "Respawn base damage");
-        near(helper, replacement.getAttributeValue(ModStats.DAMAGE), 3.0,
+        near(helper, replacement.getAttributeBaseValue(ModCustomStats.DAMAGE), 3.0, "Respawn base damage");
+        near(helper, replacement.getAttributeValue(ModCustomStats.DAMAGE), 3.0,
                 "Respawn does not copy sword damage");
-        near(helper, replacement.getAttributeValue(ModStats.DEFENCE), 3.0,
+        near(helper, replacement.getAttributeBaseValue(ModCustomStats.MAGIC_DAMAGE), 4.0, "Respawn base magic damage");
+        near(helper, replacement.getAttributeValue(ModCustomStats.MAGIC_DAMAGE), 6.0,
+                "Respawn preserves permanent magic damage bonus");
+        helper.assertTrue(replacement.getAttribute(ModCustomStats.MAGIC_DAMAGE).getModifier(permanentMagic) != null,
+                "The permanent magic damage bonus must retain its modifier ID");
+        near(helper, replacement.getAttributeValue(ModCustomStats.DEFENCE), 3.0,
                 "Respawn preserves base defence without old helmet");
-        near(helper, replacement.getAttributeBaseValue(ModStats.CRITICAL_CHANCE), 7.0,
+        near(helper, replacement.getAttributeBaseValue(ModCustomStats.CRITICAL_CHANCE), 7.0,
                 "Respawn base critical chance");
-        near(helper, replacement.getAttributeValue(ModStats.CRITICAL_CHANCE), 9.0,
+        near(helper, replacement.getAttributeValue(ModCustomStats.CRITICAL_CHANCE), 9.0,
                 "Respawn preserves permanent critical bonus without old sword");
-        helper.assertTrue(replacement.getAttribute(ModStats.CRITICAL_CHANCE).getModifier(permanentBonus) != null,
+        helper.assertTrue(replacement.getAttribute(ModCustomStats.CRITICAL_CHANCE).getModifier(permanentBonus) != null,
                 "The permanent critical bonus must retain its modifier ID");
-        near(helper, replacement.getAttributeValue(ModStats.RESISTANCE), 8.0,
+        near(helper, replacement.getAttributeValue(ModCustomStats.RESISTANCE), 8.0,
                 "Respawn resistance excludes old helmet bonus");
-        near(helper, replacement.getAttributeValue(ModStats.EVASION), 9.0,
+        near(helper, replacement.getAttributeValue(ModCustomStats.EVASION), 9.0,
                 "Respawn evasion excludes old helmet bonus");
         helper.assertTrue(replacement.getMainHandItem().isEmpty()
                         && replacement.getItemBySlot(EquipmentSlot.HEAD).isEmpty(),
@@ -289,20 +429,30 @@ public final class StatsGameTests {
         // Stabs have their own attack mechanics; supply a direct, fixed damage value
         // and full cooldown so this test isolates the custom critical chance.
         chargeAttack(player);
-        player.getAttribute(ModStats.CRITICAL_CHANCE).removeModifiers();
-        player.getAttribute(ModStats.CRITICAL_CHANCE).setBaseValue(0.0);
+        player.getAttribute(ModCustomStats.CRITICAL_CHANCE).removeModifiers();
+        player.getAttribute(ModCustomStats.CRITICAL_CHANCE).setBaseValue(0.0);
         Cow normalTarget = target(helper);
         float health = normalTarget.getHealth();
         helper.assertTrue(player.stabAttack(EquipmentSlot.MAINHAND, normalTarget, 4.0F,
                 true, false, false), "The normal spear stab should hit");
         near(helper, health - normalTarget.getHealth(), 4.0, "Spear stab with zero critical chance");
 
-        player.getAttribute(ModStats.CRITICAL_CHANCE).setBaseValue(100.0);
+        player.getAttribute(ModCustomStats.CRITICAL_CHANCE).setBaseValue(100.0);
         Cow criticalTarget = target(helper);
         health = criticalTarget.getHealth();
         helper.assertTrue(player.stabAttack(EquipmentSlot.MAINHAND, criticalTarget, 4.0F,
                 true, false, false), "The critical spear stab should hit");
         near(helper, health - criticalTarget.getHealth(), 6.0, "Guaranteed critical spear stab");
+
+        player.getAttribute(ModCustomStats.MAGIC_DAMAGE).setBaseValue(4.0);
+        Cow mixedTarget = target(helper);
+        mixedTarget.getAttribute(ModCustomStats.DEFENCE).setBaseValue(1.0);
+        mixedTarget.getAttribute(ModCustomStats.RESISTANCE).setBaseValue(2.0);
+        health = mixedTarget.getHealth();
+        helper.assertTrue(player.stabAttack(EquipmentSlot.MAINHAND, mixedTarget, 4.0F,
+                true, false, false), "The mixed-damage spear stab should hit");
+        near(helper, health - mixedTarget.getHealth(), 9.0,
+                "Spear critical applies to both channels: (4 * 1.5 - 1) + (4 * 1.5 - 2)");
         helper.succeed();
     }
 
@@ -312,12 +462,22 @@ public final class StatsGameTests {
         DamageSource source = victim.damageSources().playerAttack(attacker);
         DamageContainer normal = trackedHit(victim, source, 10.0F, false);
         // The display must report final damage, including the part absorbed by extra hearts.
-        DamageNumberPayload number = DamageNumbers.createNumber(resolvedHit(victim, normal, 5.6F, 2.0F));
-        assertNumber(helper, number, 5.6F, false, "Mitigated normal hit");
+        DamageNumberPayload number = DamageNumbers.createNumber(resolvedHit(victim, normal, 7.0F, 2.0F));
+        assertNumber(helper, number, 7.0F, false, "Mitigated normal hit");
 
         DamageContainer critical = trackedHit(victim, source, 7.5F, true);
         assertNumber(helper, DamageNumbers.createNumber(resolvedHit(victim, critical, 7.5F, 7.5F)),
                 7.5F, true, "Critical hit fully absorbed by extra hearts");
+
+        DamageContainer mixed = trackedHit(victim, source, 9.0F, false);
+        LivingDamageEvent.Post mixedPost = resolvedHit(victim, mixed, 6.0F, 0.0F);
+        assertNumber(helper, DamageNumbers.createNumber(mixedPost), 6.0F, false,
+                "Mixed physical and magic damage displays its combined normal result");
+        helper.assertTrue(DamageNumbers.createNumber(mixedPost) == null,
+                "A mixed hit emits only one combined damage number");
+        DamageContainer mixedCritical = trackedHit(victim, source, 13.5F, true);
+        assertNumber(helper, DamageNumbers.createNumber(resolvedHit(victim, mixedCritical, 10.5F, 0.0F)),
+                10.5F, true, "Mixed critical damage displays one combined critical result");
 
         DamageContainer overkill = trackedHit(victim, source, 10.0F, true);
         victim.setHealth(3.0F);
@@ -408,6 +568,28 @@ public final class StatsGameTests {
         DamageContainer container = new DamageContainer(source, damage);
         DamageNumbers.trackHit(new LivingIncomingDamageEvent(victim, container), critical);
         return container;
+    }
+
+    private static ItemStack weaponWithMagic(ItemStack stack, double magicDamage) {
+        var entries = new ArrayList<>(stack.getAttributeModifiers().modifiers());
+        entries.add(new ItemAttributeModifiers.Entry(ModCustomStats.MAGIC_DAMAGE,
+                new AttributeModifier(id("stats_test_magic_weapon"), magicDamage,
+                        AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND));
+        stack.set(DataComponents.ATTRIBUTE_MODIFIERS, new ItemAttributeModifiers(entries));
+        return stack;
+    }
+
+    private static ItemStack armourWithStats(ItemStack stack, EquipmentSlot slot, double resistance, double evasion) {
+        var entries = new ArrayList<>(stack.getAttributeModifiers().modifiers());
+        var group = EquipmentSlotGroup.bySlot(slot);
+        entries.add(new ItemAttributeModifiers.Entry(ModCustomStats.RESISTANCE,
+                new AttributeModifier(id("stats_test_resistance/" + group.getSerializedName()), resistance,
+                        AttributeModifier.Operation.ADD_VALUE), group));
+        entries.add(new ItemAttributeModifiers.Entry(ModCustomStats.EVASION,
+                new AttributeModifier(id("stats_test_evasion/" + group.getSerializedName()), evasion,
+                        AttributeModifier.Operation.ADD_VALUE), group));
+        stack.set(DataComponents.ATTRIBUTE_MODIFIERS, new ItemAttributeModifiers(entries));
+        return stack;
     }
 
     private static LivingDamageEvent.Post resolvedHit(Cow victim, DamageContainer container,

@@ -2,6 +2,7 @@ package net.schblackos.testmod.network;
 
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
+import net.schblackos.testmod.network.payload.DamageNumberPayload;
 
 public final class ModNetworking {
     private ModNetworking() {

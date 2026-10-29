@@ -1,4 +1,4 @@
-package net.schblackos.testmod.stats;
+package net.schblackos.testmod.network.style;
 
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.damagesource.DamageSource;
@@ -13,7 +13,7 @@ import net.neoforged.neoforge.event.server.ServerStoppedEvent;
 import net.neoforged.neoforge.event.tick.ServerTickEvent;
 import net.neoforged.neoforge.network.PacketDistributor;
 import net.schblackos.testmod.Testmod;
-import net.schblackos.testmod.network.DamageNumberPayload;
+import net.schblackos.testmod.network.payload.DamageNumberPayload;
 import org.jspecify.annotations.Nullable;
 
 import java.util.HashMap;

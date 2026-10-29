@@ -1,9 +1,11 @@
 package net.schblackos.testmod.item;
 
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.component.AttackRange;
 import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.item.equipment.ArmorType;
 import net.neoforged.bus.api.IEventBus;
@@ -11,17 +13,14 @@ import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.schblackos.testmod.Testmod;
 import net.schblackos.testmod.food.ModFoods;
-import net.schblackos.testmod.item.custom.TestArrowItem;
-import net.schblackos.testmod.item.custom.TestDataItem;
-import net.schblackos.testmod.item.custom.TestItem;
-import net.schblackos.testmod.item.custom.TestCustomBowItem;
+import net.schblackos.testmod.item.custom.*;
 
 import java.util.function.Consumer;
 
 public class ModItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Testmod.MODID);
 
-    /*NORMAL ITEMS*/
+    /*SIMPLE ITEMS*/
 
         //Food Items
     public static final DeferredItem<Item> TEST_FOOD = ITEMS.registerItem("test_food",
@@ -141,6 +140,18 @@ public class ModItems {
 
     public static final DeferredItem<Item> TEST_CUSTOMBOW_ITEM =ITEMS.registerItem("test_custombow_item",
             properties -> new TestCustomBowItem(properties.stacksTo(1)));
+
+    public static final DeferredItem<Item> TEST_STAFF =ITEMS.registerItem("test_staff",
+            properties -> new TestStaff(properties.stacksTo(1)
+                    .component(DataComponents.ATTACK_RANGE,
+                            new AttackRange(
+                    0f,
+                    8f,
+                    0f,
+                    8f,
+                    0.3f,
+                    1f
+            ))));
 
 
 

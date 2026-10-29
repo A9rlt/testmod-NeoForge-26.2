@@ -1,4 +1,4 @@
-package net.schblackos.testmod.network;
+package net.schblackos.testmod.network.payload;
 
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.ByteBufCodecs;

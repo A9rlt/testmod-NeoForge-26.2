@@ -21,8 +21,8 @@ import net.neoforged.neoforge.client.event.ExtractLevelRenderStateEvent;
 import net.neoforged.neoforge.client.event.SubmitCustomGeometryEvent;
 import net.neoforged.neoforge.client.network.event.RegisterClientPayloadHandlersEvent;
 import net.schblackos.testmod.Testmod;
-import net.schblackos.testmod.network.DamageNumberPayload;
-import net.schblackos.testmod.stats.DamageNumberStyle;
+import net.schblackos.testmod.network.payload.DamageNumberPayload;
+import net.schblackos.testmod.network.style.DamageNumberStyle;
 import org.jspecify.annotations.Nullable;
 
 /** Temporary client visuals; damage numbers never create or save world entities. */

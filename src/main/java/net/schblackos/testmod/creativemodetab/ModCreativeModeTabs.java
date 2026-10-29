@@ -61,6 +61,7 @@ public class ModCreativeModeTabs {
                         //ADVANCED ITEMS
                     output.accept(ModItems.TEST_ITEM);
                     output.accept(ModItems.TEST_DATA_ITEM);
+                    output.accept(ModItems.TEST_STAFF);
 
 
                     /*ModBlocks*/
@@ -99,7 +100,7 @@ public class ModCreativeModeTabs {
                         //Pressure Plates
                     output.accept(ModBlocks.TEST_PRESSURE_PLATE);
 
-                    //ADVANCED ORES
+                    //ADVANCED BLOCKS
 
                         //Test Block
                     output.accept(ModBlocks.TEST_BLOCK);

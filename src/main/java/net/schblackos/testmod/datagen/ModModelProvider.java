@@ -58,6 +58,9 @@ public class ModModelProvider extends ModelProvider {
                                 false,
                                 1f)));
 
+
+        itemModels.generateFlatItem(ModItems.TEST_STAFF.get(), ModelTemplates.FLAT_ITEM);
+
             //Foods
         itemModels.generateFlatItem(ModItems.TEST_FOOD.get(), ModelTemplates.FLAT_ITEM);
 

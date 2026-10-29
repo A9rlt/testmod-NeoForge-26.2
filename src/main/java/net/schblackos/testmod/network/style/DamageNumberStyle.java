@@ -4,14 +4,18 @@ import java.util.Locale;
 
 /** Damage number appearance, also usable by the standalone calculation checks. */
 public final class DamageNumberStyle {
-    public static final int PHYSICAL_COLOR = 0xFFFFFFFF;
-    public static final int MAGICAL_COLOR = 0x0000FF;
+    public static final int PHYSICAL_COLOR = 0xFFFFFF00;
+    public static final int MAGICAL_COLOR = 0xFF0000FF;
     public static final int CRITICAL_COLOR = 0xFFFFFF00;
+    public static final int MAGIC_CRITICAL_COLOR = 0xFFAA00FF;
 
     private DamageNumberStyle() {
     }
 
-    public static int color(boolean critical) {
+    public static int color(boolean magic, boolean critical) {
+        if (magic) {
+            return critical ? MAGIC_CRITICAL_COLOR : MAGICAL_COLOR;
+        }
         return critical ? CRITICAL_COLOR : PHYSICAL_COLOR;
     }
 

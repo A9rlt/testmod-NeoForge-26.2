@@ -61,12 +61,12 @@ public final class DamageNumberRenderer {
 
         FormattedCharSequence text = Component.literal(DamageNumberStyle.format(payload.damage())).getVisualOrderText();
         ACTIVE_NUMBERS.addLast(new DamageNumber(
-                payload.x() + (VISUAL_RANDOM.nextDouble() - 0.5D) * 0.4D,
-                payload.y(),
-                payload.z() + (VISUAL_RANDOM.nextDouble() - 0.5D) * 0.4D,
+                payload.x(), payload.y(), payload.z(),
+                (VISUAL_RANDOM.nextFloat() - 0.5F) * 16.0F,
+                payload.magic() ? -14.0F : 0.0F,
                 text,
                 minecraft.font.width(text),
-                DamageNumberStyle.color(payload.critical())));
+                DamageNumberStyle.color(payload.magic(), payload.critical())));
     }
 
     @SubscribeEvent
@@ -98,7 +98,7 @@ public final class DamageNumberRenderer {
             }
             int color = (number.color & 0x00FFFFFF) | (alpha << 24);
             states.add(new DamageRenderState(number.x, number.y + RISE_DISTANCE * age / LIFETIME_TICKS,
-                    number.z, number.text, number.width, color));
+                    number.z, number.horizontalOffset, number.verticalOffset, number.text, number.width, color));
         }
         // The submission stage only reads this immutable snapshot, never mutable game state.
         event.getRenderState().setRenderData(DAMAGE_NUMBERS, List.copyOf(states));
@@ -117,7 +117,9 @@ public final class DamageNumberRenderer {
             poses.translate(state.x - camera.pos.x, state.y - camera.pos.y, state.z - camera.pos.z);
             poses.mulPose(camera.orientation);
             poses.scale(0.025F, -0.025F, 0.025F);
-            event.getSubmitNodeCollector().submitText(poses, -state.width / 2.0F, 0.0F, state.text,
+            // Offset in billboard space so both channels stay separate even when viewed from above.
+            event.getSubmitNodeCollector().submitText(poses, -state.width / 2.0F + state.horizontalOffset,
+                    state.verticalOffset, state.text,
                     true, Font.DisplayMode.NORMAL, LightCoordsUtil.FULL_BRIGHT, state.color, 0, 0);
             poses.popPose();
         }
@@ -134,21 +136,27 @@ public final class DamageNumberRenderer {
         private final double x;
         private final double y;
         private final double z;
+        private final float horizontalOffset;
+        private final float verticalOffset;
         private final FormattedCharSequence text;
         private final int width;
         private final int color;
         private int age;
 
-        private DamageNumber(double x, double y, double z, FormattedCharSequence text, int width, int color) {
+        private DamageNumber(double x, double y, double z, float horizontalOffset, float verticalOffset,
+                             FormattedCharSequence text, int width, int color) {
             this.x = x;
             this.y = y;
             this.z = z;
+            this.horizontalOffset = horizontalOffset;
+            this.verticalOffset = verticalOffset;
             this.text = text;
             this.width = width;
             this.color = color;
         }
     }
 
-    private record DamageRenderState(double x, double y, double z, FormattedCharSequence text, int width, int color) {
+    private record DamageRenderState(double x, double y, double z, float horizontalOffset, float verticalOffset,
+                                     FormattedCharSequence text, int width, int color) {
     }
 }

@@ -129,7 +129,12 @@ public final class ModCombatEvents {
             }
         } else if (source.getEntity() instanceof LivingEntity attacker) {
             if (magicSource) {
-                magic += (float) attacker.getAttributeValue(ModCustomStats.MAGIC_DAMAGE);
+                // Spell callers supply the complete magic amount (including staff stats).
+                critical = StatsMath.succeeds(attacker.getAttributeValue(ModCustomStats.CRITICAL_CHANCE),
+                        attacker.getRandom().nextDouble());
+                if (critical) {
+                    magic = StatsMath.criticalDamage(magic);
+                }
             } else if (source.getDirectEntity() == attacker && isWeaponAttack(source)) {
                 // Vanilla has already applied the critical multiplier to physical damage.
                 float bonus = (float) attacker.getAttributeValue(ModCustomStats.MAGIC_DAMAGE) * attackStrength(attacker);
@@ -139,9 +144,9 @@ public final class ModCombatEvents {
 
         float total = physical + magic;
         event.setAmount(total);
-        DamageNumbers.trackHit(event, critical);
+        DamageNumbers.trackHit(event, critical, physical, magic);
 
-        // One hurt event preserves shields, immunity frames, and one damage number.
+        // One hurt event preserves shields and immunity frames for both popup channels.
         // Split any shield/iframe-adjusted amount in the original channel proportions.
         float magicFraction = total > 0.0F ? magic / total : 0.0F;
         event.addReductionModifier(DamageContainer.Reduction.ARMOR, (container, vanillaReduction) -> {
@@ -153,7 +158,10 @@ public final class ModCombatEvents {
             double resistance = source.is(DamageTypeTags.BYPASSES_RESISTANCE)
                     || source.is(DamageTypeTags.BYPASSES_INVULNERABILITY)
                     ? 0.0D : victim.getAttributeValue(ModCustomStats.RESISTANCE);
-            float remaining = StatsMath.combinedDamage(physicalPart, magicPart, defence, resistance);
+            float remainingPhysical = StatsMath.afterDefence(physicalPart, defence);
+            float remainingMagic = StatsMath.afterResistance(magicPart, resistance);
+            DamageNumbers.trackResolvedDamage(event, remainingPhysical, remainingMagic);
+            float remaining = remainingPhysical + remainingMagic;
             return Math.max(0.0F, incoming - remaining);
         });
     }
@@ -175,7 +183,8 @@ public final class ModCombatEvents {
     public static void onPlayerClone(PlayerEvent.Clone event) {
         // Copy base values and permanent bonuses, never the old equipment modifiers.
         for (var attribute : List.of(ModCustomStats.DAMAGE, ModCustomStats.MAGIC_DAMAGE, ModCustomStats.DEFENCE,
-                ModCustomStats.CRITICAL_CHANCE, ModCustomStats.RESISTANCE, ModCustomStats.EVASION)) {
+                ModCustomStats.CRITICAL_CHANCE, ModCustomStats.RESISTANCE, ModCustomStats.EVASION,
+                ModCustomStats.ATTACK_SPEED, ModCustomStats.FIRE_RATE)) {
             copyPermanentStat(event, attribute);
         }
     }
@@ -198,7 +207,9 @@ public final class ModCombatEvents {
                     format(player.getAttributeValue(ModCustomStats.CRITICAL_CHANCE)),
                     format(player.getAttributeValue(ModCustomStats.DEFENCE)),
                     format(player.getAttributeValue(ModCustomStats.RESISTANCE)),
-                    format(player.getAttributeValue(ModCustomStats.EVASION))), false);
+                    format(player.getAttributeValue(ModCustomStats.EVASION)),
+                    format(player.getAttributeValue(ModCustomStats.ATTACK_SPEED)),
+                    format(player.getAttributeValue(ModCustomStats.FIRE_RATE))), false);
             return 1;
         }));
     }

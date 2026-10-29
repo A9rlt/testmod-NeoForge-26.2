@@ -1,152 +1,130 @@
 package net.schblackos.testmod.item.custom;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.ProjectileUtil;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.EntityHitResult;
+import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
-
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.event.entity.player.PlayerEvent;
+import net.neoforged.neoforge.event.server.ServerStoppedEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
+import net.schblackos.testmod.Testmod;
 import net.schblackos.testmod.stats.ModCustomStats;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
-
-@EventBusSubscriber(modid = "testmod")
+@EventBusSubscriber(modid = Testmod.MODID)
 public class TestStaff extends Item {
-
     private static final int BEAM_DURATION = 5;
-    private static final double BEAM_RANGE = 20;
-    private static final Map<UUID, Long> lastFireTime = new HashMap<>();
-    private static final Map<UUID, BeamData> activeBeams = new HashMap<>();
-
-    private record BeamData(
-            Vec3 start,
-            Vec3 direction,
-            int ticksLeft
-    ){
-
-    }
+    private static final double BEAM_RANGE = 20.0D;
+    private static final Map<UUID, BeamData> ACTIVE_BEAMS = new HashMap<>();
 
     public TestStaff(Properties properties) {
         super(properties);
     }
 
-
-    public static void shootParticles(ServerLevel level, Player player) {
-
-        UUID playerId = player.getUUID();
-        long currentTime = level.getGameTime();
-
-        // Retrieve player's current fire rate
-        double fireRate = player.getAttributeValue(
-                ModCustomStats.FIRE_RATE
-        );
-
-        // Convert shots per second into ticks between shots
-        int cooldownTicks = Math.max(
-                1,
-                (int) Math.ceil(25 / fireRate)
-        );
-
-        Long previousFire = lastFireTime.get(playerId);
-
-        if (previousFire != null &&
-                currentTime - previousFire < cooldownTicks) {
+    /** The server determines the target, damage and fire-rate cooldown for every shot. */
+    public static void shoot(ServerPlayer player) {
+        ItemStack staff = player.getMainHandItem();
+        if (!(staff.getItem() instanceof TestStaff) || !player.isAlive() || player.isSpectator()
+                || player.getCooldowns().isOnCooldown(staff)) {
             return;
         }
+        double fireRate = player.getAttributeValue(ModCustomStats.FIRE_RATE);
+        if (!Double.isFinite(fireRate) || fireRate <= 0.0D) {
+            return;
+        }
+        player.getCooldowns().addCooldown(staff, Math.max(1, (int) Math.ceil(20.0D / fireRate)));
 
-        lastFireTime.put(playerId, currentTime);
+        ServerLevel level = player.level();
+        Vec3 origin = player.getEyePosition();
+        Vec3 ray = player.getLookAngle().scale(BEAM_RANGE);
+        HitResult hit = level.clipIncludingBorder(new ClipContext(origin, origin.add(ray),
+                ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, player));
+        var entityHit = ProjectileUtil.getEntityHitResult(level, player, origin, hit.getLocation(),
+                player.getBoundingBox().expandTowards(ray).inflate(1.0D),
+                entity -> entity instanceof LivingEntity && entity.isAlive() && entity.isPickable()
+                        && !entity.isSpectator(), 0.0F);
+        if (entityHit != null) {
+            hit = entityHit;
+        }
 
-        Vec3 direction = player.getLookAngle();
+        Vec3 right = new Vec3(-Math.cos(Math.toRadians(player.getYRot())), 0.0D,
+                -Math.sin(Math.toRadians(player.getYRot())));
+        Vec3 start = player.getEyePosition().add(right.scale(0.4D)).add(0.0D, -0.3D, 0.0D);
+        ACTIVE_BEAMS.put(player.getUUID(), new BeamData(level, start, hit.getLocation(), BEAM_DURATION));
 
-        Vec3 right = new Vec3(
-                -Math.cos(Math.toRadians(player.getYRot())),
-                0,
-                -Math.sin(Math.toRadians(player.getYRot()))
-        );
-
-        Vec3 start = player.getEyePosition()
-                .add(right.scale(0.4))
-                .add(0, -0.3, 0);
-
-        activeBeams.put(
-                playerId,
-                new BeamData(start, direction, BEAM_DURATION)
-        );
+        if (hit instanceof EntityHitResult targetHit && targetHit.getEntity() instanceof LivingEntity target) {
+            float damage = (float) player.getAttributeValue(ModCustomStats.MAGIC_DAMAGE);
+            if (damage > 0.0F) {
+                target.hurtServer(level, player.damageSources().indirectMagic(player, player), damage);
+            }
+        }
     }
 
     @SubscribeEvent
     public static void onPlayerTick(PlayerTickEvent.Post event) {
-
         if (!(event.getEntity() instanceof ServerPlayer player)) {
             return;
         }
-
         UUID playerId = player.getUUID();
-        BeamData beam = activeBeams.get(playerId);
-
+        BeamData beam = ACTIVE_BEAMS.get(playerId);
         if (beam == null) {
             return;
         }
-
-        if (!(player.getMainHandItem().getItem() instanceof TestStaff)) {
-            activeBeams.remove(playerId);
+        if (!player.isAlive() || player.level() != beam.level()
+                || !(player.getMainHandItem().getItem() instanceof TestStaff)) {
+            ACTIVE_BEAMS.remove(playerId);
             return;
         }
 
-        if (player.level() instanceof ServerLevel level) {
-            spawnBeam(level, beam.start(), beam.direction());
-        }
-
+        spawnBeam(beam.level(), beam.start(), beam.end());
         if (beam.ticksLeft() <= 1) {
-            activeBeams.remove(playerId);
+            ACTIVE_BEAMS.remove(playerId);
         } else {
-            activeBeams.put(
-                    playerId,
-                    new BeamData(
-                            beam.start(),
-                            beam.direction(),
-                            beam.ticksLeft() - 1
-                    )
-            );
+            ACTIVE_BEAMS.put(playerId,
+                    new BeamData(beam.level(), beam.start(), beam.end(), beam.ticksLeft() - 1));
         }
+    }
+
+    @SubscribeEvent
+    public static void onLogout(PlayerEvent.PlayerLoggedOutEvent event) {
+        ACTIVE_BEAMS.remove(event.getEntity().getUUID());
+    }
+
+    @SubscribeEvent
+    public static void onServerStopped(ServerStoppedEvent event) {
+        ACTIVE_BEAMS.clear();
     }
 
     @Override
-    public boolean canDestroyBlock(ItemStack stack, BlockState state, Level level, BlockPos pos, LivingEntity entity
-    ) {
+    public boolean canDestroyBlock(ItemStack stack, BlockState state, Level level, BlockPos pos, LivingEntity entity) {
         return false;
     }
 
-    private static void spawnBeam(ServerLevel level, Vec3 start, Vec3 direction) {
-
-        for (double distance = 0;
-             distance < BEAM_RANGE;
-             distance += 0.5) {
-
+    private static void spawnBeam(ServerLevel level, Vec3 start, Vec3 end) {
+        Vec3 delta = end.subtract(start);
+        double length = delta.length();
+        Vec3 direction = delta.normalize();
+        for (double distance = 0.0D; distance <= length; distance += 0.5D) {
             Vec3 pos = start.add(direction.scale(distance));
-
-            level.sendParticles(
-                    ParticleTypes.BUBBLE_POP,
-                    pos.x,
-                    pos.y,
-                    pos.z,
-                    1,
-                    0,
-                    0,
-                    0,
-                    0
-            );
+            level.sendParticles(ParticleTypes.BUBBLE_POP, pos.x, pos.y, pos.z, 1,
+                    0.0D, 0.0D, 0.0D, 0.0D);
         }
+    }
+
+    private record BeamData(ServerLevel level, Vec3 start, Vec3 end, int ticksLeft) {
     }
 }

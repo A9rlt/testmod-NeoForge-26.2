@@ -12,7 +12,7 @@ import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 import net.schblackos.testmod.datagen.ModEntities;
-import net.schblackos.testmod.client.renderer.TestArrowRenderer;
+import net.schblackos.testmod.client.render.TestArrowRenderer;
 import net.schblackos.testmod.item.ModItems;
 
 // This class will not load on dedicated servers. Accessing client side code from here is safe.

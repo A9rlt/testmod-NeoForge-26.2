@@ -5,7 +5,6 @@ import net.schblackos.testmod.creativemodetab.ModCreativeModeTabs;
 import net.schblackos.testmod.datacomponents.ModDataComponents;
 import net.schblackos.testmod.datagen.ModEntities;
 import net.schblackos.testmod.item.ModItems;
-import net.schblackos.testmod.network.StaffNetwork;
 import net.schblackos.testmod.stats.ModCustomStats;
 import net.schblackos.testmod.stats.StatsGameTests;
 import net.schblackos.testmod.network.ModNetworking;
@@ -58,8 +57,6 @@ public class Testmod {
 
         // Registers the item to a creative tab
         modEventBus.addListener(this::addCreative);
-
-        modEventBus.addListener(StaffNetwork::register);
 
         // Registers our mod's ModConfigSpec so that FML can create and load the config file for us
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);

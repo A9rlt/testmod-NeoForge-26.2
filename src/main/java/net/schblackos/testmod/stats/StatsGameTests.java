@@ -2,6 +2,7 @@ package net.schblackos.testmod.stats;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.function.Consumer;
 import net.minecraft.core.Holder;
@@ -31,6 +32,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.level.GameType;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.common.NeoForge;
@@ -44,6 +46,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import net.schblackos.testmod.Testmod;
 import net.schblackos.testmod.entity.custom.TestArrowEntity;
 import net.schblackos.testmod.item.ModItems;
+import net.schblackos.testmod.item.custom.TestStaff;
 import net.schblackos.testmod.network.payload.DamageNumberPayload;
 import net.schblackos.testmod.network.style.DamageNumbers;
 
@@ -65,6 +68,8 @@ public final class StatsGameTests {
         addTest("stats_arrow_snapshots_firing_weapon", StatsGameTests::arrowSnapshotsFiringWeapon);
         addTest("stats_player_clone_preserves_base_stats", StatsGameTests::playerClonePreservesBaseStats);
         addTest("stats_spear_critical_chance", StatsGameTests::spearCriticalChance);
+        addTest("stats_staff_damage_and_cooldown", StatsGameTests::staffDamageAndCooldown);
+        addTest("stats_staff_block_occlusion", StatsGameTests::staffBlockOcclusion);
         addTest("stats_damage_numbers_resolved_damage", StatsGameTests::damageNumbersResolvedDamage);
         addTest("stats_damage_numbers_hit_isolation", StatsGameTests::damageNumbersHitIsolation);
         addTest("stats_damage_numbers_suppression", StatsGameTests::damageNumbersSuppression);
@@ -115,6 +120,7 @@ public final class StatsGameTests {
         near(helper, player.getAttributeValue(ModCustomStats.CRITICAL_CHANCE), 0.0, "Base critical chance");
         near(helper, player.getAttributeValue(ModCustomStats.RESISTANCE), 0.0, "Base resistance");
         near(helper, player.getAttributeValue(ModCustomStats.EVASION), 0.0, "Base evasion");
+        near(helper, player.getAttributeValue(ModCustomStats.FIRE_RATE), 2.0, "Base staff shots per second");
 
         player.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Items.WOODEN_SWORD));
         player.doTick();
@@ -222,8 +228,18 @@ public final class StatsGameTests {
         helper.assertTrue(target.hurtServer(helper.getLevel(),
                         target.damageSources().indirectMagic(attacker, attacker), 10.0F),
                 "Magic with an attributed caster should damage the target");
-        near(helper, health - target.getHealth(), 11.0,
-                "Magic ignores defence and uses flat resistance: 10 + 4 - 3");
+        near(helper, health - target.getHealth(), 7.0,
+                "Magic uses its supplied amount without adding caster stats twice: 10 - 3");
+
+        attacker.getAttribute(ModCustomStats.CRITICAL_CHANCE).setBaseValue(100.0);
+        Cow criticalTarget = target(helper);
+        criticalTarget.getAttribute(ModCustomStats.DEFENCE).setBaseValue(30.0);
+        criticalTarget.getAttribute(ModCustomStats.RESISTANCE).setBaseValue(3.0);
+        health = criticalTarget.getHealth();
+        criticalTarget.hurtServer(helper.getLevel(),
+                criticalTarget.damageSources().indirectMagic(attacker, attacker), 10.0F);
+        near(helper, health - criticalTarget.getHealth(), 12.0,
+                "Magic critical applies once before flat resistance: 10 * 1.5 - 3");
 
         Cow blocked = target(helper);
         blocked.getAttribute(ModCustomStats.RESISTANCE).setBaseValue(200.0);
@@ -381,6 +397,8 @@ public final class StatsGameTests {
         original.getAttribute(ModCustomStats.CRITICAL_CHANCE).setBaseValue(7.0);
         original.getAttribute(ModCustomStats.RESISTANCE).setBaseValue(8.0);
         original.getAttribute(ModCustomStats.EVASION).setBaseValue(9.0);
+        original.getAttribute(ModCustomStats.FIRE_RATE).setBaseValue(3.0);
+        original.getAttribute(ModCustomStats.ATTACK_SPEED).setBaseValue(5.0);
         Identifier permanentBonus = id("stats_test_permanent_critical_bonus");
         original.getAttribute(ModCustomStats.CRITICAL_CHANCE).addPermanentModifier(new AttributeModifier(
                 permanentBonus, 2.0, AttributeModifier.Operation.ADD_VALUE));
@@ -417,6 +435,10 @@ public final class StatsGameTests {
                 "Respawn resistance excludes old helmet bonus");
         near(helper, replacement.getAttributeValue(ModCustomStats.EVASION), 9.0,
                 "Respawn evasion excludes old helmet bonus");
+        near(helper, replacement.getAttributeValue(ModCustomStats.FIRE_RATE), 3.0,
+                "Respawn preserves staff fire rate");
+        near(helper, replacement.getAttributeValue(ModCustomStats.ATTACK_SPEED), 5.0,
+                "Respawn preserves base attack speed without old sword modifiers");
         helper.assertTrue(replacement.getMainHandItem().isEmpty()
                         && replacement.getItemBySlot(EquipmentSlot.HEAD).isEmpty(),
                 "Stat persistence must not copy equipment");
@@ -456,34 +478,108 @@ public final class StatsGameTests {
         helper.succeed();
     }
 
+    private static void staffDamageAndCooldown(GameTestHelper helper) {
+        ServerPlayer caster = staffCaster(helper);
+        Cow target = staffTarget(helper, caster);
+        target.getAttribute(ModCustomStats.DEFENCE).setBaseValue(30.0);
+        target.getAttribute(ModCustomStats.RESISTANCE).setBaseValue(1.0);
+        float health = target.getHealth();
+        TestStaff.shoot(caster);
+        near(helper, health - target.getHealth(), 4.0,
+                "Staff uses its 5 magic damage once, ignores defence and subtracts resistance");
+        helper.assertTrue(caster.getCooldowns().isOnCooldown(caster.getMainHandItem()),
+                "An accepted staff shot starts a server-side cooldown");
+
+        // Clear immunity frames so a rejected repeat cannot pass only because the victim is invulnerable.
+        target.invulnerableTime = 0;
+        health = target.getHealth();
+        TestStaff.shoot(caster);
+        near(helper, target.getHealth(), health, "A repeat staff packet during cooldown cannot deal damage");
+
+        target.discard();
+        caster.getCooldowns().removeCooldown(caster.getCooldowns().getCooldownGroup(caster.getMainHandItem()));
+        caster.getAttribute(ModCustomStats.CRITICAL_CHANCE).setBaseValue(100.0);
+        Cow criticalTarget = staffTarget(helper, caster);
+        criticalTarget.getAttribute(ModCustomStats.RESISTANCE).setBaseValue(1.0);
+        health = criticalTarget.getHealth();
+        TestStaff.shoot(caster);
+        near(helper, health - criticalTarget.getHealth(), 6.5,
+                "Staff magic critical applies once before resistance: 5 * 1.5 - 1");
+        helper.succeed();
+    }
+
+    private static void staffBlockOcclusion(GameTestHelper helper) {
+        ServerPlayer caster = staffCaster(helper);
+        Cow target = staffTarget(helper, caster);
+        helper.setBlock(1, 3, 3, Blocks.STONE);
+        float health = target.getHealth();
+        TestStaff.shoot(caster);
+        near(helper, target.getHealth(), health, "Staff beam cannot damage a target through a solid block");
+        helper.succeed();
+    }
+
+    private static ServerPlayer staffCaster(GameTestHelper helper) {
+        ServerPlayer caster = player(helper);
+        caster.setYRot(0.0F);
+        caster.setXRot(0.0F);
+        caster.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(ModItems.TEST_STAFF.get()));
+        caster.doTick();
+        near(helper, caster.getAttributeValue(ModCustomStats.MAGIC_DAMAGE), 5.0, "Equipped staff magic damage");
+        return caster;
+    }
+
+    private static Cow staffTarget(GameTestHelper helper, ServerPlayer caster) {
+        Cow target = target(helper);
+        target.setPos(caster.position().add(0.0D, 1.0D, 3.0D));
+        return target;
+    }
+
     private static void damageNumbersResolvedDamage(GameTestHelper helper) {
         ServerPlayer attacker = player(helper);
         Cow victim = target(helper);
         DamageSource source = victim.damageSources().playerAttack(attacker);
         DamageContainer normal = trackedHit(victim, source, 10.0F, false);
         // The display must report final damage, including the part absorbed by extra hearts.
-        DamageNumberPayload number = DamageNumbers.createNumber(resolvedHit(victim, normal, 7.0F, 2.0F));
-        assertNumber(helper, number, 7.0F, false, "Mitigated normal hit");
+        assertSingleNumber(helper, DamageNumbers.createNumbers(resolvedHit(victim, normal, 7.0F, 2.0F)),
+                7.0F, false, false, "Mitigated normal hit including absorption");
 
         DamageContainer critical = trackedHit(victim, source, 7.5F, true);
-        assertNumber(helper, DamageNumbers.createNumber(resolvedHit(victim, critical, 7.5F, 7.5F)),
-                7.5F, true, "Critical hit fully absorbed by extra hearts");
+        assertSingleNumber(helper, DamageNumbers.createNumbers(resolvedHit(victim, critical, 7.5F, 7.5F)),
+                7.5F, true, false, "Critical hit fully absorbed by extra hearts");
 
-        DamageContainer mixed = trackedHit(victim, source, 9.0F, false);
-        LivingDamageEvent.Post mixedPost = resolvedHit(victim, mixed, 6.0F, 0.0F);
-        assertNumber(helper, DamageNumbers.createNumber(mixedPost), 6.0F, false,
-                "Mixed physical and magic damage displays its combined normal result");
-        helper.assertTrue(DamageNumbers.createNumber(mixedPost) == null,
-                "A mixed hit emits only one combined damage number");
-        DamageContainer mixedCritical = trackedHit(victim, source, 13.5F, true);
-        assertNumber(helper, DamageNumbers.createNumber(resolvedHit(victim, mixedCritical, 10.5F, 0.0F)),
-                10.5F, true, "Mixed critical damage displays one combined critical result");
+        DamageContainer mixed = trackedHit(victim, source, 1.0F, 4.0F, false);
+        LivingDamageEvent.Post mixedPost = resolvedHit(victim, mixed, 5.0F, 0.0F);
+        assertSplitNumbers(helper, DamageNumbers.createNumbers(mixedPost), 1.0F, 4.0F, false,
+                "A mixed hit displays separate physical and magic values");
+        helper.assertTrue(DamageNumbers.createNumbers(mixedPost).isEmpty(),
+                "A mixed hit emits its pair only once");
 
-        DamageContainer overkill = trackedHit(victim, source, 10.0F, true);
+        DamageContainer mitigated = trackedHit(victim, source, 5.0F, 4.0F, false);
+        DamageNumbers.trackResolvedDamage(new LivingIncomingDamageEvent(victim, mitigated), 1.0F, 3.0F);
+        assertSplitNumbers(helper, DamageNumbers.createNumbers(resolvedHit(victim, mitigated, 2.0F, 0.5F)),
+                0.5F, 1.5F, false,
+                "Post-mitigation proportions survive later shared reductions and absorption");
+
+        DamageContainer mixedCritical = trackedHit(victim, source, 7.5F, 6.0F, true);
+        DamageNumbers.trackResolvedDamage(new LivingIncomingDamageEvent(victim, mixedCritical), 5.5F, 5.0F);
+        assertSplitNumbers(helper, DamageNumbers.createNumbers(resolvedHit(victim, mixedCritical, 10.5F, 0.0F)),
+                5.5F, 5.0F, true, "Mixed critical preserves both channel amounts and critical flags");
+
+        DamageContainer magicOnly = trackedHit(victim, source, 5.0F, 4.0F, true);
+        DamageNumbers.trackResolvedDamage(new LivingIncomingDamageEvent(victim, magicOnly), 0.0F, 3.0F);
+        assertSingleNumber(helper, DamageNumbers.createNumbers(resolvedHit(victim, magicOnly, 3.0F, 0.0F)),
+                3.0F, true, true, "Fully prevented physical damage emits only a magic critical");
+
+        DamageContainer physicalOnly = trackedHit(victim, source, 5.0F, 4.0F, false);
+        DamageNumbers.trackResolvedDamage(new LivingIncomingDamageEvent(victim, physicalOnly), 3.0F, 0.0F);
+        assertSingleNumber(helper, DamageNumbers.createNumbers(resolvedHit(victim, physicalOnly, 3.0F, 0.0F)),
+                3.0F, false, false, "Fully prevented magic damage emits only physical damage");
+
+        DamageContainer overkill = trackedHit(victim, source, 2.0F, 8.0F, true);
         victim.setHealth(3.0F);
         DamageNumbers.beforeHealthDamage(new LivingDamageEvent.Pre(victim, overkill));
-        assertNumber(helper, DamageNumbers.createNumber(resolvedHit(victim, overkill, 10.0F, 0.0F)),
-                3.0F, true, "Overkill is limited to health available immediately before damage");
+        assertSplitNumbers(helper, DamageNumbers.createNumbers(resolvedHit(victim, overkill, 10.0F, 0.0F)),
+                0.6F, 2.4F, true, "Overkill is capped before distributing between damage channels");
         helper.succeed();
     }
 
@@ -493,21 +589,21 @@ public final class StatsGameTests {
         Cow second = target(helper);
         DamageSource source = first.damageSources().playerAttack(attacker);
         DamageContainer critical = trackedHit(first, source, 7.5F, true);
-        helper.assertTrue(DamageNumbers.createNumber(resolvedHit(second, critical, 7.5F, 0.0F)) == null,
+        helper.assertTrue(DamageNumbers.createNumbers(resolvedHit(second, critical, 7.5F, 0.0F)).isEmpty(),
                 "A critical hit must not be assigned to a different victim sharing its damage source");
         DamageContainer normal = trackedHit(second, source, 5.0F, false);
-        assertNumber(helper, DamageNumbers.createNumber(resolvedHit(second, normal, 5.0F, 0.0F)),
-                5.0F, false, "A second victim keeps its own normal-hit flag");
+        assertSingleNumber(helper, DamageNumbers.createNumbers(resolvedHit(second, normal, 5.0F, 0.0F)),
+                5.0F, false, false, "A second victim keeps its own normal-hit flag");
         LivingDamageEvent.Post firstPost = resolvedHit(first, critical, 7.5F, 0.0F);
-        assertNumber(helper, DamageNumbers.createNumber(firstPost), 7.5F, true,
+        assertSingleNumber(helper, DamageNumbers.createNumbers(firstPost), 7.5F, true, false,
                 "The first victim retains its critical-hit flag");
-        helper.assertTrue(DamageNumbers.createNumber(firstPost) == null,
+        helper.assertTrue(DamageNumbers.createNumbers(firstPost).isEmpty(),
                 "The same hit must only display one number");
 
         trackedHit(first, source, 7.5F, true);
         DamageContainer replacement = trackedHit(first, source, 5.0F, false);
-        assertNumber(helper, DamageNumbers.createNumber(resolvedHit(first, replacement, 5.0F, 0.0F)),
-                5.0F, false, "A later normal hit replaces an abandoned critical-hit flag");
+        assertSingleNumber(helper, DamageNumbers.createNumbers(resolvedHit(first, replacement, 5.0F, 0.0F)),
+                5.0F, false, false, "A later normal hit replaces an abandoned critical-hit flag");
         helper.succeed();
     }
 
@@ -519,18 +615,18 @@ public final class StatsGameTests {
         LivingIncomingDamageEvent canceledEvent = new LivingIncomingDamageEvent(victim, canceled);
         canceledEvent.setCanceled(true);
         DamageNumbers.trackHit(canceledEvent, true);
-        helper.assertTrue(DamageNumbers.createNumber(resolvedHit(victim, canceled, 7.5F, 0.0F)) == null,
+        helper.assertTrue(DamageNumbers.createNumbers(resolvedHit(victim, canceled, 7.5F, 0.0F)).isEmpty(),
                 "Canceled damage must not retain a displayable critical hit");
 
         DamageContainer zero = trackedHit(victim, source, 5.0F, true);
-        helper.assertTrue(DamageNumbers.createNumber(resolvedHit(victim, zero, 0.0F, 0.0F)) == null,
+        helper.assertTrue(DamageNumbers.createNumbers(resolvedHit(victim, zero, 0.0F, 0.0F)).isEmpty(),
                 "Fully prevented damage must not display a number");
-        helper.assertTrue(DamageNumbers.createNumber(resolvedHit(victim, zero, 5.0F, 0.0F)) == null,
+        helper.assertTrue(DamageNumbers.createNumbers(resolvedHit(victim, zero, 5.0F, 0.0F)).isEmpty(),
                 "A zero-damage result still consumes its hit context");
 
         DamageContainer invalid = trackedHit(victim, source, 5.0F, false);
-        helper.assertTrue(DamageNumbers.createNumber(resolvedHit(victim, invalid, 5.0F,
-                        Float.POSITIVE_INFINITY)) == null,
+        helper.assertTrue(DamageNumbers.createNumbers(resolvedHit(victim, invalid, 5.0F,
+                        Float.POSITIVE_INFINITY)).isEmpty(),
                 "A non-finite result must not be sent to the client");
         helper.succeed();
     }
@@ -565,8 +661,13 @@ public final class StatsGameTests {
     }
 
     private static DamageContainer trackedHit(Cow victim, DamageSource source, float damage, boolean critical) {
-        DamageContainer container = new DamageContainer(source, damage);
-        DamageNumbers.trackHit(new LivingIncomingDamageEvent(victim, container), critical);
+        return trackedHit(victim, source, damage, 0.0F, critical);
+    }
+
+    private static DamageContainer trackedHit(Cow victim, DamageSource source,
+                                               float physical, float magic, boolean critical) {
+        DamageContainer container = new DamageContainer(source, physical + magic);
+        DamageNumbers.trackHit(new LivingIncomingDamageEvent(victim, container), critical, physical, magic);
         return container;
     }
 
@@ -601,10 +702,24 @@ public final class StatsGameTests {
     }
 
     private static void assertNumber(GameTestHelper helper, DamageNumberPayload number, float damage,
-                                     boolean critical, String name) {
+                                     boolean critical, boolean magic, String name) {
         helper.assertTrue(number != null, name + " should create a damage number");
         near(helper, number.damage(), damage, name + " amount");
         helper.assertTrue(number.critical() == critical, name + " critical flag");
+        helper.assertTrue(number.magic() == magic, name + " magic flag");
+    }
+
+    private static void assertSingleNumber(GameTestHelper helper, List<DamageNumberPayload> numbers,
+                                           float damage, boolean critical, boolean magic, String name) {
+        helper.assertTrue(numbers.size() == 1, name + " should create exactly one number");
+        assertNumber(helper, numbers.getFirst(), damage, critical, magic, name);
+    }
+
+    private static void assertSplitNumbers(GameTestHelper helper, List<DamageNumberPayload> numbers,
+                                           float physical, float magic, boolean critical, String name) {
+        helper.assertTrue(numbers.size() == 2, name + " should create exactly two numbers");
+        assertNumber(helper, numbers.get(0), physical, critical, false, name + " physical");
+        assertNumber(helper, numbers.get(1), magic, critical, true, name + " magic");
     }
 
     private static Cow target(GameTestHelper helper) {

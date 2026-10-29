@@ -18,6 +18,7 @@ import org.jspecify.annotations.Nullable;
 
 import java.util.HashMap;
 import java.util.IdentityHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -47,12 +48,29 @@ public final class DamageNumbers {
     }
 
     public static void trackHit(LivingIncomingDamageEvent event, boolean critical) {
+        trackHit(event, critical, event.getAmount(), 0.0F);
+    }
+
+    public static void trackHit(LivingIncomingDamageEvent event, boolean critical, float physical, float magic) {
         removeHit(event.getSource(), event.getEntity().getUUID());
         if (event.isCanceled() || !(event.getSource().getEntity() instanceof ServerPlayer)) {
             return;
         }
         HITS.computeIfAbsent(event.getSource(), ignored -> new HashMap<>()).put(
-                event.getEntity().getUUID(), new Hit(critical, event.getEntity().getHealth()));
+                event.getEntity().getUUID(), new Hit(critical, event.getEntity().getHealth(), physical, magic));
+    }
+
+    /** Capture channel proportions after their independent flat reductions. */
+    public static void trackResolvedDamage(LivingIncomingDamageEvent event, float physical, float magic) {
+        Map<UUID, Hit> targets = HITS.get(event.getSource());
+        if (targets == null) {
+            return;
+        }
+        UUID target = event.getEntity().getUUID();
+        Hit hit = targets.get(target);
+        if (hit != null) {
+            targets.put(target, new Hit(hit.critical(), hit.healthBefore(), physical, magic));
+        }
     }
 
     @SubscribeEvent(priority = EventPriority.LOWEST)
@@ -64,32 +82,48 @@ public final class DamageNumbers {
         UUID target = event.getEntity().getUUID();
         Hit hit = targets.get(target);
         if (hit != null) {
-            targets.put(target, new Hit(hit.critical(), event.getEntity().getHealth()));
+            targets.put(target, new Hit(hit.critical(), event.getEntity().getHealth(), hit.physical(), hit.magic()));
         }
     }
 
     @SubscribeEvent
     public static void onDamageReported(LivingDamageEvent.Post event) {
-        DamageNumberPayload number = createNumber(event);
-        if (number != null) {
+        for (DamageNumberPayload number : createNumbers(event)) {
             PacketDistributor.sendToPlayersTrackingEntityAndSelf(event.getEntity(), number);
         }
     }
 
-    static @Nullable DamageNumberPayload createNumber(LivingDamageEvent.Post event) {
+    public static List<DamageNumberPayload> createNumbers(LivingDamageEvent.Post event) {
         Hit hit = removeHit(event.getSource(), event.getEntity().getUUID());
         if (hit == null) {
-            return null;
+            return List.of();
         }
         // Include absorbed damage; cap overkill to the health the victim actually had.
         float damage = Math.min(Math.max(0.0F, event.getHealthDamage()), hit.healthBefore())
                 + Math.max(0.0F, event.getReduction(DamageContainer.Reduction.ABSORPTION));
-        if (!Float.isFinite(damage) || damage <= 0.0F) {
-            return null;
+        float total = hit.physical() + hit.magic();
+        if (!Float.isFinite(damage) || damage <= 0.0F || !Float.isFinite(total) || total <= 0.0F
+                || hit.physical() < 0.0F || hit.magic() < 0.0F) {
+            return List.of();
         }
+        // Potion/enchantment reductions, absorption and overkill affect both surviving
+        // channels proportionally. Never resurrect a channel fully prevented by its flat stat.
+        if (hit.physical() <= 0.0F) {
+            return List.of(number(event, damage, hit.critical(), true));
+        }
+        if (hit.magic() <= 0.0F) {
+            return List.of(number(event, damage, hit.critical(), false));
+        }
+        float physical = damage * (hit.physical() / total);
+        float magic = damage - physical;
+        return List.of(number(event, physical, hit.critical(), false), number(event, magic, hit.critical(), true));
+    }
+
+    private static DamageNumberPayload number(LivingDamageEvent.Post event, float damage,
+                                               boolean critical, boolean magic) {
         var victim = event.getEntity();
         return new DamageNumberPayload(victim.getX(), victim.getY() + victim.getBbHeight() + 0.2D,
-                victim.getZ(), damage, hit.critical());
+                victim.getZ(), damage, critical, magic);
     }
 
     private static @Nullable Hit removeHit(DamageSource source, UUID target) {
@@ -123,6 +157,6 @@ public final class DamageNumbers {
     private record PendingMelee(UUID target, int tick, CriticalHitEvent event) {
     }
 
-    private record Hit(boolean critical, float healthBefore) {
+    private record Hit(boolean critical, float healthBefore, float physical, float magic) {
     }
 }

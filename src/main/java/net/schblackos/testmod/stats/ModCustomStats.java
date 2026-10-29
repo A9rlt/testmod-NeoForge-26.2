@@ -13,6 +13,8 @@ import net.schblackos.testmod.Testmod;
 import net.schblackos.testmod.item.ModItemStats;
 
 public final class ModCustomStats {
+    private static final DeferredRegister<Attribute> ATTRIBUTES = DeferredRegister.create(Registries.ATTRIBUTE, Testmod.MODID);
+
     public static final double BASE_DAMAGE = 1.0D;
     public static final double BASE_MAGIC_DAMAGE = 0.0D;
     public static final double BASE_CRITICAL_CHANCE = 0.0D;
@@ -22,7 +24,7 @@ public final class ModCustomStats {
     public static final double BASE_ATTACK_SPEED = 4.0D;
     public static final double BASE_FIRE_RATE = 2.0D;
 
-    //Reused Vanilla and custom made atributes
+    // Vanilla attributes reused alongside custom combat attributes.
 
     /*ITEMS*/
     public static final Holder<Attribute> DAMAGE = Attributes.ATTACK_DAMAGE;
@@ -35,8 +37,6 @@ public final class ModCustomStats {
     public static final Holder<Attribute> DEFENCE = Attributes.ARMOR;
     public static final Holder<Attribute> RESISTANCE = flat("resistance", BASE_RESISTANCE);
     public static final Holder<Attribute> EVASION = percentage("evasion", BASE_EVASION);
-
-    private static final DeferredRegister<Attribute> ATTRIBUTES = DeferredRegister.create(Registries.ATTRIBUTE, Testmod.MODID);
 
     private ModCustomStats() {
     }

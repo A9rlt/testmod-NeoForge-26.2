@@ -5,7 +5,8 @@
   "attribute.testmod.magic_damage": "Magic Damage",
   "attribute.testmod.resistance": "Resistance",
   "attribute.testmod.evasion": "Evasion (%)",
-  "command.testmod.stats": "Damage: %s | Magic Damage: %s | Critical Chance: %s%% | Defence: %s | Resistance: %s | Evasion: %s%%",
+  "attribute.testmod.fire_rate": "Fire Rate (shots/sec)",
+  "command.testmod.stats": "Damage: %s | Magic Damage: %s | Critical Chance: %s%% | Defence: %s | Resistance: %s | Evasion: %s%% | Attack Speed: %s | Fire Rate: %s shots/sec",
 
   "item.testmod.silver_ingot": "Silver Ingot",
   "item.testmod.raw_silver": "Raw Silver",

@@ -1,4 +1,4 @@
-package net.schblackos.testmod.client.renderer;
+package net.schblackos.testmod.client.render;
 
 import net.minecraft.client.renderer.entity.ArrowRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;

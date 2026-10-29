@@ -153,11 +153,17 @@ public final class StatsMathTest {
     }
 
     private static void damageNumberStyle() {
-        check(DamageNumberStyle.color(false) == 0xFFFFFFFF,
-                "Normal damage numbers must be white");
+        check(DamageNumberStyle.color(false, false) == 0xFFFFFF00,
+                "Physical damage numbers must be yellow");
 
-        check(DamageNumberStyle.color(true) == 0xFFFFFF00,
-                "Critical damage numbers must be yellow");
+        check(DamageNumberStyle.color(false, true) == 0xFFFFFF00,
+                "Physical critical damage numbers retain yellow");
+
+        check(DamageNumberStyle.color(true, false) == 0xFF0000FF,
+                "Magic damage numbers must be opaque blue");
+
+        check(DamageNumberStyle.color(true, true) == 0xFFAA00FF,
+                "Magic critical damage numbers must be opaque purple");
 
         check("5".equals(DamageNumberStyle.format(5.0F)),
                 "Whole damage does not need a decimal");
@@ -177,7 +183,7 @@ public final class StatsMathTest {
 
         java.util.Locale original = java.util.Locale.getDefault();
         try {
-            java.util.Locale.setDefault(java.util.Locale.UK);
+            java.util.Locale.setDefault(java.util.Locale.GERMANY);
             check("7.5".equals(DamageNumberStyle.format(7.5F)),
                     "Damage formatting remains consistent with a decimal-comma system locale");
         } finally {

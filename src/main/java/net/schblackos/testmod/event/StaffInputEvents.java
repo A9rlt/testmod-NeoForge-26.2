@@ -7,27 +7,38 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.InputEvent;
 import net.neoforged.neoforge.client.network.ClientPacketDistributor;
 import net.schblackos.testmod.Testmod;
-import net.schblackos.testmod.item.custom.TestStaff;
+import net.schblackos.testmod.item.custom.baseitem.BaseStaff;
 import net.schblackos.testmod.network.payload.StaffShootPayload;
 
-/** Staff attacks use the server's beam target instead of a second vanilla melee attack. */
+/**
+ * Handles left-click attacks for all staffs extending BaseSimpleStaff.
+ */
 @EventBusSubscriber(modid = Testmod.MODID, value = Dist.CLIENT)
 public final class StaffInputEvents {
+
     private StaffInputEvents() {
     }
 
     @SubscribeEvent
     public static void onLeftClick(InputEvent.InteractionKeyMappingTriggered event) {
+
         if (!event.isAttack()) {
             return;
         }
+
         var player = Minecraft.getInstance().player;
-        if (player == null || !(player.getMainHandItem().getItem() instanceof TestStaff)) {
+
+        if (player == null ||
+                !(player.getMainHandItem().getItem() instanceof BaseStaff)) {
             return;
         }
+
+        // Prevent vanilla melee attacks and block breaking
         event.setCanceled(true);
-        if (!player.getCooldowns().isOnCooldown(player.getMainHandItem())) {
-            ClientPacketDistributor.sendToServer(new StaffShootPayload());
-        }
+
+        // Send the basic attack request to the server
+        ClientPacketDistributor.sendToServer(
+                new StaffShootPayload()
+        );
     }
 }

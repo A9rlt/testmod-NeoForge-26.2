@@ -61,7 +61,6 @@ public class ModCreativeModeTabs {
                         //ADVANCED ITEMS
                     output.accept(ModItems.TEST_ITEM);
                     output.accept(ModItems.TEST_DATA_ITEM);
-                    output.accept(ModItems.TEST_STAFF);
 
 
                     /*ModBlocks*/

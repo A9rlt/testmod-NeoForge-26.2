@@ -4,31 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="84fcc49b-ec9b-4fa9-92d6-cb6c1f611e17" name="Changes" comment="#2 Personal Modding (With AI) - Added: magic damage and colour , TestStaff and its particles">
+    <list default="true" id="84fcc49b-ec9b-4fa9-92d6-cb6c1f611e17" name="Changes" comment="#2.1 Personal Modding (With AI) - Fixes with Codex">
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/item/custom/baseitem/BaseBow.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/item/custom/baseitem/BaseStaff.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/item/custom/baseitem/BaseSword.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/combat-stats.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/combat-stats.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/TestModClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/TestModClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/Testmod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/Testmod.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/client/DamageNumberRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/client/DamageNumberRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/client/renderer/TestArrowRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/client/render/TestArrowRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/event/ModCombatEvents.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/event/ModCombatEvents.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/event/ModEvent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/item/custom/TestStaff.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/item/custom/TestStaff.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/network/DamageNumberPayload.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/network/ModNetworking.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/network/ModNetworking.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/network/StaffNetwork.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/network/payload/DamageNumberPayload.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/network/payload/DamageNumberPayload.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/creativemodetab/ModCreativeModeTabs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/creativemodetab/ModCreativeModeTabs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/datagen/ModModelProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/datagen/ModModelProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/event/StaffInputEvents.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/event/StaffInputEvents.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/item/ModItemStats.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/item/ModItemStats.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/item/ModItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/item/ModItems.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/item/custom/TestStaff.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/network/payload/StaffShootPayload.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/network/payload/StaffShootPayload.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/network/style/DamageNumberStyle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/network/style/DamageNumberStyle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/network/style/DamageNumbers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/network/style/DamageNumbers.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/stats/DamageNumberStyle.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/stats/DamageNumbers.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/stats/ModCombatEvents.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/stats/ModCustomStats.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/stats/ModCustomStats.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/stats/ModItemStats.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/stats/StatsGameTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/schblackos/testmod/stats/StatsGameTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/testmod/lang/en_us.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/testmod/lang/en_us.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/statMathTest/java/net/schblackos/testmod/stats/StatsMathTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/statMathTest/java/net/schblackos/testmod/stats/StatsMathTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,61 +89,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
+      <entry key="MS100" value="1.8639021904982392E-15" />
+      <entry key="MS500" value="0.0022152412876196574" />
+      <entry key="S2" value="0.4817553082210566" />
+      <entry key="S5" value="1.4398921851488677" />
+      <entry key="S10" value="2.0775015738688776" />
+      <entry key="S30" value="2.65391216567218" />
+      <entry key="S60" value="2.821621105677464" />
+      <entry key="M2" value="2.909435121763399" />
+      <entry key="M5" value="2.968892162247714" />
+      <entry key="M10" value="3.318144717614557" />
+      <entry key="M15" value="4.4421404678287075" />
+      <entry key="M30" value="14.781758597284206" />
+      <entry key="H1" value="76.93204796488929" />
+      <entry key="H2" value="258.8830471517739" />
+      <entry key="H4" value="578.2600213624986" />
+      <entry key="D1" value="1344.898341853141" />
+      <entry key="W1" value="1583.4421211453612" />
+    </decayedCancelled>
+    <decayedSelected>
       <entry key="MS100" value="1.0" />
       <entry key="MS500" value="1.0" />
       <entry key="S2" value="1.0" />
       <entry key="S5" value="1.0" />
       <entry key="S10" value="1.0" />
-      <entry key="S30" value="1.0000014465988007" />
-      <entry key="S60" value="1.0075901772473637" />
-      <entry key="M2" value="1.5506976596689745" />
-      <entry key="M5" value="8.303162032113296" />
-      <entry key="M10" value="24.77224616706452" />
-      <entry key="M15" value="51.98058650176775" />
-      <entry key="M30" value="154.12514909985626" />
-      <entry key="H1" value="313.27481303194224" />
-      <entry key="H2" value="533.9965849754684" />
-      <entry key="H4" value="825.8405723662394" />
-      <entry key="D1" value="1396.6258923263829" />
-      <entry key="W1" value="1555.0946837635784" />
-    </decayedCancelled>
-    <decayedSelected>
-      <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="0.0" />
-      <entry key="S2" value="0.0" />
-      <entry key="S5" value="1.1503267732465403E-208" />
-      <entry key="S10" value="1.0726309200162616E-104" />
-      <entry key="S30" value="2.402409282318705E-35" />
-      <entry key="S60" value="7.413151318758346E-18" />
-      <entry key="M2" value="5.43811743819489E-9" />
-      <entry key="M5" value="0.0012895134628845555" />
-      <entry key="M10" value="0.09242331686713975" />
-      <entry key="M15" value="0.47363902921055956" />
-      <entry key="M30" value="4.612304689275891" />
-      <entry key="H1" value="24.94749756907" />
-      <entry key="H2" value="70.34038814562314" />
-      <entry key="H4" value="125.45203375033284" />
-      <entry key="D1" value="211.4769725512529" />
-      <entry key="W1" value="232.30216580645015" />
+      <entry key="S30" value="1.0" />
+      <entry key="S60" value="1.0000000000000002" />
+      <entry key="M2" value="1.0000000522671275" />
+      <entry key="M5" value="1.0070782350332208" />
+      <entry key="M10" value="1.4102647245458961" />
+      <entry key="M15" value="2.617420306631192" />
+      <entry key="M30" value="7.605359277497703" />
+      <entry key="H1" value="18.61379456759651" />
+      <entry key="H2" value="49.832664594970225" />
+      <entry key="H4" value="105.44865943695534" />
+      <entry key="D1" value="223.51053605948374" />
+      <entry key="W1" value="256.895637785591" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.9526379980439373" />
-      <entry key="MS500" value="0.9903428719330246" />
-      <entry key="S2" value="0.9975769252644544" />
-      <entry key="S5" value="0.9990300646389034" />
-      <entry key="S10" value="0.9995149146655609" />
-      <entry key="S30" value="0.9998397251779106" />
-      <entry key="S60" value="1.0075088980881848" />
-      <entry key="M2" value="1.550642106315996" />
-      <entry key="M5" value="8.304336803115717" />
-      <entry key="M10" value="24.86392261242863" />
-      <entry key="M15" value="52.45216427652851" />
-      <entry key="M30" value="158.73067093008112" />
-      <entry key="H1" value="338.2073649895775" />
-      <entry key="H2" value="604.3165979653094" />
-      <entry key="H4" value="951.2742595249867" />
-      <entry key="D1" value="1608.0975853612463" />
-      <entry key="W1" value="1787.396016394674" />
+      <entry key="MS100" value="3.70349888564001E-14" />
+      <entry key="MS500" value="0.004237677310035386" />
+      <entry key="S2" value="0.6932819423906915" />
+      <entry key="S5" value="1.9769058038375429" />
+      <entry key="S10" value="2.810261147400119" />
+      <entry key="S30" value="3.5554413381232446" />
+      <entry key="S60" value="3.7711079224735404" />
+      <entry key="M2" value="3.8838507753129825" />
+      <entry key="M5" value="3.965631711074643" />
+      <entry key="M10" value="4.7223902882168325" />
+      <entry key="M15" value="7.0537090566325" />
+      <entry key="M30" value="22.37986115715815" />
+      <entry key="H1" value="95.53645853358267" />
+      <entry key="H2" value="308.7021980036953" />
+      <entry key="H4" value="683.6937834353959" />
+      <entry key="D1" value="1568.4034035024065" />
+      <entry key="W1" value="1840.336853242506" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -214,7 +202,7 @@
       <recent name="net.schblackos.testmod.item.custom" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Client">
+  <component name="RunManager" selected="Application.Data">
     <configuration name="Client" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="net.neoforged.devlaunch.Main" />
       <module name="Minecraft_Mod.main" />
@@ -373,7 +361,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="#9 NeoForge Modding Tutorial - Advanced block (Magic Speed Block)" />
     <MESSAGE value="#10 NeoForge Modding Tutorial - Food/Consumable (Onion)" />
     <MESSAGE value="#11 NeoForge Modding Tutorial - Fuels (Brown Coal)" />
     <MESSAGE value="#12 NeoForge Modding Tutorial - Custom Tooltips" />
@@ -398,7 +385,8 @@
     <MESSAGE value="#25 Personal Modding (With AI) - Added Custom Combat Stats and Damage Numbers" />
     <MESSAGE value="#1 Personal Modding (With AI) - Added Custom Combat Stats and Damage Numbers" />
     <MESSAGE value="#2 Personal Modding (With AI) - Added: magic damage and colour , TestStaff and its particles" />
-    <option name="LAST_COMMIT_MESSAGE" value="#2 Personal Modding (With AI) - Added: magic damage and colour , TestStaff and its particles" />
+    <MESSAGE value="#2.1 Personal Modding (With AI) - Fixes with Codex" />
+    <option name="LAST_COMMIT_MESSAGE" value="#2.1 Personal Modding (With AI) - Fixes with Codex" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

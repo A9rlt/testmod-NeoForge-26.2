@@ -141,17 +141,6 @@ public class ModItems {
     public static final DeferredItem<Item> TEST_CUSTOMBOW_ITEM =ITEMS.registerItem("test_custombow_item",
             properties -> new TestCustomBowItem(properties.stacksTo(1)));
 
-    public static final DeferredItem<Item> TEST_STAFF =ITEMS.registerItem("test_staff",
-            properties -> new TestStaff(properties.stacksTo(1)
-                    .component(DataComponents.ATTACK_RANGE,
-                            new AttackRange(
-                    0f,
-                    8f,
-                    0f,
-                    8f,
-                    0.3f,
-                    1f
-            ))));
 
 
 

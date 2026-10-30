@@ -41,7 +41,7 @@ public final class ModItemStats {
         armour(event, Items.LEATHER_BOOTS, 1.0D, 0.0D, 0.0D);
 
         //Magic Damage Items
-        weapon(event, ModItems.TEST_STAFF, 1d, 5d, 0d);
+
     }
 
     public static void weapon(ModifyDefaultComponentsEvent event, ItemLike item,

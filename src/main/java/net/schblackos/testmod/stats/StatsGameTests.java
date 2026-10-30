@@ -32,7 +32,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.level.GameType;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.common.NeoForge;
@@ -46,7 +45,6 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import net.schblackos.testmod.Testmod;
 import net.schblackos.testmod.entity.custom.TestArrowEntity;
 import net.schblackos.testmod.item.ModItems;
-import net.schblackos.testmod.item.custom.TestStaff;
 import net.schblackos.testmod.network.payload.DamageNumberPayload;
 import net.schblackos.testmod.network.style.DamageNumbers;
 
@@ -68,8 +66,6 @@ public final class StatsGameTests {
         addTest("stats_arrow_snapshots_firing_weapon", StatsGameTests::arrowSnapshotsFiringWeapon);
         addTest("stats_player_clone_preserves_base_stats", StatsGameTests::playerClonePreservesBaseStats);
         addTest("stats_spear_critical_chance", StatsGameTests::spearCriticalChance);
-        addTest("stats_staff_damage_and_cooldown", StatsGameTests::staffDamageAndCooldown);
-        addTest("stats_staff_block_occlusion", StatsGameTests::staffBlockOcclusion);
         addTest("stats_damage_numbers_resolved_damage", StatsGameTests::damageNumbersResolvedDamage);
         addTest("stats_damage_numbers_hit_isolation", StatsGameTests::damageNumbersHitIsolation);
         addTest("stats_damage_numbers_suppression", StatsGameTests::damageNumbersSuppression);
@@ -476,62 +472,6 @@ public final class StatsGameTests {
         near(helper, health - mixedTarget.getHealth(), 9.0,
                 "Spear critical applies to both channels: (4 * 1.5 - 1) + (4 * 1.5 - 2)");
         helper.succeed();
-    }
-
-    private static void staffDamageAndCooldown(GameTestHelper helper) {
-        ServerPlayer caster = staffCaster(helper);
-        Cow target = staffTarget(helper, caster);
-        target.getAttribute(ModCustomStats.DEFENCE).setBaseValue(30.0);
-        target.getAttribute(ModCustomStats.RESISTANCE).setBaseValue(1.0);
-        float health = target.getHealth();
-        TestStaff.shoot(caster);
-        near(helper, health - target.getHealth(), 4.0,
-                "Staff uses its 5 magic damage once, ignores defence and subtracts resistance");
-        helper.assertTrue(caster.getCooldowns().isOnCooldown(caster.getMainHandItem()),
-                "An accepted staff shot starts a server-side cooldown");
-
-        // Clear immunity frames so a rejected repeat cannot pass only because the victim is invulnerable.
-        target.invulnerableTime = 0;
-        health = target.getHealth();
-        TestStaff.shoot(caster);
-        near(helper, target.getHealth(), health, "A repeat staff packet during cooldown cannot deal damage");
-
-        target.discard();
-        caster.getCooldowns().removeCooldown(caster.getCooldowns().getCooldownGroup(caster.getMainHandItem()));
-        caster.getAttribute(ModCustomStats.CRITICAL_CHANCE).setBaseValue(100.0);
-        Cow criticalTarget = staffTarget(helper, caster);
-        criticalTarget.getAttribute(ModCustomStats.RESISTANCE).setBaseValue(1.0);
-        health = criticalTarget.getHealth();
-        TestStaff.shoot(caster);
-        near(helper, health - criticalTarget.getHealth(), 6.5,
-                "Staff magic critical applies once before resistance: 5 * 1.5 - 1");
-        helper.succeed();
-    }
-
-    private static void staffBlockOcclusion(GameTestHelper helper) {
-        ServerPlayer caster = staffCaster(helper);
-        Cow target = staffTarget(helper, caster);
-        helper.setBlock(1, 3, 3, Blocks.STONE);
-        float health = target.getHealth();
-        TestStaff.shoot(caster);
-        near(helper, target.getHealth(), health, "Staff beam cannot damage a target through a solid block");
-        helper.succeed();
-    }
-
-    private static ServerPlayer staffCaster(GameTestHelper helper) {
-        ServerPlayer caster = player(helper);
-        caster.setYRot(0.0F);
-        caster.setXRot(0.0F);
-        caster.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(ModItems.TEST_STAFF.get()));
-        caster.doTick();
-        near(helper, caster.getAttributeValue(ModCustomStats.MAGIC_DAMAGE), 5.0, "Equipped staff magic damage");
-        return caster;
-    }
-
-    private static Cow staffTarget(GameTestHelper helper, ServerPlayer caster) {
-        Cow target = target(helper);
-        target.setPos(caster.position().add(0.0D, 1.0D, 3.0D));
-        return target;
     }
 
     private static void damageNumbersResolvedDamage(GameTestHelper helper) {
